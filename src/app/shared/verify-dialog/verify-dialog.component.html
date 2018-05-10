@@ -1,0 +1,19 @@
+
+<div mat-dialog-content class="mat-typography">
+  <h2 mat-dialog-title>Hey there Anonymous!</h2>
+  <pre class="caption">{{ data.user.id }}</pre>
+  <p>You're currently in anonymous mode and can only join Tribes that allow anonymous users. Verify your identity for the ability to join all Tribes.</p>
+  <div class="nat-form">
+    <p><button mat-raised-button><mat-icon>add-plus</mat-icon> Add Profile Photo</button></p>
+    <mat-form-field>
+      <input matInput type='text' placeholder="Name" [(ngModel)]="data.user.name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type='email' placeholder="Email" [(ngModel)]="data.user.email">
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="accent" [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

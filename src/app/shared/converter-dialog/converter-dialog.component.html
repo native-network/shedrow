@@ -1,0 +1,37 @@
+<button class="close-button" mat-icon-button (click)="onClose()"><mat-icon>close</mat-icon></button>
+
+<div mat-dialog-content class="mat-typography">
+  <h2>
+    <span *ngIf="data.to === 'NT'">Get Native Token</span>
+    <span *ngIf="data.to !== 'NT'">Get Tribe Token</span>
+  </h2>
+  <p *ngIf="data.to === 'NT'">Convert Ethereum to Native Tokens</p>
+  <p *ngIf="data.to !== 'NT'">Convert Native Tokens to Tribe Tokens</p>
+  <h4>1 <span *ngIf="data.to === 'NT'">&#x39e;</span>
+    <span *ngIf="data.to !== 'NT'">NT</span>
+     = {{ratio}}
+     <span *ngIf="data.to === 'NT'">NT</span>
+     <span *ngIf="data.to !== 'NT'">TT</span></h4>
+  <div class="converter grid">
+    <div class="convert-from" ngClass.xs="grid-100 text-center">
+      <mat-form-field>
+        <input matInput [(ngModel)]="fromAmount" max='10' placeholder="{{data.from}} Amount">
+      </mat-form-field>
+      <span *ngIf="data.to === 'NT'">&#x39e;</span><!--eth symbol-->
+      <span *ngIf="data.to !== 'NT'">NT</span>
+    </div>
+    <div class="fill-space conversion" ngClass.xs="grid-100 text-center">
+      <mat-icon>arrow_forward</mat-icon>
+    </div>
+    <div class="convert-to" ngClass.xs="grid-100 text-center">
+      <mat-form-field>
+        <input matInput disabled [(ngModel)]="toAmount" placeholder="{{data.to}} Amount" value="{{fromAmount * ratio}}" >
+      </mat-form-field>
+      {{data.to}}
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onClose()">NOT NOW</button>
+  <button mat-raised-button color="accent" (click)="convert()">BUY</button>
+</div>

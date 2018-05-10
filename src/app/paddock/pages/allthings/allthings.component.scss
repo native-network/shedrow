@@ -1,0 +1,15 @@
+.view {
+  min-height: calc(100vh - 160px);
+  background-color: #f5f6f8;
+  >.contents {
+    max-width: 1350px;
+    padding: 25px;
+    margin: 0 auto;
+    padding: 25px;
+  }
+}
+
+.party {
+  width: 100vw;
+  height: 100vh;
+}

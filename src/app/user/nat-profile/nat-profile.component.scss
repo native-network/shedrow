@@ -1,0 +1,33 @@
+.nat-profile-button angular-blockies {
+  display: block;
+  margin-top: 12px;
+}
+
+span.ticker {
+  font-size: .75em;
+  position: absolute;
+}
+
+.wallet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100;
+  position: relative;
+  .mat-icon {
+    margin-left: 15px;
+    margin-top: -2px;
+  }
+  >.balance {
+    flex-basis: 25%;
+    margin-right: 5px;
+    font-size: 1em;
+    display: inline-block;
+    &.eth {
+      >p {
+        margin: 2px 0px 0px 0px;
+        padding: 0px;
+      }
+    }
+  }
+}

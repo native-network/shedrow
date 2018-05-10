@@ -1,0 +1,23 @@
+<button class="close-button" mat-icon-button (click)="onClose()"><mat-icon>close</mat-icon></button>
+
+<div mat-dialog-content class="mat-typography">
+  <h2>Connect</h2>
+  <p>Connect to a web3 wallet to join a Tribe.</p>
+  <div class="grid">
+    <div class="column connector" ngClass.gt-xs="grid-50" ngClass.xs="grid-100">
+      <h3>Haz Wallet?</h3>
+      <pre class="face"><span>;)</span></pre>
+      <p>Sign in to your web3 wallet of choice and hit Connect when ready.</p>
+      <button mat-raised-button color="accent" [mat-dialog-close]="connect">CONNECT</button>
+    </div>
+    <div class="column connector" ngClass.gt-xs="grid-50" ngClass.xs="grid-100">
+      <h3>Haz No Wallet</h3>
+      <pre class="face"><span>:\</span></pre>
+      <p>No worries. Getting a wallet is easy. Click GO and we'll help you.</p>
+      <button mat-button>GO</button>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">NOT NOW</button>
+</div>

@@ -1,0 +1,43 @@
+<section class="mat-typography">
+
+  <div class="hero project" [ngStyle]="{'background-image': 'url(' + project.image + ')'}">
+    <div class="grid">
+      <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+
+      </div>
+      <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="view">
+    <div class="contents">
+      <button mat-raised-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Back to Tribe</button>
+      <h1>{{project.title}}</h1>
+      <p class="body-2">{{project.type}}</p>
+      <div class="grid">
+        <div class="column project-intro" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+          <h2>Purpose</h2>
+          <h3>{{project.description}}</h3>
+        </div>
+        <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+
+          <h2>Goal: <b>{{project.cost | currency }}</b></h2>
+          <mat-progress-bar
+              [color]="'accent'"
+              [mode]="'determinate'"
+              [value]="project.fundedValue"
+              >
+          </mat-progress-bar>
+          <h2>{{project.fundedValue}}% Raised <span class="raised-amount">({{project.cost * (project.fundedValue / 100) | currency}})</span></h2>
+          <p>{{ project.cost * ((100 - project.fundedValue) / 100) | currency }} Needed</p>
+          <div class="actions">
+            <button mat-raised-button color="accent">VOTE</button>
+          </div>
+        </div>
+      </div>
+    </div><!-- /contents -->
+  </div><!-- /view -->
+
+</section><!-- /page -->

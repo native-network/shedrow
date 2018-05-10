@@ -1,0 +1,102 @@
+<section class="view mat-typography">
+  <div class="contents">
+  <h1>Component Library</h1>
+
+  <h2>Buttons</h2>
+  <button mat-raised-button color="primary">Primary</button>
+  <button mat-raised-button color="accent">Accent</button>
+  <button mat-raised-button color="warn">Warn</button>
+  <button mat-raised-button>Standard</button>
+
+  <app-bancor-info></app-bancor-info>
+
+
+
+  <h2>Cards TODO: move cards to sub module components</h2>
+  <h3>Tribe Cards</h3>
+  <app-tribe-list></app-tribe-list>
+
+  <h3>Project Cards</h3>
+
+
+<h3>Vote Cards</h3>
+<div class="grid">
+    <mat-card class="vote-card" ngClass.gt-sm="grid-33" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
+        <mat-card-header>
+          <mat-card-title>Vote Title</mat-card-title>
+          <mat-card-subtitle>Subtitle</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Vote description</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">VIEW</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+<h3>Task Cards</h3>
+    <div class="grid">
+      <mat-card class="task-card" ngClass.gt-sm="grid-33" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
+        <mat-card-header>
+          <mat-card-title>Task Title</mat-card-title>
+          <mat-card-subtitle>Subtitle</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Task short description</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary">VIEW</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  <h3>Data Table</h3>
+  <mat-table #table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <h3>Show/Hide</h3>
+  <button color="accent" mat-button (click)="showThing = !showThing">Show/Hide</button>
+  <div *ngIf="showThing">
+    A thing is shown
+  </div>
+
+  <h3>Form</h3>
+  <mat-form-field>
+    <input matInput [(ngModel)]="name" placeholder="What's your name?">
+  </mat-form-field>
+
+  <h3>Popup</h3>
+  <button mat-raised-button (click)="openDialog()">Pick one</button>
+  <p *ngIf="animal">
+    You chose: <i>{{animal}}</i>
+  </p>
+</div>
+</section>

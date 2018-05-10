@@ -1,0 +1,23 @@
+<h2>bancor test</h2>
+  <button mat-raised-button color="warn" (click)="getTxData(model.account)">Transfer Eth > BNT</button>
+  {{txError}}
+  <button mat-raised-button color="warn" (click)="getPairs()">Pairs</button>
+  <div *ngIf="ticker" class="ticker-info">
+    <h3>Ticker</h3>
+    <p>name: {{ticker.name}}</p>
+    <p>symbol: {{ticker.symbol}}</p>
+    <p>code: {{ticker.code}}</p>
+    <p>decimals: {{ticker.decimals}}</p>
+    <p>price24hHigh: {{ticker.price24hHigh}}</p>
+    <p>price24hLow: {{ticker.price24hLow}}</p>
+    <p>price: {{ticker.price}}</p>
+    <p>price24h: {{ticker.price24h}}</p>
+    <p>volume24h: {{ticker.volume24h}}</p>
+    <p>totalSupply: {{ticker.totalSupply}}</p>
+  </div>
+  
+  <button *ngFor="let pair of pairs"
+   mat-raised-button
+   (click)="getTicker(pair.token, pair.pair)">
+    {{pair.token}} / {{pair.pair}}
+  </button>

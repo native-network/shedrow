@@ -1,0 +1,26 @@
+<mat-card class="project-card">
+  <mat-card-header>
+    <mat-card-title>{{project.title}}</mat-card-title>
+    <mat-card-subtitle>{{project.type}}</mat-card-subtitle>
+    <div class="header-data">
+      <mat-card-title>{{project.cost | currency}}</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </div>
+  </mat-card-header>
+  <img mat-card-image src="{{project.image}}" alt="{{project.title}}">
+  <mat-card-content>
+    <p>
+      {{project.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <h5><b>{{project.cost * (project.fundedValue / 100)}}</b> of <b>{{project.cost}}</b></h5>
+    <mat-progress-bar
+        [color]="color"
+        [mode]="mode"
+        [value]="project.fundedValue"
+        [bufferValue]="bufferValue">
+    </mat-progress-bar>
+    <button routerLink="/tribe/{{project.tribe.address}}/project/{{project.slug}}" mat-raised-button color="primary">VIEW</button>
+  </mat-card-actions>
+</mat-card>

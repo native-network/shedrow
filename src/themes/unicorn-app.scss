@@ -1,0 +1,108 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+//Begin Typography Config
+// Import Rubik
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i,900,900i');
+// Import Roboto Condensed for Data
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i');
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$nat-typography: mat-typography-config(
+  $font-family: 'Rubik, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 400),
+  $title: mat-typography-level(24px, 36px, 400),
+  $subheading-2: mat-typography-level(21px, 32px, 400),
+  $subheading-1: mat-typography-level(16px, 24px, 400),
+  $body-1: mat-typography-level(16px, 24px, 400),
+  $body-2: mat-typography-level(21px, 32px, 400),
+  $button: mat-typography-level(16px, 24px, 400)
+);
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core($nat-typography);
+
+$nat-cyan: (
+  50 : #e9f4f2,
+  100 : #c9e3de,
+  200 : #a5d0c8,
+  300 : #81bdb2,
+  400 : #66afa2,
+  500 : #4ba191,
+  600 : #449989,
+  700 : #3b8f7e,
+  800 : #338574,
+  900 : #237462,
+  A100 : #b5ffed,
+  A200 : #82ffe1,
+  A400 : #4fffd5,
+  A700 : #36ffcf,
+  contrast: (
+      50 : #0c2e29,
+      100 : #0c2e29,
+      200 : #0c2e29,
+      300 : #0c2e29,
+      400 : #0c2e29,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #0c2e29,
+      A200 : #0c2e29,
+      A400 : #0c2e29,
+      A700 : #0c2e29,
+  )
+);
+
+
+
+$nat-salmon: (
+  50 : #fdeded,
+  100 : #fbd1d3,
+  200 : #f9b3b6,
+  300 : #f69498,
+  400 : #f47d82,
+  500 : #f2666c,
+  600 : #f05e64,
+  700 : #ee5359,
+  800 : #ec494f,
+  900 : #e8383d,
+  A100 : #ffffff,
+  A200 : #fffefe,
+  A400 : #ffcbcd,
+  A700 : #ffb2b4,
+  contrast: (
+      50 : #0c2e29,
+      100 : #0c2e29,
+      200 : #0c2e29,
+      300 : #0c2e29,
+      400 : #0c2e29,
+      500 : #ffffff,
+      600 : #ffffff,
+      700 : #ffffff,
+      800 : #ffffff,
+      900 : #ffffff,
+      A100 : #0c2e29,
+      A200 : #0c2e29,
+      A400 : #0c2e29,
+      A700 : #0c2e29,
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://www.google.com/design/spec/style/color.html
+$unicorn-app-primary: mat-palette($nat-cyan);
+$unicorn-app-accent:  mat-palette($nat-salmon);
+$unicorn-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$unicorn-app-theme: mat-light-theme($unicorn-app-primary, $unicorn-app-accent, $unicorn-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($unicorn-app-theme);

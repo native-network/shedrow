@@ -1,0 +1,20 @@
+<div class="wallet" *ngIf="!user">
+  <button class="nat-profile-button" mat-button matTooltip="Connect a wallet" [matTooltipPosition]="position" (click)="connect()">
+    <mat-icon>donut_large</mat-icon> CONNECT
+  </button>
+</div>
+
+<div class="wallet" *ngIf="user">
+  <div class="balance nt">
+    <button mat-button (click)="openConverter('ETH','NT', 100)">{{user.ntBalance}}<span class="ticker">NT</span> <mat-icon>add_circle</mat-icon></button>
+  </div>
+  <div class="balance tt" *ngIf="user.ttBalance">
+    <button mat-button  (click)="openConverter('NT','TT', 1000)"> {{user.ttBalance}}<span class="ticker">TT</span> <mat-icon>add_circle</mat-icon></button>
+  </div>
+  <div class="balance eth">
+    <p>{{user.ethBalance}}<span class="ticker">&#x39e;</span><!--eth symbol--></p>
+  </div>
+  <button class="nat-profile-button" mat-button matTooltip="{{user.name}}: {{user.id}}" [matTooltipPosition]="position" (click)="openVerifyDialog()">
+    <angular-blockies *ngIf="user" [options]="blockiesOptions"></angular-blockies>
+  </button>
+</div>

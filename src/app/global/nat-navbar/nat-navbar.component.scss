@@ -1,0 +1,24 @@
+  mat-toolbar.mat-toolbar { height: auto; padding: 15px 25px; }
+
+  .logo-button {
+    transition: all .2s linear;
+    color: #fff;
+  }
+
+  .logo-button:hover {
+    background-color: none;
+    color: #000;
+  }
+
+  .logo-button .navbar-logo .a {
+    transition: all .2s linear;
+  }
+
+  .logo-button:hover .navbar-logo .a {
+    fill: #000;
+  }
+
+  .navbar-logo {
+    height: 80px;
+    width: auto;
+  }
