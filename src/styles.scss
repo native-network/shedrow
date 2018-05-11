@@ -142,38 +142,6 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
  // Flip Cards
 
  app-tribe-card {
-  perspective: 900px;
-  perspective-origin: right;
-  transition: all .3s linear;
- }
-
- app-tribe-card.front .tribe-card.front {
-   transition: all .3s linear;
-   transform: rotateY(0deg);
-   opacity: 1;
- }
-
- app-tribe-card.front .tribe-card.back {
-   transition: all .3s linear;
-   transform: rotateY(-180deg);
-   opacity: 0;
-   backface-visibility: hidden;
- }
-
- app-tribe-card.back .tribe-card.front {
-   transition: all .3s linear;
-   transform: rotateY(180deg);
-   opacity: 0;
-   backface-visibility: hidden;
- }
-
- app-tribe-card.back .tribe-card.back {
-   transition: all .3s linear;
-   transform: rotateY(0deg);
-   opacity: 1;
- }
-
- app-tribe-card {
    position: relative;
  }
 
@@ -182,6 +150,40 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
    top: 0;
    left: 0;
  }
+
+ app-tribe-card {
+  perspective: 900px;
+  perspective-origin: right;
+  transition: all .3s linear;
+ }
+
+ app-tribe-card .tribe-card.front:not(.flipped) {
+   transition: all .3s linear;
+   transform: rotateY(0deg);
+   opacity: 1;
+ }
+
+ app-tribe-card .tribe-card.back:not(.flipped) {
+   transition: all .3s linear;
+   transform: rotateY(-180deg);
+   opacity: 0;
+   backface-visibility: hidden;
+ }
+
+ app-tribe-card .tribe-card.front.flipped {
+   transition: all .3s linear;
+   transform: rotateY(180deg);
+   opacity: 0;
+   backface-visibility: hidden;
+ }
+
+ app-tribe-card .tribe-card.back.flipped {
+   transition: all .3s linear;
+   transform: rotateY(0deg);
+   opacity: 1;
+ }
+
+
 
 
  // Views

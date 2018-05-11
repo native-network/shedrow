@@ -12,10 +12,15 @@ import { ConverterDialogComponent } from '../../shared/converter-dialog/converte
 })
 export class TribeCardComponent implements OnInit {
   @Input() tribe: Tribe;
+  rotateStatus: boolean = false;
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  flipCard(){
+    this.rotateStatus = !this.rotateStatus;
   }
 
   getBlocky(seed): Object {
