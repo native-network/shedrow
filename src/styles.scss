@@ -141,10 +141,6 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
 
  // Flip Cards
 
- app-tribe-card {
-   position: relative;
- }
-
  app-tribe-card .tribe-card.back {
    position: absolute;
    top: 0;
@@ -152,6 +148,8 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
  }
 
  app-tribe-card {
+  position: relative;
+  display: block;
   perspective: 900px;
   perspective-origin: right;
   transition: all .3s linear;
