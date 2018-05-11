@@ -19,6 +19,12 @@ export class TribeListComponent implements OnInit {
 
   ngOnInit() {
     this.getTribes();
+
+  }
+
+
+  clickEvent(){
+    this.rotateStatus = !this.rotateStatus;
   }
 
   flipCards() {

@@ -13,4 +13,5 @@ export class Task {
     claimedBy: User;
     deadline: number;
     tribe: Tribe;
+    state: string;  // open/claimed/pending approval/finished  
   }

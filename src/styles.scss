@@ -183,8 +183,22 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
    opacity: 1;
  }
 
+// List Utils
 
+.mat-form-field.filter {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  display: block;
+}
 
+app-project-list,
+app-vote-list,
+app-task-list {
+  display: block;
+  position: relative;
+
+}
 
  // Views
 

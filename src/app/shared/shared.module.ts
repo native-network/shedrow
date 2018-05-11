@@ -19,6 +19,8 @@ import {
   MatGridListModule,
   MatProgressBarModule,
   MatProgressSpinnerModule,
+  MatSelectModule,
+  MatCheckboxModule,
 } from '@angular/material';
 
 import { ExampleDialogComponent } from './example-dialog/example-dialog.component';
@@ -26,6 +28,7 @@ import { SigninDialogComponent } from './signin-dialog/signin-dialog.component';
 import { ConverterDialogComponent } from './converter-dialog/converter-dialog.component';
 import { BancorInfoComponent } from './bancor-info/bancor-info.component';
 import { VerifyDialogComponent } from './verify-dialog/verify-dialog.component';
+import { InStatePipe } from './in-state.pipe';
 
 @NgModule({
   imports: [
@@ -48,6 +51,8 @@ import { VerifyDialogComponent } from './verify-dialog/verify-dialog.component';
     MatGridListModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
+    MatCheckboxModule,
   ],
   entryComponents: [
     ExampleDialogComponent,
@@ -61,9 +66,11 @@ import { VerifyDialogComponent } from './verify-dialog/verify-dialog.component';
     ConverterDialogComponent,
     BancorInfoComponent,
     VerifyDialogComponent,
+    InStatePipe,
   ],
   exports: [
-    CommonModule,   FormsModule,
+    CommonModule,   
+    FormsModule,
     RouterModule,
 
     FlexLayoutModule,
@@ -81,7 +88,13 @@ import { VerifyDialogComponent } from './verify-dialog/verify-dialog.component';
     MatGridListModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
+    MatCheckboxModule,
+
     BancorInfoComponent,
+
+    InStatePipe,
+    
   ],
   providers: [
   ]
