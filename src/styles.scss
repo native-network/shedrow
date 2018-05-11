@@ -164,6 +164,23 @@ app-tribe-card.back .mat-card.tribe-card {
 
 }
 
+// List Utils
+
+.mat-form-field.filter {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  display: block;
+}
+
+app-project-list,
+app-vote-list,
+app-task-list {
+  display: block;
+  position: relative;
+
+}
+
 
  // Views
 
