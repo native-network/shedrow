@@ -141,28 +141,47 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
 
  // Flip Cards
 
- app-tribe-card.front {
-  perspective: 600px;
+ app-tribe-card {
+  perspective: 900px;
   perspective-origin: right;
-  transition: all .2s linear;
+  transition: all .3s linear;
  }
 
- app-tribe-card.front .tribe-card {
-   transition: all .2s linear;
+ app-tribe-card.front .tribe-card.front {
+   transition: all .3s linear;
    transform: rotateY(0deg);
+   opacity: 1;
  }
 
-app-tribe-card.back {
- perspective: 600px;
- perspective-origin: right;
- transition: all .2s linear;
-}
+ app-tribe-card.front .tribe-card.back {
+   transition: all .3s linear;
+   transform: rotateY(-180deg);
+   opacity: 0;
+   backface-visibility: hidden;
+ }
 
-app-tribe-card.back .mat-card.tribe-card {
-  transition: all .2s linear;
-  transform: rotateY(180deg);
+ app-tribe-card.back .tribe-card.front {
+   transition: all .3s linear;
+   transform: rotateY(180deg);
+   opacity: 0;
+   backface-visibility: hidden;
+ }
 
-}
+ app-tribe-card.back .tribe-card.back {
+   transition: all .3s linear;
+   transform: rotateY(0deg);
+   opacity: 1;
+ }
+
+ app-tribe-card {
+   position: relative;
+ }
+
+ app-tribe-card .tribe-card.back {
+   position: absolute;
+   top: 0;
+   left: 0;
+ }
 
 
  // Views
