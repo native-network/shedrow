@@ -15,6 +15,7 @@ export const TASKS: Task[] = [
     claimedBy: null,
     deadline: 1,
     tribe: TRIBES[2],
+    state: "open",    
   },
   {
     slug: "task-02",
@@ -28,5 +29,6 @@ export const TASKS: Task[] = [
     claimedBy: null,
     deadline: 1,
     tribe: TRIBES[2],
+    state: "open",    
   },
   ]

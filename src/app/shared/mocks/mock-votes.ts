@@ -11,18 +11,13 @@ export const VOTES: Vote[] = [
     type: "Member Vote",
     date: new Date('September 17, 2018 03:24:00'),
     owner: USERS[0],
-    voters: USERS,
+    voted: [],
     cost: 1,
-    votedValue: 35,
-    voted: false,
     tribe: TRIBES[2],
+    state: 'open',
     options: [
-      {
-        label: 'vote option number one',
-      },
-      {
-        label: 'vote options number two',
-      },
+      'vote option number one',
+      'vote options number two',
     ],
   },
   {
@@ -33,18 +28,13 @@ export const VOTES: Vote[] = [
     type: "Member Vote",
     date: new Date('September 17, 2018 03:24:00'),
     owner: USERS[0],
-    voters: USERS,
+    voted: [],
     cost: 1,
-    votedValue: 35,
-    voted: false,
     tribe: TRIBES[1],
+    state: 'open',
     options: [
-      {
-        label: 'vote option number one',
-      },
-      {
-        label: 'vote options number two',
-      },
+      'vote option number one',
+      'vote options number two',
     ],
   },
   ]

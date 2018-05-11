@@ -9,6 +9,7 @@ import { Tribe } from '../../tribe/tribe';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
+  filterState: string = 'open';
 
   constructor(private taskService: TaskService) { }
   @Input() tribe: Tribe;

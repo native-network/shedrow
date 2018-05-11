@@ -9,6 +9,8 @@ import { Tribe } from '../../tribe/tribe';
   styleUrls: ['./project-list.component.scss']
 })
 export class ProjectListComponent implements OnInit {
+  filterState: string ='idea'
+  result: any[]
 
   constructor(private projectService: ProjectService) { }
   @Input() tribe: Tribe;
