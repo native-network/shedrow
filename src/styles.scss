@@ -25,6 +25,8 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  img { max-width: 100%; }
+
  h1, h2, h3, h4, h5, h6 {
    color: #0c2e29;
  }
@@ -312,6 +314,13 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
    .mat-dialog-container .mat-dialog-actions {
     align-items: center;
     justify-content: center;
+   }
+
+   // TickerSymbol styles
+
+   span.ticker {
+     font-size: .75em;
+     position: absolute;
    }
 
    // connector
