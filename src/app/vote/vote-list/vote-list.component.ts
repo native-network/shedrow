@@ -9,6 +9,7 @@ import { VoteService } from '../vote.service';
   styleUrls: ['./vote-list.component.scss']
 })
 export class VoteListComponent implements OnInit {
+  filterState: string = 'open';
 
   constructor(private voteService: VoteService) { }
   @Input() tribe: Tribe;
