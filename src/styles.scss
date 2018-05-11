@@ -138,6 +138,33 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
   text-align: right;
  }
 
+
+ // Flip Cards
+
+ app-tribe-card.front {
+  perspective: 600px;
+  perspective-origin: right;
+  transition: all .2s linear;
+ }
+
+ app-tribe-card.front .tribe-card {
+   transition: all .2s linear;
+   transform: rotateY(0deg);
+ }
+
+app-tribe-card.back {
+ perspective: 600px;
+ perspective-origin: right;
+ transition: all .2s linear;
+}
+
+app-tribe-card.back .mat-card.tribe-card {
+  transition: all .2s linear;
+  transform: rotateY(180deg);
+
+}
+
+
  // Views
 
  .view {
