@@ -9,13 +9,20 @@ import { Tribe } from '../tribe';
 })
 export class TribeListComponent implements OnInit {
   tribes: Tribe[];
+  rotateStatus: boolean = false;
 
   constructor(
     private tribeService: TribeService,
-  ) { }
+  ) {
+
+  }
 
   ngOnInit() {
     this.getTribes();
+  }
+
+  flipCards() {
+    this.rotateStatus = !this.rotateStatus;
   }
 
   getTribes(): void {
