@@ -1,5 +1,8 @@
 
+    <button mat-raised-button (click)="clickEvent()">flip</button>
+    <p>{{rotateStatus}}</p>
+
     <div class="grid">
-    <app-tribe-card *ngFor="let tribe of tribes" [tribe]="tribe" ngClass.gt-sm="grid-33" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
-    </app-tribe-card>
+      <app-tribe-card *ngFor="let tribe of tribes" [tribe]="tribe" ngClass.gt-sm="grid-33" ngClass.sm="grid-50" ngClass.lt-sm="grid-100" [class.back]="rotateStatus === true" [class.front]="rotateStatus === false">
+      </app-tribe-card>
     </div>
