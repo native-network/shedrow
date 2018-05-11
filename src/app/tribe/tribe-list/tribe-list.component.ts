@@ -27,6 +27,10 @@ export class TribeListComponent implements OnInit {
     this.rotateStatus = !this.rotateStatus;
   }
 
+  flipCards() {
+    this.rotateStatus = !this.rotateStatus;
+  }
+
   getTribes(): void {
     this.tribeService.getTribes()
       .subscribe(tribes => this.tribes = tribes);

@@ -7,15 +7,15 @@
   max-width: 340px;
 }
 
-.hero-tribe-card .mat-card.tribe-card {
-  background: rgba(255,255,255,0.95);
-  transition: all .2s linear;
+app-tribe-card .tribe-card.front {
+  display: none;
 }
 
-.hero-tribe-card .mat-card.tribe-card:hover {
-  background: rgba(255,255,255,1);
-}
+.data-column { width: 33%; }
 
+.intro {
+  text-align: center;
+}
 .section-title, .tribe-intro {
   text-align: left;
 }

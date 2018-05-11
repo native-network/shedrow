@@ -3,34 +3,57 @@
   <div class="hero tribe" [ngStyle]="{'background-image': 'url(' + tribe.image + ')'}">
     <div class="grid">
       <div class="column" ngClass.gt-sm="grid-50" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
-        <h1>{{tribe.name}}</h1>
-        <h2>{{tribe.tribeIntro}}</h2>
-        <p class="body-2">{{tribe.tribePurpose}}</p>
+        <!--- commented out for now
         <button mat-raised-button color="primary" (click)="goBack()"><mat-icon>arrow_back</mat-icon> GO BACK</button>
+        --->
       </div>
-      <div class="column hero-tribe-card" ngClass.gt-sm="grid-50" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
-        <app-tribe-card [tribe]="tribe"></app-tribe-card>
+      <div class="column" ngClass.gt-sm="grid-50" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
       </div>
     </div>
   </div>
 
   <div class="view">
     <div class="contents">
+      <div class="intro">
+        <h1>{{tribe.name}}</h1>
+        <h3 class="body-2">{{tribe.tribeIntro}}</h3>
+      </div>
       <div class="grid">
-        <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+        <div class="column" ngClass.gt-xs="grid-33" ngClass.lt-sm="grid-100">
           <div class="tribe-intro">
-            <h1>{{tribe.name}}</h1>
-            <p class="body-2">{{tribe.tribeIntro}}</p>
-            <p class="body-2">{{tribe.tribePurpose}}</p>
+            <h2>Details</h2>
+            <p>{{tribe.tribePurpose}}</p>
+            <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
+            <p><mat-icon>place</mat-icon> {{tribe.location}}</p>
           </div>
         </div>
-        <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+        <div class="column" ngClass.gt-xs="grid-33" ngClass.lt-sm="grid-100">
+          <div class="tribe-intro">
+            <h2>Tribe Data</h2>
+            <img src="{{tribe.dataImage}}">
+            <div class="grid">
+              <div class="data-column">
+                <p class="mat-caption">Value</p>
+                <p><mat-icon>trending_up</mat-icon> {{tribe.tokenValue}}<span class="ticker">NT</span></p>
+              </div>
+              <div class="data-column">
+                <p class="mat-caption">Dev Fund</p>
+                <p><mat-icon>trending_up</mat-icon> {{tribe.devFund}}<span class="ticker">NT</span></p>
+              </div>
+              <div class="data-column">
+                <p class="mat-caption">Reserve</p>
+                <p><mat-icon>trending_up</mat-icon> {{tribe.reserveFund}}<span class="ticker">NT</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column" ngClass.gt-xs="grid-33" ngClass.lt-sm="grid-100">
           <div class="tribe-intro">
             <h2>Recent History</h2>
-            <p>Project Completed</p>
-            <p>Task Completed</p>
-            <p>Member Added</p>
-            <p>Member Added</p>
+            <p><mat-icon>done_all</mat-icon> Project Completed</p>
+            <p><mat-icon>done</mat-icon> Task Completed</p>
+            <p><mat-icon>person</mat-icon> Member Added</p>
+            <p><mat-icon>person</mat-icon> Member Added</p>
           </div>
         </div>
       </div>
@@ -38,7 +61,7 @@
       <div class="isNotMember">
         <h2>Members Only</h2>
         <p class="body-2">You need some Tribe Tokens to view Projects, Votes, and Tasks for this Tribe.</p>
-        <button mat-raised-button color="accent"><mat-icon>add_circle</mat-icon> Get Tribe Tokens</button>
+        <button mat-raised-button color="accent"><mat-icon>add_circle</mat-icon> Join</button>
       </div>
 
       <div class="isMember">
@@ -48,7 +71,6 @@
 
         <h2 class="section-title">Votes</h2>
         <app-vote-list [tribe]="tribe"></app-vote-list>
-
 
         <h2 class="section-title">Tasks</h2>
         <app-task-list [tribe]="tribe"></app-task-list>

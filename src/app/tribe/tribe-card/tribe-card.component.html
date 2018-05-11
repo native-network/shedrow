@@ -1,4 +1,29 @@
-<mat-card class="tribe-card">
+<mat-card class="tribe-card front" [class.flipped]="this.rotateStatus === true">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <img src="{{tribe.icon}}" *ngIf="tribe.icon">
+      <angular-blockies *ngIf="!tribe.icon" [options]="getBlocky(tribe.address)"></angular-blockies>
+    </div>
+    <mat-card-title><a routerLink="/tribe/{{tribe.address}}">{{tribe.name}}</a></mat-card-title>
+    <mat-card-subtitle>{{tribe.subtitle}}</mat-card-subtitle>
+    <div class="header-data">
+      <button mat-icon-button color="primary" (click)="flipCard()"><mat-icon>swap_horiz</mat-icon></button>
+    </div>
+  </mat-card-header>
+  <img mat-card-image src="{{tribe.image}}" alt="line-graph">
+  <mat-card-content>
+    <p>{{tribe.tribePurpose}}</p>
+    <p><mat-icon>trending_up</mat-icon> {{tribe.tokenValue}}<span class="ticker">NT</span></p>
+    <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
+    <a target="_blank" href="https://www.google.com/maps/place/{{tribe.location}}"><mat-icon>place</mat-icon> {{tribe.location}}</a>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent" (click)="openBuy()">JOIN</button>
+    <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card class="tribe-card back" [class.flipped]="this.rotateStatus === true">
   <mat-card-header>
     <div mat-card-avatar>
       <img src="{{tribe.icon}}" *ngIf="tribe.icon != ''">
@@ -7,20 +32,16 @@
     <mat-card-title><a routerLink="/tribe/{{tribe.address}}">{{tribe.name}}</a></mat-card-title>
     <mat-card-subtitle>{{tribe.subtitle}}</mat-card-subtitle>
     <div class="header-data">
-      <mat-card-title>{{tribe.tokenValue}} NT</mat-card-title>
-      <mat-card-subtitle>Reserve: {{tribe.reserveFund}} NT</mat-card-subtitle>
+      <button mat-icon-button color="primary" (click)="flipCard()"><mat-icon>swap_horiz</mat-icon></button>
     </div>
   </mat-card-header>
   <img mat-card-image src="{{tribe.dataImage}}" alt="line-graph">
   <mat-card-content>
-    <p>{{tribe.tribePurpose}}</p>
     <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
-    <p><mat-icon>attach_money</mat-icon> {{tribe.reserveFund | currency}}</p>
-    <a target="_blank" href="https://www.google.com/maps/place/{{tribe.location}}"><mat-icon>place</mat-icon> {{tribe.location}}</a>
-    <p class="mat-caption">Key: {{tribe.address}}</p>
+    <p><mat-icon>trending_up</mat-icon> {{tribe.tokenValue}}<span class="ticker">NT</span></p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="openBuy()">BUY</button>
-    <button mat-raised-button color="primary">SELL</button>
+    <button mat-raised-button color="accent" (click)="openBuy()">JOIN</button>
+    <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
   </mat-card-actions>
 </mat-card>

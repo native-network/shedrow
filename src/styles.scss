@@ -25,6 +25,8 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  img:not(.mat-card-image) { max-width: 100%; }
+
  h1, h2, h3, h4, h5, h6 {
    color: #0c2e29;
  }
@@ -141,28 +143,45 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
 
  // Flip Cards
 
- app-tribe-card.front {
-  perspective: 600px;
+ app-tribe-card .tribe-card.back {
+   position: absolute;
+   top: 0;
+   left: 0;
+ }
+
+ app-tribe-card {
+  position: relative;
+  display: block;
+  perspective: 900px;
   perspective-origin: right;
-  transition: all .2s linear;
+  transition: all .3s linear;
  }
 
- app-tribe-card.front .tribe-card {
-   transition: all .2s linear;
+ app-tribe-card .tribe-card.front:not(.flipped) {
+   transition: all .3s linear;
    transform: rotateY(0deg);
+   opacity: 1;
  }
 
-app-tribe-card.back {
- perspective: 600px;
- perspective-origin: right;
- transition: all .2s linear;
-}
+ app-tribe-card .tribe-card.back:not(.flipped) {
+   transition: all .3s linear;
+   transform: rotateY(-180deg);
+   opacity: 0;
+   backface-visibility: hidden;
+ }
 
-app-tribe-card.back .mat-card.tribe-card {
-  transition: all .2s linear;
-  transform: rotateY(180deg);
+ app-tribe-card .tribe-card.front.flipped {
+   transition: all .3s linear;
+   transform: rotateY(180deg);
+   opacity: 0;
+   backface-visibility: hidden;
+ }
 
-}
+ app-tribe-card .tribe-card.back.flipped {
+   transition: all .3s linear;
+   transform: rotateY(0deg);
+   opacity: 1;
+ }
 
 // List Utils
 
@@ -180,7 +199,6 @@ app-task-list {
   position: relative;
 
 }
-
 
  // Views
 
@@ -310,6 +328,13 @@ app-task-list {
    .mat-dialog-container .mat-dialog-actions {
     align-items: center;
     justify-content: center;
+   }
+
+   // TickerSymbol styles
+
+   span.ticker {
+     font-size: .75em;
+     position: absolute;
    }
 
    // connector
