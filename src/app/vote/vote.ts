@@ -9,14 +9,15 @@ export class Vote {
     type: string;
     date: Date;
     owner: User;
-    voters: User[];
+    voted: User[];
     cost: number;
-    votedValue: number;
-    voted: boolean;
     tribe: Tribe;
-    options: [
-      {
-        label: string;
-      }
-    ];
+    state: string; // open/closed
+    options: Array<string>; 
+  }
+
+  export class submittedVote {
+    vote: Vote;
+    user: User;
+    option: string;
   }

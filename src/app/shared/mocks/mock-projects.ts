@@ -17,6 +17,7 @@ export const PROJECTS: Project[] = [
     fundedValue: 35,
     funded: false,
     tribe: TRIBES[0],
+    state: "idea",
   },
   {
     slug: "nulla-condimentum",
@@ -32,6 +33,7 @@ export const PROJECTS: Project[] = [
     fundedValue: 65,
     funded: false,
     tribe: TRIBES[1],
+    state: "idea",
   },
   {
     slug: "latin-popularis",
@@ -47,6 +49,7 @@ export const PROJECTS: Project[] = [
     fundedValue: 35,
     funded: false,
     tribe: TRIBES[1],
+    state: "idea",
   },
   {
     slug: "antidote",
@@ -62,6 +65,7 @@ export const PROJECTS: Project[] = [
     fundedValue: 35,
     funded: false,
     tribe: TRIBES[2],
+    state: "idea",
   },
   {
     slug: "reson8",
@@ -77,6 +81,7 @@ export const PROJECTS: Project[] = [
     fundedValue: 35,
     funded: false,
     tribe: TRIBES[2],
+    state: "idea",
   },
   {
     slug: "origami-moon",
@@ -92,5 +97,6 @@ export const PROJECTS: Project[] = [
     fundedValue: 90,
     funded: false,
     tribe: TRIBES[2],
+    state: "idea",
   },
   ]

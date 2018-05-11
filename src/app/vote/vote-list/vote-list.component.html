@@ -1,5 +1,14 @@
+<mat-form-field>
+  <mat-select placeholder="Vote State" [(value)]="filterState">
+    <mat-option value="open">Open</mat-option>
+    <mat-option value="closed">Closed</mat-option>
+  </mat-select>
+</mat-form-field>
 <div class="grid">
-  <app-vote-card *ngFor="let vote of votes" [vote]="vote" ngClass.gt-sm="grid-33" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
+  <app-vote-card *ngFor="let vote of votes | inState:filterState" [vote]="vote" ngClass.gt-sm="grid-33" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
   </app-vote-card>
+  <div *ngIf="!(votes | inState:filterState)?.length">
+    No data found...
+  </div>
 </div>
   
