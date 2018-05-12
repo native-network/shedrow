@@ -12,9 +12,10 @@
     <p>
       {{project.description}}
     </p>
+    <p>{{getQuorum()}} needed out of {{project.tribe.members.length}} members. Currently: {{project.supported.length}}</p>    
   </mat-card-content>
   <mat-card-actions>
-    <h5><b>{{project.cost * (project.fundedValue / 100)}}</b> of <b>{{project.cost}}</b></h5>
+    <h5><b>{{project.cost * (project.fundedValue / 100)}}</b> of <b>{{project.cost}}</b> </h5>
     <mat-progress-bar
         [color]="color"
         [mode]="mode"
