@@ -29,6 +29,7 @@ import { ConverterDialogComponent } from './converter-dialog/converter-dialog.co
 import { BancorInfoComponent } from './bancor-info/bancor-info.component';
 import { VerifyDialogComponent } from './verify-dialog/verify-dialog.component';
 import { InStatePipe } from './in-state.pipe';
+import { JoinDialogComponent } from './join-dialog/join-dialog.component';
 
 @NgModule({
   imports: [
@@ -58,7 +59,8 @@ import { InStatePipe } from './in-state.pipe';
     ExampleDialogComponent,
     SigninDialogComponent,
     ConverterDialogComponent,
-    VerifyDialogComponent,    
+    VerifyDialogComponent,
+    JoinDialogComponent,  
   ],
   declarations: [
     ExampleDialogComponent,
@@ -67,6 +69,7 @@ import { InStatePipe } from './in-state.pipe';
     BancorInfoComponent,
     VerifyDialogComponent,
     InStatePipe,
+    JoinDialogComponent,
   ],
   exports: [
     CommonModule,   

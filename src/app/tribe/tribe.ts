@@ -17,4 +17,6 @@ export class Tribe {
   reserveFund: number;
   tokenValue: number;
   tickerSymbol: string;
+  configQuorum: number;
+  configMembershipFee: number;
 }

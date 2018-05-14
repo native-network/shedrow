@@ -1,0 +1,11 @@
+
+<div mat-dialog-content class="mat-typography">
+  <h2 mat-dialog-title>So you want to Join this Tribe?</h2>
+  <pre class="caption">{{ data.tribe.name }}</pre>
+  <p>You need to stake {{data.tribe.configMembershipFee}}TT</p>
+  <p>You can leave exit the tribe at any time by unstaking your TT</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button color="accent" [mat-dialog-close]="data" cdkFocusInitial><mat-icon>add-plus</mat-icon> OK JOIN</button>
+</div>

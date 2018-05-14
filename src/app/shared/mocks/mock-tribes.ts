@@ -19,6 +19,8 @@ export const TRIBES: Tribe[] = [
     reserveFund: 38,
     tokenValue: 0.134,
     tickerSymbol: 'SCTT',
+    configQuorum: 99,
+    configMembershipFee: 100,
   },
   {
     name: 'Latin Populus',
@@ -37,6 +39,8 @@ export const TRIBES: Tribe[] = [
     reserveFund: 121,
     tokenValue: 1.164,
     tickerSymbol: 'LPTT',
+    configQuorum: 33,
+    configMembershipFee: 100,
   },
   {
     name: 'Imaginal Films',
@@ -55,5 +59,7 @@ export const TRIBES: Tribe[] = [
     reserveFund: 68,
     tokenValue: 0.378,
     tickerSymbol: 'IFTT',
+    configQuorum: 66,
+    configMembershipFee: 100,
   },
   ]

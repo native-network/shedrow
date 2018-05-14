@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TribeService } from '../tribe.service';
 import { MatDialog } from '@angular/material';
 import { ConverterDialogComponent } from '../../shared/converter-dialog/converter-dialog.component';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-tribe-card',
@@ -14,7 +15,7 @@ export class TribeCardComponent implements OnInit {
   @Input() tribe: Tribe;
   @Input() rotateStatus: boolean = false;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -67,6 +68,11 @@ export class TribeCardComponent implements OnInit {
       console.log('The dialog was closed');
 
     });
+  }
+
+
+  hasTT(){
+    return this.userService.currentUser.ttBalance > this.tribe.configMembershipFee;
   }
 
 }

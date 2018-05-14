@@ -18,7 +18,8 @@
     <a target="_blank" href="https://www.google.com/maps/place/{{tribe.location}}"><mat-icon>place</mat-icon> {{tribe.location}}</a>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="openBuy()">JOIN</button>
+    <app-join-button *ngIf="hasTT()" [tribe]="tribe"></app-join-button> 
+    <button *ngIf="!hasTT()" mat-raised-button color="accent" (click)="openBuy()">BUY</button>
     <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
   </mat-card-actions>
 </mat-card>
@@ -41,7 +42,8 @@
     <p><mat-icon>trending_up</mat-icon> {{tribe.tokenValue}}<span class="ticker">NT</span></p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="openBuy()">JOIN</button>
+    <app-join-button *ngIf="hasTT()" [tribe]="tribe"></app-join-button>
+    <button *ngIf="!hasTT()" mat-raised-button color="accent" (click)="openBuy()">BUY</button>
     <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
   </mat-card-actions>
 </mat-card>
