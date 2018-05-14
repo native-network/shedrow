@@ -16,7 +16,7 @@ export class Project {
   fundedValue: number; // needed now?
   funded: boolean;
   tribe: Tribe;
-  state: string;  // idea/ready to act/completed
+  state: string;  // idea / supported /ready to act/completed
   deadline: number;
   supported: User[];
 }

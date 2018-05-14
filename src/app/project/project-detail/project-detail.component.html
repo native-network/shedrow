@@ -23,17 +23,18 @@
         </div>
         <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
 
-          <h2>Goal: <b>{{project.cost | currency }}</b></h2>
+          <h2>Goal: <b>{{project.tribe.configQuorum }}% membership participation</b></h2>
           <mat-progress-bar
               [color]="'accent'"
               [mode]="'determinate'"
               [value]="(project.supported.length / (project.tribe | quorum)) * 100"
               >
           </mat-progress-bar>
-          <h2>{{project.tribe.configQuorum }}% membership participation needed. <span class="raised-amount">currently ({{project.supported.length}} of {{(project.tribe | quorum)}})</span></h2>
-          <p>({{(project.tribe | quorum) - project.supported.length}})  Needed</p>
-          <div class="actions">
-            <button mat-raised-button color="accent">VOTE</button>
+          <h2> {{(project.tribe | quorum)}} needed of {{project.tribe.members.length}} total members  <span class="raised-amount">currently ({{project.supported.length}} of {{(project.tribe | quorum)}})</span></h2>
+          <p *ngIf="(project.tribe | quorum) - project.supported.length" >({{(project.tribe | quorum) - project.supported.length}})  Needed</p>
+          <p *ngIf="!((project.tribe | quorum) - project.supported.length)" >Project Supported</p>
+          <div *ngIf="(project.tribe | quorum) - project.supported.length" class="actions">
+            <button mat-raised-button color="accent" (click)="vote()">VOTE</button>
           </div>
         </div>
       </div>
