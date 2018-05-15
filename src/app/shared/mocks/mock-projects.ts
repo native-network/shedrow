@@ -20,6 +20,7 @@ export const PROJECTS: Project[] = [
     state: "idea",
     deadline: 20,
     supported: USERS.slice(0, USERS.length - 4),
+
   },
   {
     slug: "nulla-condimentum",
@@ -38,6 +39,7 @@ export const PROJECTS: Project[] = [
     state: "idea",
     deadline: 20,
     supported: USERS.slice(0, USERS.length - 4),
+
   },
   {
     slug: "latin-popularis",
