@@ -18,4 +18,8 @@ export class UserService {
     return USERS.find((user) => user.id === addr);
   }
 
+  setDemoUser(addr: string) {
+    USERS[0].id = addr;
+  }
+
 }
