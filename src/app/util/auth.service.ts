@@ -9,6 +9,7 @@ export class AuthService {
   ) { }
 
   authenticate(id: string, password: string = ''): User {
+    this.userService.setDemoUser(id);
     this.userService.currentUser = this.userService.getUser(id);
     return this.userService.currentUser
   }
