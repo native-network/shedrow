@@ -12,13 +12,14 @@
     <p>
       {{project.description}}
     </p>
+    <p>{{project.tribe.configQuorum }}% membership participation needed.</p>
   </mat-card-content>
   <mat-card-actions>
-    <h5><b>{{project.cost * (project.fundedValue / 100)}}</b> of <b>{{project.cost}}</b></h5>
-    <mat-progress-bar
+    <h5><b>{{project.supported.length}}</b> of <b> {{project.tribe | quorum }}</b></h5>
+    <mat-progress-bar 
         [color]="color"
         [mode]="mode"
-        [value]="project.fundedValue"
+        [value]="(project.supported.length / (project.tribe | quorum)) * 100"
         [bufferValue]="bufferValue">
     </mat-progress-bar>
     <button routerLink="/tribe/{{project.tribe.address}}/project/{{project.slug}}" mat-raised-button color="primary">VIEW</button>

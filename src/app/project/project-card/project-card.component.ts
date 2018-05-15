@@ -21,4 +21,9 @@ export class ProjectCardComponent implements OnInit {
 
   }
 
+  getQuorum(){
+    let tribe = this.project.tribe
+    return Math.ceil((tribe.members.length * tribe.configQuorum) / 100)
+  }
+
 }

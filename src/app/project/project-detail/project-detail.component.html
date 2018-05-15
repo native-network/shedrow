@@ -23,17 +23,20 @@
         </div>
         <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
 
-          <h2>Goal: <b>{{project.cost | currency }}</b></h2>
+          <h4 class="mat-caption">Support Goal</h4> <h2><b>{{(project.tribe | quorum)}}</b> of <b>{{project.tribe.members.length}}</b> Total Members</h2>
+          <p class="mat-caption">Tribe Quorum: {{project.tribe.configQuorum }}% Membership Participation </p>
           <mat-progress-bar
               [color]="'accent'"
               [mode]="'determinate'"
-              [value]="project.fundedValue"
+              [value]="(project.supported.length / (project.tribe | quorum)) * 100"
               >
           </mat-progress-bar>
-          <h2>{{project.fundedValue}}% Raised <span class="raised-amount">({{project.cost * (project.fundedValue / 100) | currency}})</span></h2>
-          <p>{{ project.cost * ((100 - project.fundedValue) / 100) | currency }} Needed</p>
-          <div class="actions">
-            <button mat-raised-button color="accent">VOTE</button>
+          <h4>Currently <b>{{project.supported.length}}</b> of <b>{{project.tribe.members.length}}</b>
+          <span *ngIf="(project.tribe | quorum) - project.supported.length" > <small>({{(project.tribe | quorum) - project.supported.length}} more needed)</small></span>
+          </h4>
+          <h1 *ngIf="!((project.tribe | quorum) - project.supported.length)" ><mat-icon>check</mat-icon> Project Supported</h1>
+          <div *ngIf="(project.tribe | quorum) - project.supported.length" class="actions">
+            <button mat-raised-button color="accent" (click)="vote()">SUPPORT</button>
           </div>
         </div>
       </div>
