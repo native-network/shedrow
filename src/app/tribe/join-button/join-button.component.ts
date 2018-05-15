@@ -20,12 +20,12 @@ export class JoinButtonComponent{
       height: '100vh',
       data: {tribe: this.tribe}
     });
+    
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
 
     });
   }
-
 
 }

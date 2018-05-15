@@ -7,5 +7,6 @@
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button (click)="onNoClick()">No Thanks</button>
-  <button mat-raised-button color="accent" [mat-dialog-close]="data" cdkFocusInitial><mat-icon>add-plus</mat-icon> OK JOIN</button>
+  <button *ngIf="isMember(data.tribe)" mat-raised-button color="accent" [mat-dialog-close]="data" cdkFocusInitial><mat-icon>user</mat-icon> You are a member.</button>
+  <button *ngIf="!isMember(data.tribe)" mat-raised-button color="accent" (click)="joinTribe(data.tribe)" [mat-dialog-close]="data" cdkFocusInitial><mat-icon>add_circle</mat-icon> OK JOIN</button>
 </div>

@@ -28,8 +28,13 @@ export class TribeDetailComponent implements OnInit {
       .subscribe(tribe => this.tribe = tribe);
   }
 
+  isMember(): boolean {
+    return this.tribeService.isMember(this.tribe);
+  }
+
   goBack(): void {
     this.location.back();
   }
+  
 
 }
