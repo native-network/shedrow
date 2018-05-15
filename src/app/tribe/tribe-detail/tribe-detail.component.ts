@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TribeService } from '../tribe.service';
 import { Tribe } from '../tribe';
 import { Location } from '@angular/common';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-tribe-detail',
@@ -15,6 +16,7 @@ export class TribeDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private tribeService: TribeService,
+    private userService: UserService,
     private location: Location
   ) { }
 
@@ -28,12 +30,23 @@ export class TribeDetailComponent implements OnInit {
       .subscribe(tribe => this.tribe = tribe);
   }
 
-  isMember(): boolean {
-    return this.tribeService.isMember(this.tribe);
-  }
-
   goBack(): void {
     this.location.back();
+  }
+
+  hasTT(ticker){
+    const token = this.userService.currentUser.tribeTokens
+      .find((item) => item.ticker === ticker)
+    return token ? token.balance > this.tribe.configMembershipFee : false;
+  }
+
+  hasNT() : boolean{
+    return !!this.userService.currentUser.ntBalance;
+  }
+
+  isMember(): boolean {
+    return this.userService.currentUser ? 
+      (this.tribe.members.indexOf(this.userService.currentUser) > -1) : false;
   }
   
 
