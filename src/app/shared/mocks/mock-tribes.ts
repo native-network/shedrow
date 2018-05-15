@@ -19,7 +19,7 @@ export const TRIBES: Tribe[] = [
     reserveFund: 38,
     tokenValue: 0.134,
     tickerSymbol: 'SCTT',
-    configQuorum: 99
+    configQuorum: 66
   },
   {
     name: 'Latin Populus',
@@ -38,7 +38,7 @@ export const TRIBES: Tribe[] = [
     reserveFund: 121,
     tokenValue: 1.164,
     tickerSymbol: 'LPTT',
-    configQuorum: 33
+    configQuorum: 66
   },
   {
     name: 'Imaginal Films',
