@@ -106,7 +106,8 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
   }
 
  .mat-card.tribe-card {
-   border-radius: 25px;
+   border-radius: 10px;
+   padding-bottom: 75px;
  }
 
  .mat-card.project-card, .mat-card.vote-card, .mat-card.task-card {
@@ -120,6 +121,7 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
    width: 100%;
    text-align: center;
    margin: 0 !important;
+   >.rule { padding-top: 15px; border-top: 1px solid #70d0be;}
    >.mat-progress-bar { margin: 20px auto;}
  }
 
