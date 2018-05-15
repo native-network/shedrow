@@ -3,9 +3,9 @@
   <div class="hero tribe" [ngStyle]="{'background-image': 'url(' + tribe.image + ')'}">
     <div class="grid">
       <div class="column" ngClass.gt-sm="grid-50" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
-        <!--- commented out for now
+        <!-- commented out for now
         <button mat-raised-button color="primary" (click)="goBack()"><mat-icon>arrow_back</mat-icon> GO BACK</button>
-        --->
+        -->
       </div>
       <div class="column" ngClass.gt-sm="grid-50" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
       </div>
@@ -17,6 +17,7 @@
       <div class="intro">
         <h1>{{tribe.name}}</h1>
         <h3 class="body-2">{{tribe.tribeIntro}}</h3>
+        <app-join-button [tribe]="tribe"></app-join-button>
       </div>
       <div class="grid">
         <div class="column" ngClass.gt-xs="grid-33" ngClass.lt-sm="grid-100">
@@ -58,13 +59,13 @@
         </div>
       </div>
 
-      <div class="isNotMember">
+      <div *ngIf="!isMember()" class="isNotMember">
         <h2>Members Only</h2>
         <p class="body-2">You need some Tribe Tokens to view Projects, Votes, and Tasks for this Tribe.</p>
-        <button mat-raised-button color="accent"><mat-icon>add_circle</mat-icon> Join</button>
+        <app-join-button [tribe]="tribe"></app-join-button>
       </div>
 
-      <div class="isMember">
+      <div *ngIf="isMember()" class="isMember">
 
         <h2 class="section-title">Projects</h2>
         <app-project-list [tribe]="tribe"></app-project-list>

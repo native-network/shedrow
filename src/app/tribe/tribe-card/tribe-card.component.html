@@ -19,7 +19,6 @@
   </mat-card-content>
   <mat-card-actions>
     <div class="rule"><h4><b>100</b><span class="ticker">{{tribe.tickerSymbol}}</span></h4></div>
-    <button mat-raised-button color="accent" (click)="openBuy()">JOIN</button>
     <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
   </mat-card-actions>
 </mat-card>
@@ -42,7 +41,8 @@
     <p><mat-icon>trending_up</mat-icon> {{tribe.tokenValue}}<span class="ticker">NT</span></p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="openBuy()">JOIN</button>
+    <app-join-button *ngIf="hasTT()" [tribe]="tribe"></app-join-button>
+    <button mat-raised-button color="accent" (click)="openBuy()">BUY</button>
     <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
   </mat-card-actions>
 </mat-card>

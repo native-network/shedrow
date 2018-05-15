@@ -10,11 +10,12 @@ import { TribeListComponent } from './tribe-list/tribe-list.component';
 import { ProjectModule } from '../project/project.module';
 import { VoteModule } from '../vote/vote.module';
 import { TaskModule } from '../task/task.module';
+import { JoinButtonComponent } from './join-button/join-button.component';
 
   
 @NgModule({
   imports: [SharedModule, BlockiesModule, ProjectModule, VoteModule, TaskModule],
-  declarations: [TribeCardComponent, TribeDetailComponent, TribeListComponent],
+  declarations: [TribeCardComponent, TribeDetailComponent, TribeListComponent, JoinButtonComponent],
   exports: [TribeCardComponent, TribeListComponent],
   providers: [TribeService],
 })

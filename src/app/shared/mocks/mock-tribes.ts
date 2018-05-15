@@ -14,12 +14,13 @@ export const TRIBES: Tribe[] = [
     tribePurpose: 'To inspire the world to greatness by bringing filmmakers and audiences together in a film funding, sharing and viewing collective.',
     tags: 'Tag1 Tag2 Tag3',
     curators: USERS[0],
-    members: USERS,
+    members: USERS.slice(3),
     devFund: 100,
     reserveFund: 38,
     tokenValue: 0.134,
     tickerSymbol: 'SCTT',
-    configQuorum: 99
+    configQuorum: 99,
+    configMembershipFee: 100,
   },
   {
     name: 'Latin Populus',
@@ -33,12 +34,13 @@ export const TRIBES: Tribe[] = [
     tribePurpose: 'To inspire the world to greatness by bringing filmmakers and audiences together in a film funding, sharing and viewing collective.',
     tags: 'Tag1 Tag2 Tag3',
     curators: USERS[0],
-    members: USERS,
+    members: USERS.slice(3),
     devFund: 100,
     reserveFund: 121,
     tokenValue: 1.164,
     tickerSymbol: 'LPTT',
-    configQuorum: 33
+    configQuorum: 33,
+    configMembershipFee: 100,
   },
   {
     name: 'Imaginal Films',
@@ -52,11 +54,12 @@ export const TRIBES: Tribe[] = [
     tribePurpose: 'To inspire the world to greatness by bringing filmmakers and audiences together in a film funding, sharing and viewing collective.',
     tags: 'Art Funding Impact',
     curators: USERS[0],
-    members: USERS,
+    members: USERS.slice(3),
     devFund: 100,
     reserveFund: 68,
     tokenValue: 0.378,
     tickerSymbol: 'IFTT',
-    configQuorum: 66
+    configQuorum: 66,
+    configMembershipFee: 100,
   },
   ]

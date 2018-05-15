@@ -336,7 +336,7 @@ app-task-list {
 
    span.ticker {
      font-size: .75em;
-     position: absolute;
+     position: relative;
    }
 
    // connector
@@ -354,13 +354,7 @@ app-task-list {
    // Converter
 
    .cdk-overlay-container .mat-dialog-container .mat-dialog-content {
-     > h2 {
-       text-align: center;
-     }
-     > h4 {
-       text-align: center;
-     }
-     > p {
+     > h1, h2, h3, h4, h5, h6, p {
        text-align: center;
      }
    }
