@@ -56,12 +56,12 @@ export class TribeCardComponent implements OnInit {
     return blocky
   }
 
-  openBuy(): void {
+  openBuy(ticker): void {
     let dialogRef = this.dialog.open(ConverterDialogComponent, {
       maxWidth: 'none',
       width: '100vw',
       height: '100vh',
-      data: {from: 'NT', to: 'TT', ratio: 1000 }
+      data: {from: 'NT', to: ticker, ratio: 1000 }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -71,8 +71,10 @@ export class TribeCardComponent implements OnInit {
   }
 
 
-  hasTT(){
-    return this.userService.currentUser.ttBalance > this.tribe.configMembershipFee;
+  hasTT(ticker){
+    const token = this.userService.currentUser.tribeTokens
+      .find((item) => item.ticker === ticker)
+    return token ? token.balance > this.tribe.configMembershipFee : false;
   }
 
 }

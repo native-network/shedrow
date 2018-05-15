@@ -81,6 +81,9 @@ export class NatProfileComponent implements OnInit {
 
       });
 
+      console.log(this.user);
+      
+
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed', result);
 

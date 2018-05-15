@@ -1,3 +1,8 @@
+export class TribeToken {
+  ticker: string;
+  balance: number;
+}
+
 export class User {
     id: string;
     name: string;
@@ -5,4 +10,5 @@ export class User {
     ethBalance: number;
     ntBalance: number;
     ttBalance: number;
+    tribeTokens: TribeToken[];
   }

@@ -22,7 +22,10 @@ export class TribeService {
   joinTribe(tribe:Tribe): void {
     // auth check
     let user = this.userService.currentUser;
-    user.ttBalance = user.ttBalance - tribe.configMembershipFee;
+    let token = this.userService.currentUser.tribeTokens
+      .find((item) => item.ticker === tribe.tickerSymbol)
+    
+    token.balance = token.balance - tribe.configMembershipFee;
     tribe.members.push(user);
   }
 
