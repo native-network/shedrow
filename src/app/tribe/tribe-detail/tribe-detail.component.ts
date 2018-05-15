@@ -37,7 +37,7 @@ export class TribeDetailComponent implements OnInit {
   hasTT(ticker){
     const token = this.userService.currentUser.tribeTokens
       .find((item) => item.ticker === ticker)
-    return token ? token.balance > this.tribe.configMembershipFee : false;
+    return token ? token.balance >= this.tribe.configMembershipFee : false;
   }
 
   hasNT() : boolean{
@@ -45,9 +45,9 @@ export class TribeDetailComponent implements OnInit {
   }
 
   isMember(): boolean {
-    return this.userService.currentUser ? 
+    return this.userService.currentUser ?
       (this.tribe.members.indexOf(this.userService.currentUser) > -1) : false;
   }
-  
+
 
 }
