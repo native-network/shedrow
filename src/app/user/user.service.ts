@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { User } from './user';
 import { USERS } from '../shared/mocks/mock-users';
+import { Tribe } from '../tribe/tribe';
 
 @Injectable()
 export class UserService {
