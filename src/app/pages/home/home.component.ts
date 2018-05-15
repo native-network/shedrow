@@ -40,18 +40,4 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  openConverter(): void {
-    let dialogRef = this.dialog.open(ConverterDialogComponent, {
-      maxWidth: 'none',
-      width: '100vw',
-      height: '100vh',
-      data: {from: 'ETH', to: 'NT', ratio: 100 }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-    });
-  }
-
 }

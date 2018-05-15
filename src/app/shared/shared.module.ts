@@ -30,6 +30,7 @@ import { BancorInfoComponent } from './bancor-info/bancor-info.component';
 import { VerifyDialogComponent } from './verify-dialog/verify-dialog.component';
 import { InStatePipe } from './in-state.pipe';
 import { JoinDialogComponent } from './join-dialog/join-dialog.component';
+import { BuyNativeButtonComponent } from './buy-native-button/buy-native-button.component';
 
 @NgModule({
   imports: [
@@ -70,6 +71,7 @@ import { JoinDialogComponent } from './join-dialog/join-dialog.component';
     VerifyDialogComponent,
     InStatePipe,
     JoinDialogComponent,
+    BuyNativeButtonComponent,
   ],
   exports: [
     CommonModule,   
@@ -95,6 +97,7 @@ import { JoinDialogComponent } from './join-dialog/join-dialog.component';
     MatCheckboxModule,
 
     BancorInfoComponent,
+    BuyNativeButtonComponent,
 
     InStatePipe,
     
