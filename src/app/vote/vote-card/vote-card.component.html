@@ -3,6 +3,7 @@
     <mat-card-title>{{vote.title}}</mat-card-title>
     <mat-card-subtitle>{{vote.type}}</mat-card-subtitle>
   </mat-card-header>
+  <img *ngIf="vote.image" mat-card-image src="{{vote.image}}" alt="vote-image">
   <mat-card-content>
     <p>
       {{vote.description}}

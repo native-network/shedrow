@@ -5,6 +5,7 @@ export class TribeToken {
 
 export class User {
     id: string;
+    image: string;
     name: string;
     email: string;
     ethBalance: number;

@@ -25,6 +25,12 @@
             <p>{{tribe.tribePurpose}}</p>
             <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
             <p><mat-icon>place</mat-icon> {{tribe.location}}</p>
+            <h4>Curator(s)</h4>
+            <div class="curator">
+              <div class="nat-avatar" [ngStyle]="{'background-image': 'url(' + tribe.curators.image + ')'}">
+              </div>
+              <p>{{tribe.curators.name}}</p>
+            </div>
           </div>
         </div>
         <div class="column" ngClass.gt-xs="grid-33" ngClass.lt-sm="grid-100">
@@ -64,7 +70,7 @@
         <app-join-button [tribe]="tribe"></app-join-button>
       </div>
 
-      <div *ngIf="isMember()" class="isMember">
+      <div *ngIf="!isMember()" class="isMember">
 
         <h2 class="section-title">Projects</h2>
         <app-project-list [tribe]="tribe"></app-project-list>
