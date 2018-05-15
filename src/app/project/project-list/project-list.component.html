@@ -1,7 +1,9 @@
 
 <mat-form-field class="filter">
   <mat-select placeholder="Project State" [(value)]="filterState">
+    <mat-option value="all">All</mat-option>
     <mat-option value="idea">Idea</mat-option>
+    <mat-option value="supported">Supported</mat-option>
     <mat-option value="ready-to-work">Ready To Work</mat-option>
     <mat-option value="closed">Closed</mat-option>
   </mat-select>

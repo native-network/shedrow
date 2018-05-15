@@ -11,10 +11,12 @@ export class Project {
   date: Date;
   tags: string;
   owner: User;
-  contributed: User[];
+  contributed: User[]; // needed now?
   cost: number;
-  fundedValue: number;
+  fundedValue: number; // needed now?
   funded: boolean;
   tribe: Tribe;
-  state: string;  // idea/ready to act/completed
+  state: string;  // idea / supported /ready to act/completed
+  deadline: number;
+  supported: User[];
 }

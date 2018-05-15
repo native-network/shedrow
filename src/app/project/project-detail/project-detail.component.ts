@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Project } from '../project';
 import { ProjectService } from '../project.service';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-project-detail',
@@ -15,7 +16,8 @@ export class ProjectDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private projectService: ProjectService,
-    private location: Location
+    private location: Location,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,11 @@ export class ProjectDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+  
+  vote(){
+    const projectId = this.route.snapshot.paramMap.get('projectId');
+    this.projectService.vote(projectId, this.userService.currentUser);
   }
 
 }
