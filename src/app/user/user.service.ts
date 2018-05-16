@@ -22,6 +22,7 @@ export class UserService {
     USERS[0].id = addr;
   }
 
+
   hasTT(tribe): boolean{
     const token = this.currentUser.tribeTokens
       .find((item) => item.ticker === tribe.tickerSymbol)
