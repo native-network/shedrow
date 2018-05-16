@@ -21,7 +21,7 @@ export class VoteService {
   }
 
   castVote(slug: string, option: string, user: User): void {
-    const vote = VOTES.find(vote => vote.slug === slug)
+    const vote = VOTES.find(vote => vote.slug === slug);
     const submitedVote: SubmittedVote = {
       user: user, option: option
     }
@@ -29,8 +29,13 @@ export class VoteService {
   }
 
   hasVoted(voteId: string, user: User) : boolean {
-    const vote = VOTES.find(vote => vote.slug === voteId)
+    const vote = VOTES.find(vote => vote.slug === voteId);
     return vote.voted.filter((item) => item.user === user ).length > 0;
+  }
+
+  getResults(voteId: string) {
+    const vote = VOTES.find(vote => vote.slug === voteId);
+    return vote.voted
   }
 
 }

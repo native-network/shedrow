@@ -36,6 +36,10 @@ export class VoteDetailComponent implements OnInit {
     this.voteService.castVote(this.vote.slug, option, this.userService.currentUser);
   }
 
+  getResults(){
+    this.voteService.getResults(this.vote.slug);
+  }
+
   goBack(): void {
     this.location.back();
   }
