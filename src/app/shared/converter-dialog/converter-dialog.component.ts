@@ -22,9 +22,11 @@ export class ConverterDialogComponent implements OnInit{
     }
 
     ngOnInit() {
-      
+
       this.ratio = this.data.ratio || 1;
     }
-    
 
+    onConvert(toAmount: number){
+      console.log('Conversion Success');
+    }
 }

@@ -42,5 +42,9 @@ export class JoinDialogComponent implements OnInit {
     return this.tribeService.isMember(this.tribe);
   }
 
+  onConvert(toAmmount: number){
+    console.log('done did it', toAmmount);
+  }
+
 
 }
