@@ -20,8 +20,7 @@ import {
   MatProgressBarModule,
   MatProgressSpinnerModule,
   MatSelectModule,
-  MatCheckboxModule,
-  MatStepperModule,
+  MatCheckboxModule
 } from '@angular/material';
 
 import { ExampleDialogComponent } from './example-dialog/example-dialog.component';
@@ -57,7 +56,6 @@ import { TokenConverterComponent } from './token-converter/token-converter.compo
     MatProgressSpinnerModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatStepperModule,
   ],
   entryComponents: [
     ExampleDialogComponent,
@@ -99,7 +97,6 @@ import { TokenConverterComponent } from './token-converter/token-converter.compo
     MatProgressSpinnerModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatStepperModule,
 
     BancorInfoComponent,
     BuyNativeButtonComponent,

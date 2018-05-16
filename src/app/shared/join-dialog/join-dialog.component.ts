@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject, ViewChild } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MatStepper } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Tribe } from '../../tribe/tribe';
 import { TribeService } from '../../tribe/tribe.service';
 import { UserService } from '../../user/user.service';
@@ -11,7 +11,6 @@ import { UserService } from '../../user/user.service';
 })
 export class JoinDialogComponent implements OnInit {
   tribe: Tribe;
-  @ViewChild('stepper') stepper: MatStepper;
 
   constructor(
     private tribeService: TribeService,
@@ -19,8 +18,6 @@ export class JoinDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<JoinDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  isLinear = true;
-  
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -31,7 +28,6 @@ export class JoinDialogComponent implements OnInit {
 
   joinTribe(): void {
     this.tribeService.joinTribe(this.tribe);
-    this.stepper.next()    
   }
 
   hasTT(): boolean{
@@ -47,7 +43,7 @@ export class JoinDialogComponent implements OnInit {
   }
 
   onConvert(toAmmount: number){
-    this.stepper.next()
+    console.log('done did it', toAmmount);
   }
 
 
