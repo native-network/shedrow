@@ -17,8 +17,18 @@
     <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
     <a target="_blank" href="https://www.google.com/maps/place/{{tribe.location}}"><mat-icon>place</mat-icon> {{tribe.location}}</a>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="openBuy()">JOIN</button>
+  <mat-card-actions *ngIf="!hasNT() && !isMember()">
+    <div class="rule">
+      <p>{{tribe.configMembershipFee}}<span class="ticker">NT</span> to join</p>
+    </div>
+    <app-buy-native-button></app-buy-native-button>
+  </mat-card-actions>
+  <mat-card-actions *ngIf="hasNT()">
+    <div class="rule" *ngIf="!isMember()">
+      <p>{{tribe.configMembershipFee}}<span class="ticker">NT</span> to join</p>
+    </div>
+    <app-join-button *ngIf="!isMember()" [tribe]="tribe"></app-join-button>
+    <button *ngIf="isMember()" mat-raised-button color="accent" (click)="openBuy(tribe.tickerSymbol)">BUY</button>
     <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
   </mat-card-actions>
 </mat-card>
@@ -40,8 +50,18 @@
     <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
     <p><mat-icon>trending_up</mat-icon> {{tribe.tokenValue}}<span class="ticker">NT</span></p>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="accent" (click)="openBuy()">JOIN</button>
+  <mat-card-actions *ngIf="!hasNT() && !isMember()">
+    <div class="rule">
+      <p>{{tribe.configMembershipFee}}<span class="ticker">NT</span> to join</p>
+    </div>
+    <app-buy-native-button></app-buy-native-button>
+  </mat-card-actions>
+  <mat-card-actions *ngIf="hasNT()">
+    <div class="rule" *ngIf="!isMember()">
+      <p>{{tribe.configMembershipFee}}<span class="ticker">NT</span> to join</p>
+    </div>
+    <app-join-button *ngIf="!isMember()" [tribe]="tribe"></app-join-button>
+    <button *ngIf="isMember()" mat-raised-button color="accent" (click)="openBuy(tribe.tickerSymbol)">BUY</button>
     <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
   </mat-card-actions>
 </mat-card>

@@ -12,6 +12,11 @@
       <input matInput type='email' placeholder="Email" [(ngModel)]="data.user.email">
     </mat-form-field>
   </div>
+  <div class="tribe-tokens">
+    <h3>Tribe tokens: </h3>
+    <p *ngFor="let token of data.user.tribeTokens">{{token.ticker}}: {{token.balance}}</p>
+  </div>
+
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button (click)="onNoClick()">No Thanks</button>
