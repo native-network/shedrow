@@ -14,12 +14,12 @@
     <p class="mat-body-2">Convert your NT into {{tribe.tickerSymbol}}</p>
   </div>
 
+  <app-token-converter (onConvert)="onConver($event[0])" [to]="tribe.tickerSymbol" [from]="'NT'" [ratio]="1000"></app-token-converter>
+
   <div class="instructions" *ngIf="hasTT()">
     <h4>You need to stake <b>{{tribe.configMembershipFee}}</b><span class="ticker">{{tribe.tickerSymbol}}</span> into this Tribe to become a Member.</h4>
-    <p class="mat-body-2">You can get more Tribe Tokens if you like, and you can exit the tribe at any time by unstaking your TT.</p>
+    <p class="mat-caption">You can get more Tribe Tokens if you like later, and you can exit the tribe at any time by unstaking your TT.</p>
   </div>
-
-  <app-token-converter (onConvert)="onConver($event[0])" [to]="tribe.tickerSymbol" [from]="'NT'" [ratio]="1000"></app-token-converter>
 
 </div>
 <div mat-dialog-actions>

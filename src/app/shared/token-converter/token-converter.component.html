@@ -1,7 +1,7 @@
 <div class="converter grid" *ngIf="converterOpen">
   <div class="convert-from" ngClass.xs="grid-100 text-center">
     <mat-form-field>
-      <input matInput [(ngModel)]="fromAmount" max='10' placeholder="{{from}} Amount">
+      <input type="number" matInput [(ngModel)]="fromAmount" max='10' placeholder="{{from}} Amount">
     </mat-form-field>
     <span *ngIf="to === 'NT'">&#x39e;</span><!--eth symbol-->
     <span *ngIf="to !== 'NT'">NT</span>
@@ -18,8 +18,7 @@
   <button mat-raised-button color="accent" (click)="convert()">BUY</button>
 </div>
 
-<div class="converter grid" *ngIf="!converterOpen">
-  <p>Confetti</p>
-  <p>{{fromAmount * ratio}} {{to}}</p>
+<div class="converter confetti" *ngIf="!converterOpen">
+  <h4>You received</h4><h1>{{fromAmount * ratio}} {{to}}<div class="confetti-div" [class.animate]="!converterOpen"></div></h1>
   <button mat-raised-button color="accent" (click)="converterToggle()">GET MORE TOKENS</button>
-
+</div>
