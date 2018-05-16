@@ -31,6 +31,7 @@ import { VerifyDialogComponent } from './verify-dialog/verify-dialog.component';
 import { InStatePipe } from './in-state.pipe';
 import { JoinDialogComponent } from './join-dialog/join-dialog.component';
 import { BuyNativeButtonComponent } from './buy-native-button/buy-native-button.component';
+import { TokenConverterComponent } from './token-converter/token-converter.component';
 
 @NgModule({
   imports: [
@@ -72,6 +73,7 @@ import { BuyNativeButtonComponent } from './buy-native-button/buy-native-button.
     InStatePipe,
     JoinDialogComponent,
     BuyNativeButtonComponent,
+    TokenConverterComponent,
   ],
   exports: [
     CommonModule,   
@@ -98,6 +100,7 @@ import { BuyNativeButtonComponent } from './buy-native-button/buy-native-button.
 
     BancorInfoComponent,
     BuyNativeButtonComponent,
+    TokenConverterComponent,
 
     InStatePipe,
     

@@ -19,10 +19,11 @@
   </mat-card-content>
   <mat-card-actions *ngIf="!hasNT()">
     <p>{{tribe.configMembershipFee}}</p>
-  </mat-card-actions>
-  <mat-card-actions *ngIf="hasNT()">
-    <app-join-button *ngIf="!hasTT(tribe.tickerSymbol)" [tribe]="tribe"></app-join-button>
-    <button *ngIf="hasTT(tribe.tickerSymbol)" mat-raised-button color="accent" (click)="openBuy(tribe.tickerSymbol)">BUY</button>
+      <app-buy-native-button></app-buy-native-button>
+    </mat-card-actions>
+  <mat-card-actions *ngIf="hasNT() || isMember()">
+    <app-join-button *ngIf="!hasTT()" [tribe]="tribe"></app-join-button>
+    <button *ngIf="hasTT()" mat-raised-button color="accent" (click)="openBuy(tribe.tickerSymbol)">BUY</button>
     <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
   </mat-card-actions>
 </mat-card>
@@ -44,9 +45,12 @@
     <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
     <p><mat-icon>trending_up</mat-icon> {{tribe.tokenValue}}<span class="ticker">NT</span></p>
   </mat-card-content>
-  <mat-card-actions>
-    <app-join-button *ngIf="hasTT(tribe.tickerSymbol)" [tribe]="tribe"></app-join-button>
-    <button mat-raised-button color="accent" (click)="openBuy(tribe.tickerSymbol)">BUY</button>
+  <mat-card-actions *ngIf="!hasNT()">
+    <app-buy-native-button></app-buy-native-button>
+  </mat-card-actions>
+  <mat-card-actions *ngIf="hasNT() || isMember()">
+    <app-join-button *ngIf="hasTT()" [tribe]="tribe"></app-join-button>
+    <button mat-raised-button color="accent" (click)="openBuy()">BUY</button>
     <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
   </mat-card-actions>
 </mat-card>

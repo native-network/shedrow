@@ -26,23 +26,20 @@ export class JoinDialogComponent implements OnInit {
     this.tribe = this.data.tribe;
   }
 
-  joinTribe(tribe: Tribe): void {
-    this.tribeService.joinTribe(tribe);
+  joinTribe(): void {
+    this.tribeService.joinTribe(this.tribe);
   }
 
-  hasTT(ticker): boolean{
-    const token = this.userService.currentUser.tribeTokens
-      .find((item) => item.ticker === ticker)
-    return token ? token.balance >= this.tribe.configMembershipFee : false;
+  hasTT(): boolean{
+    return this.userService.hasTT(this.tribe);
   }
 
-  hasNT() : boolean{
-    return !!this.userService.currentUser.ntBalance;
+  hasNT(amount: number = 0) : boolean{
+    return this.userService.hasNT(amount);
   }
 
   isMember(): boolean {
-    return this.userService.currentUser ?
-      (this.tribe.members.indexOf(this.userService.currentUser) > -1) : false;
+    return this.tribeService.isMember(this.tribe);
   }
 
 

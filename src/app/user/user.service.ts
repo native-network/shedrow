@@ -22,4 +22,14 @@ export class UserService {
     USERS[0].id = addr;
   }
 
+  hasTT(tribe): boolean{
+    const token = this.currentUser.tribeTokens
+      .find((item) => item.ticker === tribe.tickerSymbol)
+    return token ? token.balance >= tribe.configMembershipFee : false;
+  }
+
+  hasNT(amount: number = 0) : boolean{
+    return this.currentUser.ntBalance >= amount;
+  }
+
 }

@@ -15,7 +15,10 @@ export class TribeCardComponent implements OnInit {
   @Input() tribe: Tribe;
   @Input() rotateStatus: boolean = false;
 
-  constructor(public dialog: MatDialog, private userService: UserService) { }
+  constructor(
+    public dialog: MatDialog,
+    private userService: UserService,
+    private tribeService: TribeService) { }
 
   ngOnInit() {
   }
@@ -40,22 +43,6 @@ export class TribeCardComponent implements OnInit {
     return blocky
   }
 
-  bigBlocky(seed): Object {
-    let blocky: Object = { // All options are optional
-      seed: 'randstring', // seed used to generate icon data, default: random
-      color: '#dfe', // to manually specify the icon color, default: random
-      //bgcolor: '#aaa', // choose a different background color, default: random
-      size: 30, // width/height of the icon in blocks, default: 8
-      scale: 8, // width/height of each block in pixels, default: 4
-      spotcolor: '#000' // each pixel has a 13% chance of being of a third color,
-      // default: random. Set to -1 to disable it. These "spots" create structures
-      // that look like eyes, mouths and noses.
-    }
-    blocky['seed'] = seed;
-
-    return blocky
-  }
-
   openBuy(ticker): void {
     let dialogRef = this.dialog.open(ConverterDialogComponent, {
       maxWidth: 'none',
@@ -70,20 +57,16 @@ export class TribeCardComponent implements OnInit {
     });
   }
 
-
-  hasTT(ticker): boolean{
-    const token = this.userService.currentUser.tribeTokens
-      .find((item) => item.ticker === ticker)
-    return token ? token.balance >= this.tribe.configMembershipFee : false;
+  hasTT(): boolean{
+    return this.userService.hasTT(this.tribe);
   }
 
-  hasNT() : boolean{
-    return !!this.userService.currentUser.ntBalance;
+  hasNT(amount: number = 0) : boolean{
+    return this.userService.hasNT(amount);
   }
 
   isMember(): boolean {
-    return this.userService.currentUser ?
-      (this.tribe.members.indexOf(this.userService.currentUser) > -1) : false;
+    return this.tribeService.isMember(this.tribe);
   }
 
 }

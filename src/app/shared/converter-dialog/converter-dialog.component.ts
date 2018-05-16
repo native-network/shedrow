@@ -15,36 +15,9 @@ export class ConverterDialogComponent implements OnInit{
 
   constructor(
     public dialogRef: MatDialogRef<ConverterDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private userService: UserService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     onClose(): void {
-      this.dialogRef.close();
-    }
-
-    addTribeToken(ticker: string): TribeToken {
-      const newToken = {ticker: ticker, balance: 0}      
-      const token = this.userService.currentUser.tribeTokens.find((item) => item.ticker === ticker)
-      if(!token){
-        this.userService.currentUser.tribeTokens.push(newToken)
-      }
-
-      return token || newToken;
-    }
-
-    convert(){
-      let tribeToken: TribeToken;
-      if( this.data.from === 'ETH') {
-        this.userService.currentUser.ethBalance = this.userService.currentUser.ethBalance - this.fromAmount;
-        this.userService.currentUser.ntBalance = this.userService.currentUser.ntBalance + (this.fromAmount * this.ratio);
-      } else {
-        tribeToken = this.addTribeToken(this.data.to);
-        this.userService.currentUser.ntBalance = this.userService.currentUser.ntBalance - this.fromAmount;
-        tribeToken.balance = tribeToken.balance + (this.fromAmount * this.ratio);        
-      }
-      console.log(this.userService.currentUser);
-      
-      
       this.dialogRef.close();
     }
 

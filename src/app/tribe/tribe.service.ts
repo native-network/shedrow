@@ -21,9 +21,12 @@ export class TribeService {
 
   joinTribe(tribe:Tribe): void {
     // auth check
+    console.log('tribe', tribe);
+    
     let user = this.userService.currentUser;
     let token = this.userService.currentUser.tribeTokens
       .find((item) => item.ticker === tribe.tickerSymbol)
+    console.log('token', token);
     
     token.balance = token.balance - tribe.configMembershipFee;
     tribe.members.push(user);
