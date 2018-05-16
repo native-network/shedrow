@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TribeToken } from '../../user/user';
 import { UserService } from '../../user/user.service';
 
@@ -11,6 +11,7 @@ export class TokenConverterComponent implements OnInit {
   @Input() from: string;
   @Input() to: string;
   @Input() ratio: number;
+  @Output() onConvert: EventEmitter<any> = new EventEmitter();
   fromAmount: number;
   toAmount: number;
   converterOpen: boolean = true;
@@ -42,6 +43,7 @@ export class TokenConverterComponent implements OnInit {
       tribeToken.balance = tribeToken.balance + (this.fromAmount * this.ratio);
     }
     this.converterOpen = false;
+    this.onConvert.emit([(this.fromAmount * this.ratio)]);
 
   }
 

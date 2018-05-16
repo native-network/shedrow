@@ -26,5 +26,7 @@ export class ConverterDialogComponent implements OnInit{
       this.ratio = this.data.ratio || 1;
     }
     
-
+    onConvert(toAmmount: number){
+      this.dialogRef.close();
+    }
 }
