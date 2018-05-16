@@ -17,10 +17,10 @@
     <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
     <a target="_blank" href="https://www.google.com/maps/place/{{tribe.location}}"><mat-icon>place</mat-icon> {{tribe.location}}</a>
   </mat-card-content>
-  <mat-card-actions *ngIf="!hasNT()">
+  <mat-card-actions *ngIf="!hasNT() && !isMember()">
     <p>{{tribe.configMembershipFee}}</p>
-      <app-buy-native-button></app-buy-native-button>
-    </mat-card-actions>
+    <app-buy-native-button></app-buy-native-button>
+  </mat-card-actions>
   <mat-card-actions *ngIf="hasNT() || isMember()">
     <app-join-button *ngIf="!hasTT()" [tribe]="tribe"></app-join-button>
     <button *ngIf="hasTT()" mat-raised-button color="accent" (click)="openBuy(tribe.tickerSymbol)">BUY</button>

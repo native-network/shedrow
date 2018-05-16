@@ -6,7 +6,7 @@ import { Tribe } from '../tribe/tribe';
 
 @Injectable()
 export class UserService {
-  public currentUser: User;  
+  public currentUser: User;
 
   constructor() { }
 
@@ -29,7 +29,7 @@ export class UserService {
   }
 
   hasNT(amount: number = 0) : boolean{
-    return this.currentUser.ntBalance >= amount;
+    return this.currentUser.ntBalance > amount;
   }
 
 }
