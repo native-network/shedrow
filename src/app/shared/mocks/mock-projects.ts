@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[0],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 4),
+    supported: USERS.slice(0, USERS.length - 5),
   },
   {
     slug: "eg-dc-youth",
@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[0],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 4),
+    supported: USERS.slice(0, USERS.length - 5),
   },
   {
     slug: "eg-app",
@@ -55,7 +55,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[0],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 4),
+    supported: USERS.slice(0, USERS.length - 5),
   },
   {
     slug: "cc-fitness",
@@ -73,7 +73,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[1],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 4),
+    supported: USERS.slice(0, USERS.length - 5),
   },
   {
     slug: "cc-food",
@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[1],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 4),
+    supported: USERS.slice(0, USERS.length - 5),
   },
   {
     slug: "cc-csa",
@@ -109,7 +109,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[1],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 4),
+    supported: USERS.slice(0, USERS.length - 5),
   },
   {
     slug: "antidote",
@@ -127,7 +127,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[2],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 4),
+    supported: USERS.slice(0, USERS.length - 5),
   },
   {
     slug: "reson8",
@@ -145,7 +145,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[2],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 4),
+    supported: USERS.slice(0, USERS.length - 5),
   },
   {
     slug: "origami-moon",
@@ -163,6 +163,6 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[2],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 4),
+    supported: USERS.slice(0, USERS.length - 5),
   },
   ]
