@@ -2,6 +2,7 @@
 <div mat-dialog-content class="mat-typography">
   <h2 mat-dialog-title>So you want to Join this Tribe?</h2>
   <h3><b>{{ tribe.name }}</b></h3>
+
   <ol class="join-progress">
     <li><mat-icon>done</mat-icon>Get Native Token</li>
     <li><mat-icon *ngIf="hasTT()">done</mat-icon>Get Tribe Tokens ({{tribe.tickerSymbol}})</li>
@@ -24,5 +25,7 @@
 <div mat-dialog-actions>
   <button mat-raised-button (click)="onNoClick()">No Thanks</button>
   <button *ngIf="isMember()" mat-raised-button color="accent" [mat-dialog-close]="data" cdkFocusInitial><mat-icon>user</mat-icon> You are a member.</button>
+
   <button *ngIf="!isMember() && hasTT()" mat-raised-button color="accent" (click)="joinTribe()" [mat-dialog-close]="data" cdkFocusInitial><mat-icon>add_circle</mat-icon> OK Stake</button>
+
 </div>

@@ -15,11 +15,13 @@ export class TokenConverterComponent implements OnInit {
   toAmount: number;
   converterOpen: boolean = true;
 
+
   constructor(
     private userService: UserService) { }
 
   addTribeToken(ticker: string): TribeToken {
-    const newToken = {ticker: ticker, balance: 0}
+    const newToken = {ticker: ticker, balance: 0}      
+
     const token = this.userService.currentUser.tribeTokens.find((item) => item.ticker === ticker)
     if(!token){
       this.userService.currentUser.tribeTokens.push(newToken)
@@ -36,6 +38,7 @@ export class TokenConverterComponent implements OnInit {
     } else {
       tribeToken = this.addTribeToken(this.to);
       this.userService.currentUser.ntBalance = this.userService.currentUser.ntBalance - this.fromAmount;
+
       tribeToken.balance = tribeToken.balance + (this.fromAmount * this.ratio);
     }
     this.converterOpen = false;
@@ -44,6 +47,7 @@ export class TokenConverterComponent implements OnInit {
 
   converterToggle(){
     this.converterOpen = !this.converterOpen;
+
   }
 
   ngOnInit() {

@@ -16,7 +16,7 @@ export class TribeCardComponent implements OnInit {
   @Input() rotateStatus: boolean = false;
 
   constructor(
-    public dialog: MatDialog,
+    public dialog: MatDialog, 
     private userService: UserService,
     private tribeService: TribeService) { }
 
