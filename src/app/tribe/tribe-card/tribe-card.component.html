@@ -21,9 +21,9 @@
     <p>{{tribe.configMembershipFee}}</p>
     <app-buy-native-button></app-buy-native-button>
   </mat-card-actions>
-  <mat-card-actions *ngIf="hasNT() || isMember()">
-    <app-join-button *ngIf="!hasTT()" [tribe]="tribe"></app-join-button>
-    <button *ngIf="hasTT()" mat-raised-button color="accent" (click)="openBuy(tribe.tickerSymbol)">BUY</button>
+  <mat-card-actions *ngIf="hasNT()">
+    <app-join-button *ngIf="!isMember()" [tribe]="tribe"></app-join-button>
+    <button *ngIf="isMember()" mat-raised-button color="accent" (click)="openBuy(tribe.tickerSymbol)">BUY</button>
     <button mat-raised-button color="primary" routerLink="/tribe/{{tribe.address}}">VIEW</button>
   </mat-card-actions>
 </mat-card>
