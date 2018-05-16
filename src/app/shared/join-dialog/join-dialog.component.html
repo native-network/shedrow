@@ -1,0 +1,23 @@
+
+<div mat-dialog-content class="mat-typography">
+  <h2 mat-dialog-title>So you want to Join this Tribe?</h2>
+  <h3><b>{{ tribe.name }}</b></h3>
+  <ol>
+    <li><mat-icon>done</mat-icon>Buy Native Token.</li>
+    <li><mat-icon *ngIf="hasTT()">done</mat-icon>Buy Tribe Token ({{tribe.tickerSymbol}}).</li>
+    
+    <app-token-converter [to]="tribe.tickerSymbol" [from]="'NT'" [ratio]="1000"></app-token-converter>
+    
+    <li>Stake Native Token.</li>
+  </ol>
+  
+  
+  <h4>You need to buy and stake <b>{{tribe.configMembershipFee}}</b><span class="ticker">TT</span> to join.</h4>
+  <p>We'll convert <b>1</b><span class="ticker">NT</span> into <b>{{tribe.configMembershipFee}}</b><span class="ticker">TT</span> and stake your Membership into the Tribe.</p>
+  <p class="mat-caption">You can get more Tribe Tokens if you like, and you can exit the tribe at any time by unstaking your TT.</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">No Thanks</button>
+  <button *ngIf="isMember()" mat-raised-button color="accent" [mat-dialog-close]="data" cdkFocusInitial><mat-icon>user</mat-icon> You are a member.</button>
+  <button *ngIf="!isMember()" mat-raised-button color="accent" (click)="joinTribe()" [mat-dialog-close]="data" cdkFocusInitial><mat-icon>add_circle</mat-icon> OK GO</button>
+</div>

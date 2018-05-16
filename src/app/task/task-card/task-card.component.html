@@ -6,10 +6,12 @@
       <span *ngIf="!task.claimed">Open</span>
     </mat-card-subtitle>
   </mat-card-header>
+  <img *ngIf="task.image" mat-card-image src="{{task.image}}" alt="task-image">
   <mat-card-content>
     <p>{{task.description}}</p>
   </mat-card-content>
   <mat-card-actions>
+    <div class="rule"><h4>{{task.reward}}<span class="ticker">TT</span></h4></div>
     <button routerLink="/tribe/{{task.tribe.address}}/task/{{task.slug}}" mat-raised-button color="primary">VIEW</button>
   </mat-card-actions>
 </mat-card>
