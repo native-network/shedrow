@@ -21,7 +21,6 @@ export const TRIBES: Tribe[] = [
     tickerSymbol: 'EGTT',
     configQuorum: 99,
     configMembershipFee: 100,
-
   },
   {
     name: 'Cloud Collective',
@@ -42,7 +41,6 @@ export const TRIBES: Tribe[] = [
     tickerSymbol: 'CCTT',
     configQuorum: 33,
     configMembershipFee: 100,
-
   },
   {
     name: 'Imaginal Films',
@@ -63,6 +61,5 @@ export const TRIBES: Tribe[] = [
     tickerSymbol: 'IFTT',
     configQuorum: 66,
     configMembershipFee: 100,
-
   },
   ]

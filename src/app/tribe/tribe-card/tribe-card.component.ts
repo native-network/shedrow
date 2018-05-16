@@ -57,7 +57,6 @@ export class TribeCardComponent implements OnInit {
     });
   }
 
-
   hasTT(): boolean{
     return this.userService.hasTT(this.tribe);
   }

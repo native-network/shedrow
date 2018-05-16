@@ -38,7 +38,6 @@ export const PROJECTS: Project[] = [
     state: "idea",
     deadline: 20,
     supported: USERS.slice(0, USERS.length - 5),
-
   },
   {
     slug: "eg-app",
@@ -165,6 +164,5 @@ export const PROJECTS: Project[] = [
     state: "idea",
     deadline: 20,
     supported: USERS.slice(0, USERS.length - 5),
-
   },
   ]
