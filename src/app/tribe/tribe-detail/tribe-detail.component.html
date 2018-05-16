@@ -70,7 +70,7 @@
         <app-join-button [tribe]="tribe"></app-join-button>
       </div>
 
-      <div *ngIf="!isMember()" class="isMember">
+      <div *ngIf="isMember()" class="isMember">
 
         <h2 class="section-title">Projects</h2>
         <app-project-list [tribe]="tribe"></app-project-list>
