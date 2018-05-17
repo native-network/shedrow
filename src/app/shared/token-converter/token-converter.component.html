@@ -15,11 +15,14 @@
     </mat-form-field>
     {{to}}
   </div>
-  <button mat-raised-button color="accent" (click)="convert()">BUY</button>
+  <div class="buy-button">
+    <button  mat-raised-button color="accent" (click)="convert()">BUY</button>
+  </div>
 </div>
 
 <div class="converter confetti" *ngIf="!converterOpen">
-  <h4>You received</h4><h1>{{fromAmount * ratio}} {{to}}<div class="confetti-div" [class.animate]="!converterOpen"></div></h1>
+  <h4>You received</h4>
+  <h1><b>{{fromAmount * ratio}}</b> {{to}}<div class="confetti-div" [class.animate]="!converterOpen"></div></h1>
   <!--<button mat-raised-button (click)="close()">DONE</button>-->
   <!--<button mat-raised-button color="accent" (click)="converterToggle()">GET MORE TOKENS</button>-->
 </div>
