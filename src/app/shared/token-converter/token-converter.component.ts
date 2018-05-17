@@ -13,6 +13,7 @@ export class TokenConverterComponent implements OnInit {
   @Input() to: string;
   @Input() ratio: number;
   @Output() onConvert: EventEmitter<any> = new EventEmitter();
+  @Output() onClose: EventEmitter<any> = new EventEmitter();
   fromAmount: number;
   toAmount: number;
   converterOpen: boolean = true;
@@ -23,7 +24,7 @@ export class TokenConverterComponent implements OnInit {
     private matSnackBar: MatSnackBar) { }
 
   addTribeToken(ticker: string): TribeToken {
-    const newToken = {ticker: ticker, balance: 0}      
+    const newToken = {ticker: ticker, balance: 0}
 
     const token = this.userService.currentUser.tribeTokens.find((item) => item.ticker === ticker)
     if(!token){
@@ -38,8 +39,8 @@ export class TokenConverterComponent implements OnInit {
     let tribeToken: TribeToken;
     let status: string;
 
-    if(this.fromAmount <= 0) {
-      status = "Must be abover 0";
+    if(!this.fromAmount || this.fromAmount <= 0) {
+      status = "Must be more than 0";
       this.fromAmount = 0;
       this.matSnackBar.open(status, null, {duration: 3000});
       return
@@ -52,7 +53,7 @@ export class TokenConverterComponent implements OnInit {
         this.matSnackBar.open(status, null, {duration: 3000});
         return
       }
-      
+
       this.userService.currentUser.ethBalance = this.userService.currentUser.ethBalance - this.fromAmount;
       this.userService.currentUser.ntBalance = this.userService.currentUser.ntBalance + (this.fromAmount * this.ratio);
     } else {
@@ -62,7 +63,7 @@ export class TokenConverterComponent implements OnInit {
         this.matSnackBar.open(status, null, {duration: 3000});
         return
       }
-      
+
       tribeToken = this.addTribeToken(this.to);
       this.userService.currentUser.ntBalance = this.userService.currentUser.ntBalance - this.fromAmount;
 
@@ -73,9 +74,12 @@ export class TokenConverterComponent implements OnInit {
 
   }
 
+  close(){
+    this.onClose.emit();
+  }
+
   converterToggle(){
     this.converterOpen = !this.converterOpen;
-
   }
 
   ngOnInit() {

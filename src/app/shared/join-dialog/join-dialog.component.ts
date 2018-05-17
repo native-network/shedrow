@@ -18,7 +18,7 @@ export class JoinDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<JoinDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  onNoClick(): void {
+  onClose(): void {
     this.dialogRef.close();
   }
 
