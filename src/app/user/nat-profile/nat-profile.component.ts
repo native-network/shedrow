@@ -3,7 +3,7 @@ import { Web3Service } from '../../util/web3.service';
 import { User } from '../user';
 import { UserService } from '../user.service';
 import { AuthService } from '../../util/auth.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { SigninDialogComponent } from '../../shared/signin-dialog/signin-dialog.component';
 import { VerifyDialogComponent } from '../../shared/verify-dialog/verify-dialog.component';
 import { ConverterDialogComponent } from '../../shared/converter-dialog/converter-dialog.component'; 
@@ -44,18 +44,23 @@ export class NatProfileComponent implements OnInit {
       private userService: UserService,
       private web3Service: Web3Service,
       private authService: AuthService,
+      private matSnackBar: MatSnackBar,    
       public dialog: MatDialog
-    ) { }
+    ) { 
+      
+      this.userService.currentUserChange.subscribe(value => {
+        this.user = userService.currentUser;
+        this.blockiesOptions['seed'] = this.user.id.toLowerCase();
+      });
+    }
 
 
     connect() {
       if(this.web3Service.accounts) {
-        this.user = this.authService.authenticate(this.web3Service.accounts[0])
-        this.blockiesOptions['seed'] = this.user.id.toLowerCase();
+        this.authService.authenticate(this.web3Service.accounts[0])
       } else {
         this.openWalletDialog();
       }
-
     }
 
     openConverter(from, to, ratio): void {
@@ -99,19 +104,15 @@ export class NatProfileComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed', result);
-        (result === 'connect') ? this.connect() : 'pass';
+        
+        if (result === 'connect') {
+          this.matSnackBar.open('not signed into a web3 wallet', null, {duration: 3000})
+         };
       });
     }
 
-    watchAccount() {
-      this.web3Service.accountsObservable.subscribe((accounts) => {
-        // user must connect new account
-        this.user = null;
-      });
-    }
 
     ngOnInit() {
-      this.watchAccount();
     }
 
 }

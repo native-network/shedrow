@@ -8,7 +8,7 @@
       <h3>Haz Wallet?</h3>
       <pre class="face"><span>;)</span></pre>
       <p>Sign in to your web3 wallet of choice and hit Connect when ready.</p>
-      <button mat-raised-button color="accent" [mat-dialog-close]="connect">CONNECT</button>
+      <button mat-raised-button color="accent" (click)="connect()">CONNECT</button>
     </div>
     <div class="column connector" ngClass.gt-xs="grid-50" ngClass.xs="grid-100">
       <h3>Haz No Wallet</h3>
