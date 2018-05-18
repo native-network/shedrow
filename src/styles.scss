@@ -321,6 +321,8 @@ app-task-list {
    .cdk-overlay-container .mat-dialog-container .mat-dialog-content {
      display: block;
      max-width: 660px;
+     max-height: 100vh;
+     padding: 25px;
    }
 
    .mat-dialog-container .close-button {
@@ -503,5 +505,10 @@ app-task-list {
  @media all and (max-width: 600px) {
    .conversion .mat-icon {
      transform: rotate(90deg);
+   }
+
+   .convert-from,
+   .convert-to {
+     margin: 0px;
    }
  }

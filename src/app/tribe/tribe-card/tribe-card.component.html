@@ -12,7 +12,7 @@
   </mat-card-header>
   <img mat-card-image src="{{tribe.image}}" alt="line-graph">
   <mat-card-content>
-    <p>{{tribe.tribePurpose}}</p>
+    <p>{{tribe.tribeIntro}}</p>
     <p><a target="_blank" href="https://www.google.com/maps/place/{{tribe.location}}"><mat-icon>place</mat-icon> {{tribe.location}}</a></p>
     <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
     <p><mat-icon>trending_up</mat-icon> {{tribe.tokenValue}}<span class="ticker">NT</span></p>
@@ -20,7 +20,8 @@
 
   <mat-card-actions *ngIf="!hasNT() && !isMember()">
     <div class="rule">
-      <p>{{tribe.configMembershipFee}}<span class="ticker">NT</span> to join</p>
+      <p class="mat-caption">COST TO JOIN</p>
+      <h4><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h4>
     </div>
     <app-buy-native-button></app-buy-native-button>
   </mat-card-actions>
