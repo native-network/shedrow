@@ -80,6 +80,7 @@ export class TokenConverterComponent implements OnInit {
 
   converterToggle(){
     this.converterOpen = !this.converterOpen;
+
   }
 
   ngOnInit() {
