@@ -15,9 +15,13 @@
   <div class="view">
     <div class="contents">
       <div class="intro">
+        <div class="nat-blocky">
+          <img src="{{tribe.icon}}" *ngIf="tribe.icon">
+          <angular-blockies *ngIf="!tribe.icon" [options]="getBlocky(tribe.address)"></angular-blockies>
+        </div>
         <h1>{{tribe.name}}</h1>
         <h3 class="body-2">{{tribe.tribeIntro}}</h3>
-        <app-join-button [tribe]="tribe"></app-join-button>
+        <app-join-button *ngIf="!isMember()" [tribe]="tribe"></app-join-button>
       </div>
       <div class="grid">
         <div class="column" ngClass.gt-xs="grid-33" ngClass.lt-sm="grid-100">
