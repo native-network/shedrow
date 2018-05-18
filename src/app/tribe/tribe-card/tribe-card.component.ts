@@ -43,12 +43,12 @@ export class TribeCardComponent implements OnInit {
     return blocky
   }
 
-  openBuy(ticker): void {
+  openBuy(): void {
     let dialogRef = this.dialog.open(ConverterDialogComponent, {
       maxWidth: 'none',
       width: '100vw',
       height: '100vh',
-      data: {from: 'NT', to: ticker, ratio: 1000 }
+      data: {tribe: this.tribe, from: 'NT', to: this.tribe.tickerSymbol, ratio: ( 1/ this.tribe.tokenValue ) }
     });
 
     dialogRef.afterClosed().subscribe(result => {

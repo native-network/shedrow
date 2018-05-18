@@ -12,7 +12,7 @@
      = {{ratio}}
      <span *ngIf="data.to === 'NT'">NT</span>
      <span *ngIf="data.to !== 'NT'">TT</span></h4>
-  <app-token-converter (onConvert)="onConvert($event[0])" (onClose)="onClose()" [to]="data.to" [from]="data.from" [ratio]="ratio"></app-token-converter>
+  <app-token-converter [tribe]="data.tribe" (onConvert)="onConvert($event[0])" (onClose)="onClose()"></app-token-converter>
 </div>
 <div mat-dialog-actions>
   <button *ngIf="hasNT()" (click)="onClose()" mat-raised-button>CLOSE</button>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TribeToken } from '../../user/user';
 import { UserService } from '../../user/user.service';
 import { MatSnackBar } from '@angular/material';
+import { Tribe } from '../../tribe/tribe';
 
 @Component({
   selector: 'app-token-converter',
@@ -9,19 +10,22 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./token-converter.component.scss']
 })
 export class TokenConverterComponent implements OnInit {
-  @Input() from: string;
-  @Input() to: string;
-  @Input() ratio: number;
+  @Input() tribe: Tribe = null;
+  
   @Output() onConvert: EventEmitter<any> = new EventEmitter();
   @Output() onClose: EventEmitter<any> = new EventEmitter();
   fromAmount: number;
   toAmount: number;
+  from: string;
+  to: string;
+  ratio: number = 100;
   converterOpen: boolean = true;
 
 
   constructor(
     private userService: UserService,
-    private matSnackBar: MatSnackBar) { }
+    private matSnackBar: MatSnackBar) {     
+    }
 
   addTribeToken(ticker: string): TribeToken {
     const newToken = {ticker: ticker, balance: 0}
@@ -84,6 +88,17 @@ export class TokenConverterComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.tribe) {
+      this.from = 'NT';
+      this.to = this.tribe.tickerSymbol;
+      this.ratio = 1 / this.tribe.tokenValue;
+      this.fromAmount = this.tribe.configMembershipFee * this.tribe.tokenValue; 
+      this.toAmount = this.tribe.configMembershipFee;
+    } else {
+      this.from = 'ETH';
+      this.to = 'NT';
+
+    }
   }
 
 }
