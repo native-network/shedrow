@@ -21,7 +21,7 @@
           <h2>Purpose</h2>
           <h3>{{project.description}}</h3>
         </div>
-        <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+        <div class="column action-column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
 
           <h4 class="mat-caption">Support Goal</h4> <h2><b>{{(project.tribe | quorum)}}</b> of <b>{{project.tribe.members.length}}</b> Total Members</h2>
           <p class="mat-caption">Tribe Quorum: {{project.tribe.configQuorum }}% Membership Participation </p>
@@ -31,10 +31,11 @@
               [value]="(project.supported.length / (project.tribe | quorum)) * 100"
               >
           </mat-progress-bar>
+          <div class="confetti-div" [class.animate]="!((project.tribe | quorum) - project.supported.length)"></div>
           <h4>Currently <b>{{project.supported.length}}</b> of <b>{{project.tribe.members.length}}</b>
           <span *ngIf="(project.tribe | quorum) - project.supported.length" > <small>({{(project.tribe | quorum) - project.supported.length}} more needed)</small></span>
           </h4>
-          <h1 *ngIf="!((project.tribe | quorum) - project.supported.length)" ><mat-icon>check</mat-icon> Project Supported</h1>
+          <h1 *ngIf="!((project.tribe | quorum) - project.supported.length)">Project Supported <mat-icon>check</mat-icon></h1>
           <div *ngIf="(project.tribe | quorum) - project.supported.length" class="actions">
             <button mat-raised-button color="accent" (click)="vote()">SUPPORT</button>
           </div>

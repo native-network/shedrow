@@ -321,6 +321,9 @@ app-task-list {
    .cdk-overlay-container .mat-dialog-container .mat-dialog-content {
      display: block;
      max-width: 660px;
+     max-height: 100vh;
+     padding: 25px;
+
    }
 
    .mat-dialog-container .close-button {
@@ -426,6 +429,11 @@ app-task-list {
 
  // Confetti
 
+
+ .action-column {
+   position: relative;
+ }
+
  .confetti-div {
    width: 100%;
    height: 100%;
@@ -434,6 +442,19 @@ app-task-list {
    top: -75%;
    left: 0;
    pointer-events: none;
+   overflow: visible;
+ }
+
+
+ .confetti-div:before,
+ .confetti-div:after {
+   content: '';
+   display: block;
+   width: 100%;
+   height: 100%;
+   z-index: -1000;
+   transition: all ease-in-out 0.5s;
+   background-repeat: no-repeat;
    overflow: visible;
  }
 
@@ -451,17 +472,6 @@ app-task-list {
      background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
  }
 
- .confetti-div:before,
- .confetti-div:after {
-   content: '';
-   display: block;
-   width: 100%;
-   height: 100%;
-   z-index: -1000;
-   transition: all ease-in-out 0.5s;
-   background-repeat: no-repeat;
-   overflow: visible;
- }
 
  .confetti-div.animate:before {
    display: block;
@@ -503,5 +513,10 @@ app-task-list {
  @media all and (max-width: 600px) {
    .conversion .mat-icon {
      transform: rotate(90deg);
+   }
+
+   .convert-from,
+   .convert-to {
+     margin: 0px;
    }
  }
