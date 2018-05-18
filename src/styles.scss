@@ -59,7 +59,7 @@
    border-radius: 50px;
  }
 
-button[mat-raised-button]:not([class*=mat-elevation-z]) {
+button[mat-raised-button]:not([class*=mat-elevation-z]), button[mat-mini-fab]:not([class*=mat-elevation-z]) {
    box-shadow: none;
  }
 
@@ -143,6 +143,10 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
 
 
  // Flip Cards
+
+ app-tribe-list {
+   position: relative;
+ }
 
  app-tribe-card .tribe-card.back {
    position: absolute;
@@ -336,6 +340,8 @@ app-task-list {
      font-size: .75em;
      position: relative;
    }
+
+   .mat-typography p.mat-caption { margin-bottom: 0px; }
 
    // connector
 
