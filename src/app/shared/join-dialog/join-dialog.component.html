@@ -13,7 +13,7 @@
     <h3 class="mat-body-2">Convert some NT into {{tribe.tickerSymbol}}</h3>
   </div>
 
-  <app-token-converter (onConvert)="onConvert($event[0])" (onClose)="onClose()" [to]="tribe.tickerSymbol" [from]="'NT'" [ratio]="1000" *ngIf="!isMember()"></app-token-converter>
+  <app-token-converter (onConvert)="onConvert($event[0])" (onClose)="onClose()" [tribe]='tribe' *ngIf="!isMember()"></app-token-converter>
 
   <div class="instructions" *ngIf="hasTT()">
     <h3>You need to stake <b>{{tribe.configMembershipFee}}</b> <span class="ticker">{{tribe.tickerSymbol}}</span> into this Tribe to become a Member.</h3>
