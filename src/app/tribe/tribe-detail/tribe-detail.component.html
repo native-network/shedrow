@@ -15,7 +15,7 @@
   <div class="view">
     <div class="contents">
       <div class="intro">
-        <div class="nat-avatar">
+        <div class="nat-blocky">
           <img src="{{tribe.icon}}" *ngIf="tribe.icon">
           <angular-blockies *ngIf="!tribe.icon" [options]="getBlocky(tribe.address)"></angular-blockies>
         </div>
