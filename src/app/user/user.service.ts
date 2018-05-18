@@ -3,12 +3,19 @@ import { Injectable } from '@angular/core';
 import { User } from './user';
 import { USERS } from '../shared/mocks/mock-users';
 import { Tribe } from '../tribe/tribe';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class UserService {
   public currentUser: User;
+  public currentUserChange: Subject<User> = new Subject<User>();
 
-  constructor() { }
+
+  constructor() {
+    this.currentUserChange.subscribe((value) => {
+      this.currentUser = value
+    });
+   }
 
   getUsers(): User[] {
     return USERS;
@@ -22,6 +29,9 @@ export class UserService {
     USERS[0].id = addr;
   }
 
+  setCurrentUser(user) {
+    this.currentUserChange.next(user);
+  }
 
   hasTT(tribe): boolean{
     const token = this.currentUser.tribeTokens

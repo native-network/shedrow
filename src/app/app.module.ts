@@ -15,6 +15,7 @@ import { ProjectModule } from './project/project.module';
 import { HttpClientModule } from '@angular/common/http';
 import { Web3Service } from './util/web3.service';
 import { AuthService } from './util/auth.service';
+import { AuthGuardService } from './util/auth-guard.service';
 import { VoteModule } from './vote/vote.module';
 import { BancorService } from './util/bancor.service';
 
@@ -36,7 +37,7 @@ import { BancorService } from './util/bancor.service';
     ProjectModule,
     VoteModule,
   ],
-  providers: [AuthService, Web3Service, BancorService],
+  providers: [AuthService, AuthGuardService, Web3Service, BancorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

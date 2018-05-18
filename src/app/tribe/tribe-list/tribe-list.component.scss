@@ -1,0 +1,12 @@
+button.flip {
+  position: absolute;
+  top: -50px;
+  left: 169px;
+}
+
+@media all and (max-width: 600px) {
+  button.flip {
+    position: absolute;
+    top: -115px;
+  }
+}

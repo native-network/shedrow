@@ -15,6 +15,7 @@ export class ConverterDialogComponent implements OnInit{
 
   constructor(
     public dialogRef: MatDialogRef<ConverterDialogComponent>,
+    private userService: UserService,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     onClose(): void {
@@ -22,9 +23,15 @@ export class ConverterDialogComponent implements OnInit{
     }
 
     ngOnInit() {
-      
+
       this.ratio = this.data.ratio || 1;
     }
-    
 
+    hasNT(amount: number = 0) : boolean{
+      return this.userService.hasNT(amount);
+    }
+
+    onConvert(toAmount: number){
+      console.log('Conversion Success');
+    }
 }

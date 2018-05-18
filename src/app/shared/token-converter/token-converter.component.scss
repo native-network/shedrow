@@ -1,0 +1,22 @@
+.confetti {
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.confetti h4 {
+  margin-bottom: 0px;
+}
+
+.confetti h1 {
+  color: #4ba191;
+  margin-bottom: 0px;
+}
+
+.confetti > * {
+  flex-basis: 100%;
+}
+
+.buy-button {
+  flex-basis: 100%;
+  text-align: center;
+}

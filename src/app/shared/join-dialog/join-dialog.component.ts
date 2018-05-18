@@ -18,7 +18,7 @@ export class JoinDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<JoinDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  onNoClick(): void {
+  onClose(): void {
     this.dialogRef.close();
   }
 
@@ -40,6 +40,10 @@ export class JoinDialogComponent implements OnInit {
 
   isMember(): boolean {
     return this.tribeService.isMember(this.tribe);
+  }
+
+  onConvert(toAmmount: number){
+    console.log('done did it', toAmmount);
   }
 
 
