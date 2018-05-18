@@ -20,7 +20,8 @@
 
   <mat-card-actions *ngIf="!hasNT() && !isMember()">
     <div class="rule">
-      <p>{{tribe.configMembershipFee}}<span class="ticker">NT</span> to join</p>
+      <p class="mat-caption">COST TO JOIN</p>
+      <h4><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h4>
     </div>
     <app-buy-native-button></app-buy-native-button>
   </mat-card-actions>
