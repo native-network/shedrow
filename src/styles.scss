@@ -59,7 +59,7 @@
    border-radius: 50px;
  }
 
-button[mat-raised-button]:not([class*=mat-elevation-z]) {
+button[mat-raised-button]:not([class*=mat-elevation-z]), button[mat-mini-fab]:not([class*=mat-elevation-z]) {
    box-shadow: none;
  }
 
@@ -98,15 +98,15 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
   }
 
   .mat-card:not(.project-card) .mat-card-content {
-    padding-bottom: 40px;
+    padding-bottom: 100px;
   }
 
   .mat-card.project-card .mat-card-content {
     padding-bottom: 100px;
   }
 
- .mat-card.tribe-card {
-   border-radius: 25px;
+ .mat-card.tribe-card  {
+   border-radius: 10px;
  }
 
  .mat-card.project-card, .mat-card.vote-card, .mat-card.task-card {
@@ -120,6 +120,7 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
    width: 100%;
    text-align: center;
    margin: 0 !important;
+   >.rule { padding-top: 15px; border-top: 1px solid #70d0be;}
    >.mat-progress-bar { margin: 20px auto;}
  }
 
@@ -142,6 +143,10 @@ button[mat-raised-button]:not([class*=mat-elevation-z]) {
 
 
  // Flip Cards
+
+ app-tribe-list {
+   position: relative;
+ }
 
  app-tribe-card .tribe-card.back {
    position: absolute;
@@ -230,6 +235,26 @@ app-task-list {
    }
  }
 
+ // General Utils
+
+ .curator p {
+   display: inline-block;
+   line-height: 60px;
+   vertical-align: middle;
+
+ }
+
+ .nat-avatar {
+   background-size: cover;
+   background-position: center center;
+   background-repeat: no-repeat;
+   width: 60px;
+   height: 60px;
+   float: left;
+   margin-right: 15px;
+   border-radius: 50%;
+ }
+
  // Grid Utils
 
  .grid {
@@ -274,27 +299,6 @@ app-task-list {
      margin-right: 0px !important;
   }
 
- // CSS Grid Layout // Deprecated
-
-.css-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-	grid-auto-rows: 1fr;
-  grid-column-gap: 25px;
-  grid-row-gap: 25px;
-}
-
-.css-grid-33 {
-  grid-column: 1fr;
-}
-
-.css-grid-50 {
-  grid-column: 1.5fr;
-}
-
-.css-grid-100 {
-  grid-column: 1 / span 3;
-}
 
   .fill-space {
     flex: 1 1 auto;
@@ -316,7 +320,9 @@ app-task-list {
 
    .cdk-overlay-container .mat-dialog-container .mat-dialog-content {
      display: block;
-     max-width: 600px;
+     max-width: 660px;
+     max-height: 100vh;
+     padding: 25px;
    }
 
    .mat-dialog-container .close-button {
@@ -334,8 +340,10 @@ app-task-list {
 
    span.ticker {
      font-size: .75em;
-     position: absolute;
+     position: relative;
    }
+
+   .mat-typography p.mat-caption { margin-bottom: 0px; }
 
    // connector
 
@@ -352,20 +360,20 @@ app-task-list {
    // Converter
 
    .cdk-overlay-container .mat-dialog-container .mat-dialog-content {
-     > h2 {
-       text-align: center;
-     }
-     > h4 {
-       text-align: center;
-     }
-     > p {
+     > h1, h2, h3, h4, h5, h6, p {
        text-align: center;
      }
    }
 
+   .instructions {
+     margin: 0 auto;
+     max-width: 420px;
+   }
+
    .converter {
      display: flex;
-     margin: 50px auto;
+     margin: 10px auto;
+     padding: 25px;
      align-items: center;
      justify-content: center;
      >.convert-from {
@@ -377,6 +385,11 @@ app-task-list {
      }
      >.convert-to {
        text-align: left;
+     }
+     &.confetti {
+       text-align: center;
+       border-top: 1px solid #70d0be;
+       border-bottom: 1px solid #70d0be;
      }
    }
 
@@ -413,8 +426,93 @@ app-task-list {
    }
  }
 
+ // Confetti
+
+ .action-column {
+   position: relative;
+ }
+
+ .confetti-div {
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   z-index: 0;
+   top: -75%;
+   left: 0;
+   pointer-events: none;
+   overflow: visible;
+ }
+
+ .confetti-div:before,
+ .confetti-div:after {
+   content: '';
+   display: block;
+   width: 100%;
+   height: 100%;
+   z-index: -1000;
+   transition: all ease-in-out 0.5s;
+   background-repeat: no-repeat;
+   overflow: visible;
+ }
+
+ .confetti-div:before {
+     display: none;
+     top: -25%;
+     background-image: radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, transparent 20%, #FBC24D 20%, transparent 30%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, transparent 10%, #FBC24D 15%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%);
+     background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+ }
+
+ .confetti-div:after {
+     display: none;
+     bottom: -25%;
+     background-image: radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, transparent 10%, #FBC24D 15%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%);
+     background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+ }
+
+ .confetti-div.animate:before {
+   display: block;
+   animation: topBubbles ease-in-out 0.75s forwards;
+ }
+
+ .confetti-div.animate:after {
+   display: block;
+   animation: bottomBubbles ease-in-out 0.75s forwards;
+ }
+
+ @keyframes
+ topBubbles {  0% {
+  background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+ }
+  50% {
+  background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+ }
+  100% {
+  background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+  background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+ }
+ }
+
+ @keyframes
+ bottomBubbles {  0% {
+  background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+ }
+  50% {
+  background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+ }
+  100% {
+  background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+  background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+ }
+ }
+
+
  @media all and (max-width: 600px) {
    .conversion .mat-icon {
      transform: rotate(90deg);
+   }
+
+   .convert-from,
+   .convert-to {
+     margin: 0px;
    }
  }

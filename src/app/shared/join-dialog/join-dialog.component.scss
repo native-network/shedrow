@@ -1,0 +1,35 @@
+.join-progress {
+  list-style: none;
+  margin: 15px auto;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 660px;
+  >li {
+    display: block;
+    max-width: 33%;
+    flex-basis: 33%;
+    margin: 0;
+    padding: 0;
+    color: #F16667;
+    font-size: .75em;
+    &.completed {
+      color: #549387;
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  .join-progress {
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-width: 100%;
+    >li {
+      text-align: center;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}

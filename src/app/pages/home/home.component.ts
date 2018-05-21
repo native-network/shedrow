@@ -6,6 +6,9 @@ import { ConverterDialogComponent } from '../../shared/converter-dialog/converte
 import { TribeService } from '../../tribe/tribe.service';
 import { Tribe } from '../../tribe/tribe';
 import { AuthService } from '../../util/auth.service';
+import { UserService } from '../../user/user.service';
+import { User } from '../../user/user';
+import { Web3Service } from '../../util/web3.service';
 
 
 
@@ -15,10 +18,17 @@ import { AuthService } from '../../util/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  user: User;
 
   constructor(
-    private authService: AuthService , 
-    public dialog: MatDialog) { }
+    private authService: AuthService, 
+    private userService: UserService,
+    private web3Service: Web3Service,
+    public dialog: MatDialog) {
+      this.userService.currentUserChange.subscribe(value => {
+        this.user = userService.currentUser;
+      });
+     }
 
   ngOnInit() {
   }
@@ -40,18 +50,13 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  openConverter(): void {
-    let dialogRef = this.dialog.open(ConverterDialogComponent, {
-      maxWidth: 'none',
-      width: '100vw',
-      height: '100vh',
-      data: {from: 'ETH', to: 'NT', ratio: 100 }
-    });
+  connect() {
+    if(this.web3Service.accounts) {
+      this.authService.authenticate(this.web3Service.accounts[0])
+    } else {
+      this.openDialog();
+    }
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-    });
   }
 
 }

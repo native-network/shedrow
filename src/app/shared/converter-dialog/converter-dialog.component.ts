@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { UserService } from '../../user/user.service';
+import { TribeToken } from '../../user/user';
 
 @Component({
   selector: 'app-converter-dialog',
@@ -14,29 +15,23 @@ export class ConverterDialogComponent implements OnInit{
 
   constructor(
     public dialogRef: MatDialogRef<ConverterDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private userService: UserService) { }
+    private userService: UserService,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     onClose(): void {
       this.dialogRef.close();
     }
 
-    convert(){
-      
-      if( this.data.from === 'ETH') {
-        this.userService.currentUser.ethBalance = this.userService.currentUser.ethBalance - this.fromAmount;
-        this.userService.currentUser.ntBalance = this.userService.currentUser.ntBalance + (this.fromAmount * this.ratio);
-      } else {
-        this.userService.currentUser.ntBalance = this.userService.currentUser.ntBalance - this.fromAmount;
-        this.userService.currentUser.ttBalance = this.userService.currentUser.ttBalance + (this.fromAmount * this.ratio);
-      }
-      
-      this.dialogRef.close();
-    }
-
     ngOnInit() {
+
       this.ratio = this.data.ratio || 1;
     }
-    
 
+    hasNT(amount: number = 0) : boolean{
+      return this.userService.hasNT(amount);
+    }
+
+    onConvert(toAmount: number){
+      console.log('Conversion Success');
+    }
 }
