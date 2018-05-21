@@ -20,9 +20,10 @@
       </div>
     </div>
     <div>
-        has voted
-        {{hasVoted()}}
-      </div>
+        <p>has voted: {{hasVoted()}}</p>
+        <p>related project: {{vote.relatedProject}}</p>
+        <p>related task: {{vote.relatedTask}}</p>
+    </div>
     <div>
       results {{results.length}}
       <div class="result" *ngFor="let result of getResults()">
