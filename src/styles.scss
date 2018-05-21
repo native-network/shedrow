@@ -427,8 +427,77 @@ app-task-list {
    }
  }
 
- // Confetti
+ // Wizard
 
+ .wizard {
+   display: flex;
+   background: #fff;
+   width: 660px;
+   height: 340px;
+ }
+
+ .instructions {
+   flex-basis: 66%;
+   margin: 0;
+   background: #fff;
+   padding: 15px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .wizard-progress {
+   background: #549387;
+   margin: 0px;
+   flex-basis: 33%;
+   padding: 15px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: space-between;
+   >.step {
+     display: block;
+     flex-basis: 100%;
+     margin: 10px 0px;
+     padding: 0;
+     color: #fff;
+     font-size: 1em;
+     >.mat-icon { font-size: 2em; width: 32px; height: 32px; color: #f2666c; }
+     &.completed {
+       color: #fff;
+       >.mat-icon { color: #fff; }
+     }
+   }
+ }
+
+ .number-circle {
+   width: 28px;
+   height: 28px;
+   display: inline-block;
+   line-height: 28px;
+   text-align: center;
+   border-radius: 50%;
+   font-size: 1rem;
+   background-color: #f2666c;
+   font-weight: 500;
+   color: #fff;
+ }
+
+ @media all and (max-width: 600px) {
+   .wizard-progress {
+     flex-wrap: wrap;
+     flex-direction: column;
+     min-width: 100%;
+     >.step {
+       text-align: center;
+       max-width: 100%;
+       width: 100%;
+     }
+   }
+ }
+
+ // Confetti
 
  .action-column {
    position: relative;
