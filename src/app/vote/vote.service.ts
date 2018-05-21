@@ -35,6 +35,10 @@ export class VoteService {
     return vote.voted.filter((item) => item.user === user ).length > 0;
   }
 
+  hasVotedOn(vote: Vote, option: string, user: User) : boolean {
+    return vote.voted.filter((item) => item.user === user && item.option === option ).length > 0;
+  }
+
   getResults(vote: Vote) {
     return vote.voted
   }
