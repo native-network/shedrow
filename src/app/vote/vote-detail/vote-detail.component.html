@@ -15,8 +15,27 @@
         <div class="option" *ngFor="let option of vote.options">
           <p>{{option}}</p>
           <span class="fill-space"></span>
-          <button mat-raised-button color="primary">VOTE</button>
+          <button mat-raised-button color="primary" (click)="castVote(option)">VOTE</button>
         </div>
+      </div>
+    </div>
+    <div>
+        has voted
+        {{hasVoted()}}
+      </div>
+    <div>
+      results {{results.length}}
+      <div class="result" *ngFor="let result of getResults()">
+          <p>{{result.option}} {{result.count}}</p>
+          <mat-progress-bar
+              [color]="'accent'"
+              [mode]="'determinate'"
+              [value]="(result.count / (results.length)) * 100"
+              >
+          </mat-progress-bar>
+        </div>
+      <div class="result" *ngFor="let result of vote.voted">
+        <p>result: {{result.option}}</p>
       </div>
     </div>
   </div>

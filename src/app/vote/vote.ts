@@ -1,5 +1,7 @@
 import { User } from "../user/user";
 import { Tribe } from "../tribe/tribe";
+import { Project } from "../project/project";
+import { Task } from "../task/task";
 
 export class Vote {
     slug: string;
@@ -13,6 +15,8 @@ export class Vote {
     cost: number;
     tribe: Tribe;
     state: string; // open/closed
+    relatedProject?: Project;
+    relatedTask?: Task;
     options: Array<string>; 
   }
 
