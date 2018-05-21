@@ -19,6 +19,11 @@ export class TribeService {
     return of(TRIBES.find(tribe => tribe.address === id));
   }
 
+  getTribeByTicker(ticker): Observable<Tribe> {
+    return of(TRIBES.find(tribe => tribe.tickerSymbol === ticker));
+
+  }
+
   joinTribe(tribe:Tribe): void {
     // auth check
     console.log('tribe', tribe);
