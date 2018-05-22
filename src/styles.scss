@@ -377,18 +377,49 @@ app-task-list {
      padding: 0px;
      align-items: center;
      justify-content: center;
+     .buy-button {
+       width: 100%;
+     }
+     .mat-form-field-infix {
+       width: 100%;
+     }
+     .token-icon {
+       width: 48px;
+       height: 48px;
+       line-height: 48px;
+       border-radius: 50%;
+       text-align: center;
+       margin-bottom: 25px;
+       &:not(.svg-icon) {
+         border: 2px solid #4ba191;
+         background: #4ba191;
+         color: #fff;
+       }
+       &.svg-icon svg {
+         fill: #4ba191;
+       }
+     }
      >.convert-from {
-       text-align: right;
-       flex-basis: 40%
+       flex-basis: 40%;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
      }
      >.conversion {
-       text-align: center;
        margin: 0px 0px;
        flex-basis: 20%;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
      }
      >.convert-to {
-       text-align: left;
        flex-basis: 40%;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
      }
      &.confetti {
        text-align: center;
@@ -458,11 +489,12 @@ app-task-list {
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   justify-content: space-between;
+   justify-content: flex-start;
+   padding-bottom: 75px;
    >.step {
      display: block;
      flex-basis: 100%;
-     margin: 10px 0px;
+     margin: 5px 0px;
      padding: 0;
      color: #fff;
      font-size: 1em;

@@ -2,14 +2,14 @@
 <div mat-dialog-content class="mat-typography">
   <div class="wizard">
   <div class="wizard-progress">
-    <h2 mat-dialog-title>Join <b>{{ tribe.name }}</b></h2>
+    <h2 mat-dialog-title>Join<br><b>{{ tribe.name }}</b></h2>
     <div class="step" [class.completed]="hasNT() || isMember()">
       <span *ngIf="!hasNT() && !isMember()" class="number-circle">1</span>
-      <mat-icon *ngIf="hasNT() || isMember()">check_circle</mat-icon> Native Tokens
+      <mat-icon *ngIf="hasNT() || isMember()">check_circle</mat-icon> Native Token
     </div>
     <div class="step" [class.completed]="hasTT() || isMember()">
       <span *ngIf="!hasTT() && !isMember()" class="number-circle">2</span>
-      <mat-icon *ngIf="hasTT() || isMember()">check_circle</mat-icon> Tribe Tokens
+      <mat-icon *ngIf="hasTT() || isMember()">check_circle</mat-icon> Tribe Token
     </div>
     <div class="step" [class.completed]="isMember()">
       <span *ngIf="!isMember()" class="number-circle">3</span>
@@ -18,30 +18,29 @@
   </div>
 
   <div class="instructions" *ngIf="!hasNT() && !hasTT() && !isMember()">
-    <h5>You need <b>{{tribe.configMembershipFee}}</b><span class="ticker">{{tribe.tickerSymbol}}</span> to join a tribe.</h5>
-    <h3 class="mat-body-2">Convert some ETH or BNT into Native Tokens</h3>
+    <h3 class="mat-body-2">You need <b>{{tribe.configMembershipFee}}</b> <span class="ticker">{{tribe.tickerSymbol}}</span> to join this tribe.</h3>
+    <p>Convert some ETH or BNT into Native Tokens</p>
     <app-token-converter (onConvert)="onConvert($event[0])" (onClose)="onClose()" *ngIf="!isMember()"></app-token-converter>
   </div>
 
   <div class="instructions" *ngIf="hasNT() && !hasTT() && !isMember()">
-    <h5>You need <b>{{tribe.configMembershipFee}}</b><span class="ticker">{{tribe.tickerSymbol}}</span> to join this tribe.</h5>
-    <h3 class="mat-body-2">Convert some NT into {{tribe.tickerSymbol}}</h3>
+    <h3 class="mat-body-2">You need <b>{{tribe.configMembershipFee}}</b> <span class="ticker">{{tribe.tickerSymbol}}</span> to join this tribe.</h3>
+    <p>Convert some NT into {{tribe.tickerSymbol}}</p>
+
     <app-token-converter (onConvert)="onConvert($event[0])" (onClose)="onClose()" [tribe]='tribe' *ngIf="!isMember()"></app-token-converter>
   </div>
 
   <div class="instructions" *ngIf="hasTT() && !isMember()">
-    <h3>You need to stake <b>{{tribe.configMembershipFee}}</b> <span class="ticker">{{tribe.tickerSymbol}}</span> into this Tribe to become a Member.</h3>
-    <p class="mat-caption">You can get more Tribe Tokens if you like later, and you can exit the tribe at any time by unstaking your TT.</p>
+    <h3 class="mat-body-2">You need to stake <b>{{tribe.configMembershipFee}}</b> <span class="ticker">{{tribe.tickerSymbol}}</span> into this Tribe to become a Member.</h3>
+    <p>You can get more Tribe Tokens if you like later, and you can exit the tribe at any time by unstaking your TT.</p>
     <button *ngIf="!isMember() && hasTT()" mat-raised-button color="accent" (click)="joinTribe()" cdkFocusInitial><mat-icon>add_circle</mat-icon> OK STAKE</button>
   </div>
 
   <div class="instructions" *ngIf="isMember()">
-    <h3>You are a Member!</h3>
+    <h3>You are now a member of</h3>
+    <h2><b>{{tribe.name}}</b></h2>
     <p class="mat-caption"></p>
-    <div class="grid">
-      <button class="grid-50" *ngIf="isMember()" mat-raised-button [mat-dialog-close]="data">Close</button>
-      <button class="grid-50" *ngIf="isMember()" mat-raised-button color="accent" [mat-dialog-close]="data" routerLink="/tribe/{{tribe.address}}" cdkFocusInitial>GO TO TRIBE</button>
-    </div>
+    <button *ngIf="isMember()" mat-raised-button color="accent" [mat-dialog-close]="data" routerLink="/tribe/{{tribe.address}}" cdkFocusInitial>GO TO TRIBE <mat-icon>arrow_forward</mat-icon></button>
   </div>
 
 </div><!--/wizard-->
