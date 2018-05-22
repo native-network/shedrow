@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { TaskService } from '../task.service';
 import { Location } from '@angular/common';
 import { Task } from '../task';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-task-detail',
@@ -10,17 +11,18 @@ import { Task } from '../task';
   styleUrls: ['./task-detail.component.scss']
 })
 export class TaskDetailComponent implements OnInit {
-
   task: Task;
+  comment: string;
 
   constructor(
     private route: ActivatedRoute,
     private taskService: TaskService,
+    private userService: UserService,
     private location: Location
-  ) { }
-
-  ngOnInit() {
-    this.getTask();
+  ) { 
+    taskService.workHistoryChange.subscribe(value => {
+      this.task.workHistories.push(value);
+    });
   }
 
   getTask(): void {
@@ -32,6 +34,30 @@ export class TaskDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  claim(){
+    this.taskService.addWork(this.userService.currentUser, "claimed");
+    this.taskService.claimTask(this.task, this.userService.currentUser);
+  }
+
+  addWork(comment: string){
+    this.taskService.addWork(this.userService.currentUser, comment);
+    this.comment = '';
+  }
+
+  submitTask(){
+    this.taskService.addWork(this.userService.currentUser, "submitted");
+    this.taskService.submitTask(this.task, this.userService.currentUser);    
+  }
+
+  quitTask(){
+    this.taskService.addWork(this.userService.currentUser, "quit");
+    this.taskService.quitTask(this.task);    
+  }
+
+  ngOnInit() {
+    this.getTask();
   }
 
 }

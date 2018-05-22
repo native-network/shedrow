@@ -1,12 +1,13 @@
 <mat-form-field class="filter">
   <mat-select placeholder="Task State" [(value)]="filterState">
+    <mat-option value="all">All</mat-option>    
     <mat-option value="open">Open</mat-option>
     <mat-option value="claimed">Claimed</mat-option>
     <mat-option value="pending">Pending</mat-option>
     <mat-option value="finished">Finished</mat-option>
   </mat-select>
 </mat-form-field>
-<mat-checkbox>Claimed by me!</mat-checkbox>
+<mat-checkbox>Waiting for action</mat-checkbox>
 <div class="grid">
   <app-task-card *ngFor="let task of tasks | inState: filterState" [task]="task" ngClass.gt-sm="grid-33" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
   </app-task-card>
