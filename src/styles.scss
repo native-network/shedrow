@@ -410,6 +410,18 @@ app-task-list {
      fill: #fff;
    }
 
+   .tag {
+     padding: 3px 6px;
+     border-top-left-radius: 25px;
+     border-top-right-radius: 25px;
+     border-bottom-left-radius: 25px;
+     border-bottom-right-radius: 25px;
+     background-color: #fff;
+     width: auto;
+     max-width: 33%;
+     text-align: center;
+   }
+
 
    // Overlay
 
