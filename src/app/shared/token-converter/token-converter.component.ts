@@ -22,6 +22,7 @@ export class TokenConverterComponent implements OnInit {
   to: string;
   ratio: number = 100;
   converterOpen: boolean = true;
+  fromTokenSymbol: string = 'ETH';
 
 
   constructor(
@@ -29,6 +30,9 @@ export class TokenConverterComponent implements OnInit {
     private matSnackBar: MatSnackBar) {     
     }
 
+  changeFrom(sym) {
+      this.fromTokenSymbol = sym;
+  }
 
   addTribeToken(ticker: string): TribeToken {
     const newToken = {ticker: ticker, balance: 0}
