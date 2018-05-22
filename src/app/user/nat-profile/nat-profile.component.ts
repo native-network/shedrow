@@ -63,20 +63,6 @@ export class NatProfileComponent implements OnInit {
       }
     }
 
-    openConverter(from, to, ratio): void {
-      let dialogRef = this.dialog.open(ConverterDialogComponent, {
-        maxWidth: 'none',
-        width: '100vw',
-        height: '100vh',
-        data: {from: from, to: to, ratio: ratio }
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-
-      });
-    }
-
     openVerifyDialog(): void {
       let dialogRef = this.dialog.open(VerifyDialogComponent, {
         maxWidth: 'none',
