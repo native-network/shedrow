@@ -9,17 +9,17 @@ import { Tribe } from '../../tribe/tribe';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
-  filterState: string = 'open';
+  filterState: string = 'all';
 
   constructor(private taskService: TaskService) { }
   @Input() tribe: Tribe;
   tasks: Task[];
 
   ngOnInit() {
-    this.getVote(this.tribe);
+    this.getTask(this.tribe);
   }
 
-  getVote(tribe: Tribe): void {
+  getTask(tribe: Tribe): void {
     this.taskService.getTasks(tribe)
       .subscribe(votes => this.tasks = votes);
   }
