@@ -15,19 +15,24 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'tribes', 
     component: TribeListComponent,
-    canActivate: [AuthGuardService]  },
+    // canActivate: [AuthGuardService]  
+  },
   { path: 'tribe/:id',
     component: TribeDetailComponent,
-    canActivate: [AuthGuardService] },
+    // canActivate: [AuthGuardService] 
+  },
   { path: 'tribe/:tribeId/project/:projectId',
     component: ProjectDetailComponent,
-    canActivate: [AuthGuardService] },
+    // canActivate: [AuthGuardService] 
+  },
   { path: 'tribe/:tribeId/vote/:voteId',
     component: VoteDetailComponent,
-    canActivate: [AuthGuardService] },
+    // canActivate: [AuthGuardService] 
+  },
   { path: 'tribe/:tribeId/task/:taskId',
     component: TaskDetailComponent,
-    canActivate: [AuthGuardService] },
+    // canActivate: [AuthGuardService] 
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },  
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
