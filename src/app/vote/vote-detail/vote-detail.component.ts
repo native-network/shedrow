@@ -16,6 +16,7 @@ export class VoteDetailComponent implements OnInit {
   vote: Vote;
   results: SubmittedVote[] = [];
   usersVoted: User[] = [];
+  resultCounts = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -26,7 +27,7 @@ export class VoteDetailComponent implements OnInit {
     this.voteService.resultsChange.subscribe(value => {
       this.vote = value;
       this.results = value.voted;
-      
+
     });
    }
 
@@ -37,17 +38,17 @@ export class VoteDetailComponent implements OnInit {
       .subscribe(vote => this.vote = vote);
   }
 
-  castVote(option: string): void {    
+  castVote(option: string): void {
     this.voteService.castVote(this.vote, option, this.userService.currentUser);
+    this.getResults();
   }
 
   getResults(){
-    let resultCounts = [];
+    this.resultCounts = [];
     for( let opt of this.vote.options) {
       let count = this.results.filter((item) => item.option === opt).length
-      resultCounts.push({option: opt, count: count})
+      this.resultCounts.push({option: opt, count: count})
     }
-    return resultCounts;
   }
 
   getUsersVoted(): User[] {
@@ -72,6 +73,6 @@ export class VoteDetailComponent implements OnInit {
     this.getVote();
     this.getResults();
     console.log(this.getUsersVoted());
-    
+
   }
 }

@@ -10,7 +10,7 @@
           {{vote.description}}
         </p>
       </div>
-      <div class="column votes" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+      <div class="column votes" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100" *ngIf="!hasVoted()">
         <h2 class="section-title">Vote Options</h2>
         <div class="option" *ngFor="let option of vote.options">
           <div class="label fill-space">
@@ -20,9 +20,9 @@
           <button mat-raised-button color="primary" (click)="castVote(option)">VOTE</button>
         </div>
       </div>
-      <div class="column votes" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+      <div class="column votes" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100" *ngIf="hasVoted()">
         <h2 class="section-title">Vote Results</h2>
-        <div class="option" *ngFor="let result of getResults()">
+        <div class="option" *ngFor="let result of resultCounts">
           <div class="label fill-space">
             <p>
               <span *ngIf="!hasVotedOn(result.option)">{{result.option}}</span>
