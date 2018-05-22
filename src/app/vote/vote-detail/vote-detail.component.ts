@@ -4,6 +4,7 @@ import { Vote, SubmittedVote } from '../vote';
 import { Location } from '@angular/common';
 import { VoteService } from '../vote.service';
 import { UserService } from '../../user/user.service';
+import { User } from '../../user/user';
 
 @Component({
   selector: 'app-vote-detail',
@@ -14,6 +15,7 @@ export class VoteDetailComponent implements OnInit {
 
   vote: Vote;
   results: SubmittedVote[] = [];
+  usersVoted: User[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,9 +24,9 @@ export class VoteDetailComponent implements OnInit {
     private userService: UserService
   ) {
     this.voteService.resultsChange.subscribe(value => {
-      console.log('listened ', value);
       this.vote = value;
       this.results = value.voted;
+      
     });
    }
 
@@ -48,7 +50,17 @@ export class VoteDetailComponent implements OnInit {
     return resultCounts;
   }
 
-  hasVoted(){
+  getUsersVoted(): User[] {
+    let voted = this.vote.voted.map(item => item.user );
+    // get unique voters
+    return Array.from(new Set(voted))
+  }
+
+  hasVotedOn(option: string): boolean{
+    return this.voteService.hasVotedOn(this.vote, option, this.userService.currentUser);
+  }
+
+  hasVoted(): boolean{
     return this.voteService.hasVoted(this.vote, this.userService.currentUser);
   }
 
@@ -59,5 +71,7 @@ export class VoteDetailComponent implements OnInit {
   ngOnInit() {
     this.getVote();
     this.getResults();
+    console.log(this.getUsersVoted());
+    
   }
 }

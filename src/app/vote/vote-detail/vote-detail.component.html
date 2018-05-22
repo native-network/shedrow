@@ -27,7 +27,7 @@
     <div>
       results {{results.length}}
       <div class="result" *ngFor="let result of getResults()">
-          <p>{{result.option}} {{result.count}}</p>
+          <p>{{result.option}} {{result.count}} <span *ngIf="hasVotedOn(result.option)">you voted on this.</span></p>
           <mat-progress-bar
               [color]="'accent'"
               [mode]="'determinate'"
@@ -35,9 +35,6 @@
               >
           </mat-progress-bar>
         </div>
-      <div class="result" *ngFor="let result of vote.voted">
-        <p>result: {{result.option}}</p>
-      </div>
     </div>
   </div>
 </div>
