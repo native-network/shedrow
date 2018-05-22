@@ -10,14 +10,42 @@
           {{vote.description}}
         </p>
       </div>
-      <div class="column votes" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+      <div class="column votes" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100" *ngIf="!hasVoted()">
         <h2 class="section-title">Vote Options</h2>
         <div class="option" *ngFor="let option of vote.options">
-          <p>{{option}}</p>
-          <span class="fill-space"></span>
-          <button mat-raised-button color="primary">VOTE</button>
+          <div class="label fill-space">
+            <p>{{option}}</p>
+          </div>
+          <!--<span class="fill-space"></span>-->
+          <button mat-raised-button color="primary" (click)="castVote(option)">VOTE</button>
         </div>
       </div>
+      <div class="column votes" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100" *ngIf="hasVoted()">
+        <h2 class="section-title">Vote Results</h2>
+        <div class="option" *ngFor="let result of resultCounts">
+          <div class="label fill-space">
+            <p>
+              <span *ngIf="!hasVotedOn(result.option)">{{result.option}}</span>
+              <span *ngIf="hasVotedOn(result.option)"><b>{{result.option}}</b> Your vote</span>
+              </p>
+          </div>
+          <!--<span class="fill-space"></span>-->
+          <button mat-raised-button color="primary" (click)="castVote(result.option)"> {{result.count}} ({{(result.count / results.length) | percent}})</button>
+          <div class="vote-progress">
+            <mat-progress-bar
+                [color]="'accent'"
+                [mode]="'determinate'"
+                [value]="(result.count / results.length) * 100"
+                >
+            </mat-progress-bar>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+        <p>has voted: {{hasVoted()}}</p>
+        <p>related project: {{vote.relatedProject}}</p>
+        <p>related task: {{vote.relatedTask}}</p>
     </div>
   </div>
 </div>

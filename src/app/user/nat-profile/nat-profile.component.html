@@ -5,9 +5,7 @@
 </div>
 
 <div class="wallet" *ngIf="user">
-  <div class="balance nt">
-    <button mat-button (click)="openConverter('ETH','NT', 100)">{{user.ntBalance}}<span class="ticker">NT</span> <mat-icon>add_circle</mat-icon></button>
-  </div>
+  <app-token-balances [user]="user"></app-token-balances>
   <div class="balance eth">
     <p>{{user.ethBalance}}<span class="ticker">&#x39e;</span><!--eth symbol--></p>
   </div>
