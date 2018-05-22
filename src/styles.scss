@@ -374,18 +374,21 @@ app-task-list {
    .converter {
      display: flex;
      margin: 10px auto;
-     padding: 25px;
+     padding: 0px;
      align-items: center;
      justify-content: center;
      >.convert-from {
        text-align: right;
+       flex-basis: 40%
      }
      >.conversion {
        text-align: center;
-       margin: 0px 25px;
+       margin: 0px 0px;
+       flex-basis: 20%;
      }
      >.convert-to {
        text-align: left;
+       flex-basis: 40%;
      }
      &.confetti {
        text-align: center;

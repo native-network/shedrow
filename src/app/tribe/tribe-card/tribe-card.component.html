@@ -63,7 +63,7 @@
     <div class="rule">
       <p>{{tribe.configMembershipFee}}<span class="ticker">NT</span> to join</p>
     </div>
-    <app-buy-native-button></app-buy-native-button>
+    <app-join-button *ngIf="!isMember()" [tribe]="tribe"></app-join-button>
   </mat-card-actions>
   <mat-card-actions *ngIf="hasNT()">
     <div class="rule" *ngIf="!isMember()">
