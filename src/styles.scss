@@ -323,6 +323,7 @@ app-task-list {
      max-width: 660px;
      max-height: 100vh;
      padding: 25px;
+
    }
 
    .mat-dialog-container .close-button {
@@ -409,6 +410,18 @@ app-task-list {
      fill: #fff;
    }
 
+   .tag {
+     padding: 3px 6px;
+     border-top-left-radius: 25px;
+     border-top-right-radius: 25px;
+     border-bottom-left-radius: 25px;
+     border-bottom-right-radius: 25px;
+     background-color: #fff;
+     width: auto;
+     max-width: 33%;
+     text-align: center;
+   }
+
 
    // Overlay
 
@@ -428,6 +441,7 @@ app-task-list {
 
  // Confetti
 
+
  .action-column {
    position: relative;
  }
@@ -442,6 +456,7 @@ app-task-list {
    pointer-events: none;
    overflow: visible;
  }
+
 
  .confetti-div:before,
  .confetti-div:after {
@@ -468,6 +483,7 @@ app-task-list {
      background-image: radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, transparent 10%, #FBC24D 15%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%), radial-gradient(circle, #FBC24D 20%, transparent 20%);
      background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
  }
+
 
  .confetti-div.animate:before {
    display: block;

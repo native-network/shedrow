@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TribeToken } from '../../user/user';
 import { UserService } from '../../user/user.service';
 import { MatSnackBar } from '@angular/material';
+
 import { Tribe } from '../../tribe/tribe';
 
 @Component({
@@ -10,6 +11,7 @@ import { Tribe } from '../../tribe/tribe';
   styleUrls: ['./token-converter.component.scss']
 })
 export class TokenConverterComponent implements OnInit {
+
   @Input() tribe: Tribe = null;
   
   @Output() onConvert: EventEmitter<any> = new EventEmitter();
@@ -26,6 +28,7 @@ export class TokenConverterComponent implements OnInit {
     private userService: UserService,
     private matSnackBar: MatSnackBar) {     
     }
+
 
   addTribeToken(ticker: string): TribeToken {
     const newToken = {ticker: ticker, balance: 0}
