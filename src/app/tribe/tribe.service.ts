@@ -24,6 +24,11 @@ export class TribeService {
 
   }
 
+  tokenList(){
+    //TODO
+    return TRIBES.map((item) => item.tickerSymbol);
+  }
+
   joinTribe(tribe:Tribe): void {
     // auth check
     console.log('tribe', tribe);
