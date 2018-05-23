@@ -44,7 +44,6 @@ export const TRIBES: Tribe[] = [
       'Health',
       'Wellness',
     ],
-    tags: 'Medicine, Health, Wellness',
     curators: USERS[1],
     members: USERS.slice(3),
     devFund: 100,

@@ -495,6 +495,7 @@ app-task-list {
  .wizard {
    display: flex;
    background: #fff;
+   min-width: 660px;
  }
 
  .instructions {
@@ -551,10 +552,10 @@ app-task-list {
 
    .wizard {
      flex-direction: column;
+     min-width: calc(100vw - 50px);
    }
 
    .instructions {
-
    }
 
    .wizard-progress {
@@ -662,12 +663,26 @@ app-task-list {
 
 
  @media all and (max-width: 600px) {
-   .conversion .mat-icon {
-     transform: rotate(90deg);
+
+
+
+   .converter {
+     .mat-form-field {
+       width: 100%;
+     }
+     .convert-from,
+     .convert-to {
+       flex-basis: 100%;
+       margin: 0px;
+     }
+     .conversion {
+       flex-basis: 100%;
+       margin: 25px auto 35px auto;
+       .mat-icon {
+         transform: rotate(90deg);
+       }
+     }
    }
 
-   .convert-from,
-   .convert-to {
-     margin: 0px;
-   }
+
  }
