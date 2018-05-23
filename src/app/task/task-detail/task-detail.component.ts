@@ -20,6 +20,7 @@ export class TaskDetailComponent implements OnInit {
     private userService: UserService,
     private location: Location
   ) {
+
     taskService.workHistoryChange.subscribe(value => {
       this.task.workHistories.push(value);
     });
@@ -47,7 +48,7 @@ export class TaskDetailComponent implements OnInit {
   }
 
   submitTask(){
-    this.taskService.addWork(this.userService.currentUser, "submitted");
+    this.taskService.addWork(this.userService.currentUser, "Submitted");
     this.taskService.submitTask(this.task, this.userService.currentUser);
   }
 

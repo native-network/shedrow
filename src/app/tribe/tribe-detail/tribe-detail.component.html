@@ -1,16 +1,5 @@
 <section class="mat-typography">
   <img src="{{tribe.image}}" style="width: 100% !important;"/>
-  <!-- commented out for now
-  <div class="hero tribe" [ngStyle]="{'background-image': 'url(' + tribe.image + ')'}">
-    <div class="grid">
-      <div class="column" ngClass.gt-sm="grid-50" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
-        <button mat-raised-button color="primary" (click)="goBack()"><mat-icon>arrow_back</mat-icon> GO BACK</button>
-      </div>
-      <div class="column" ngClass.gt-sm="grid-50" ngClass.sm="grid-50" ngClass.lt-sm="grid-100">
-      </div>
-    </div>
-  </div>
-  -->
 
   <div class="view">
     <div class="contents">
@@ -19,14 +8,21 @@
           <img src="{{tribe.icon}}" *ngIf="tribe.icon">
           <angular-blockies *ngIf="!tribe.icon" [options]="getBlocky(tribe.address)"></angular-blockies>
         </div>
-        <h1>{{tribe.name}}</h1>
+        <h1><b>{{tribe.name}}</b></h1>
         <h3 class="body-2">{{tribe.tribeIntro}}</h3>
-        <app-join-button *ngIf="!isMember()" [tribe]="tribe"></app-join-button>
+        <div class="tags">
+          <div class="tag" *ngFor="let tag of tribe.tags">{{tag}}</div>
+        </div>
+        <div class="intro-join" *ngIf="!isMember()">
+          <p class="mat-caption">COST TO JOIN</p>
+          <h3><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h3>
+          <app-join-button [tribe]="tribe"></app-join-button>
+        </div>
       </div>
       <div class="grid">
-        <div class="column" ngClass.gt-xs="grid-33" ngClass.lt-sm="grid-100">
+        <div class="column" ngClass.gt-sm="grid-33" ngClass.lt-sm="grid-100">
           <div class="tribe-intro">
-            <h2>Details</h2>
+            <h2>Tribe Details</h2>
             <p>{{tribe.tribePurpose}}</p>
             <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
             <p><mat-icon>place</mat-icon> {{tribe.location}}</p>
@@ -38,7 +34,7 @@
             </div>
           </div>
         </div>
-        <div class="column" ngClass.gt-xs="grid-33" ngClass.lt-sm="grid-100">
+        <div class="column" ngClass.gt-sm="grid-33" ngClass.lt-sm="grid-100">
           <div class="tribe-intro">
             <h2>Token Data</h2>
             <img src="{{tribe.dataImage}}">
@@ -55,12 +51,19 @@
                 <p class="mat-caption">Reserve</p>
                 <p><mat-icon>trending_up</mat-icon> {{tribe.reserveFund}}<span class="ticker">NT</span></p>
               </div>
+              <div class="button-group grid-100" *ngIf="isMember()">
+                <button mat-raised-button color="primary">Convert</button>
+                <button mat-raised-button>Exit</button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="column" ngClass.gt-xs="grid-33" ngClass.lt-sm="grid-100">
+        <div class="column" ngClass.gt-sm="grid-33" ngClass.lt-sm="grid-100">
           <div class="tribe-intro">
-            <h2>Recent Activity</h2>
+            <h2>Governance</h2>
+            <p><a href="#"><mat-icon>link</mat-icon> Revenue Distribution</a></p>
+            <p><a href="#"><mat-icon>link</mat-icon> Voting and Quorum</a></p>
+            <h4>Recent Activity</h4>
             <p><mat-icon>done_all</mat-icon> Project Completed</p>
             <p><mat-icon>done</mat-icon> Task Completed</p>
             <p><mat-icon>person</mat-icon> Member Added</p>
@@ -72,6 +75,8 @@
       <div *ngIf="!isMember()" class="isNotMember">
         <h2>Members Only</h2>
         <p class="body-2">You need some Tribe Tokens to view Projects, Votes, and Tasks for this Tribe.</p>
+        <p class="mat-caption">COST TO JOIN</p>
+        <h3><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h3>
         <app-join-button [tribe]="tribe"></app-join-button>
       </div>
 

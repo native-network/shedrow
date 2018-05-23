@@ -1,0 +1,15 @@
+
+  <button mat-button [matMenuTriggerFor]="appBallances" class="logo-button">
+      <mat-icon>account_balance_wallet</mat-icon>
+  </button>
+  <mat-menu class="wallet" #appBallances="matMenu" yPosition="below" [overlapTrigger]="false">
+    <li mat-menu-item (click)="openConverter('ETH','NT', 100)">
+      {{user.ntBalance| number:'1.0-3'}} <span class="ticker">NT</span>
+      <button mat-raised-button color="primary">CONVERT</button>
+    </li>
+    <mat-divider *ngIf="user.walletTokens.length"></mat-divider>
+    <li mat-menu-item *ngFor="let token of user.walletTokens" (click)="openConverter('NT', token.ticker, 100)">
+      {{token.balance| number:'1.0-3'}} <span class="ticker">{{token.ticker}}</span>
+     <button mat-raised-button color="primary">CONVERT</button>
+    </li>
+  </mat-menu>

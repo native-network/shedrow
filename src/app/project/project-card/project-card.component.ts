@@ -8,6 +8,8 @@ import { Project } from '../project';
 })
 export class ProjectCardComponent implements OnInit {
   @Input() project: Project;
+  // tooltip
+  position = 'above';
 
   // project bar
   color = 'accent';

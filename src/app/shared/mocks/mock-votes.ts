@@ -16,8 +16,10 @@ export const VOTES: Vote[] = [
     tribe: TRIBES[2],
     state: 'open',
     options: [
-      'vote option number one',
-      'vote options number two',
+      'Thing one',
+      'That other thing',
+      'This thing',
+      'Nothing',
     ],
   },
   {
@@ -33,8 +35,8 @@ export const VOTES: Vote[] = [
     tribe: TRIBES[0],
     state: 'open',
     options: [
-      'vote option number one',
-      'vote options number two',
+      'Yes',
+      'No',
     ],
   },
   {

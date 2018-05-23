@@ -1,25 +1,18 @@
-.hero .grid {
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-tribe-card.grid-50 {
-  max-width: 340px;
-}
-
 .nat-blocky img {
   max-width: 48px;
-}
-
-app-tribe-card .tribe-card.front {
-  display: none;
 }
 
 .data-column { width: 33%; }
 
 .intro {
+  margin: 25px auto;
   text-align: center;
 }
+
+.intro-join {
+  margin-top: 15px;
+}
+
 .section-title, .tribe-intro {
   text-align: left;
 }

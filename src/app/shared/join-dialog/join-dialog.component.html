@@ -1,29 +1,54 @@
 <button class="close-button" mat-icon-button (click)="onClose()"><mat-icon>close</mat-icon></button>
 <div mat-dialog-content class="mat-typography">
-  <h2 mat-dialog-title>Join <b>{{ tribe.name }}</b></h2>
-
-  <ol class="join-progress">
-    <li [class.completed]="hasNT()">1) Get Native Token <mat-icon>done</mat-icon></li>
-    <li [class.completed]="hasTT()">2) Get Tribe Tokens ({{tribe.tickerSymbol}}) <mat-icon *ngIf="hasTT()">done</mat-icon></li>
-    <li>3) Stake Tribe Tokens</li>
-  </ol>
-
-  <div class="instructions" *ngIf="!hasTT()">
-    <h5>You need <b>{{tribe.configMembershipFee}}</b><span class="ticker">{{tribe.tickerSymbol}}</span> to join this tribe.</h5>
-    <h3 class="mat-body-2">Convert some NT into {{tribe.tickerSymbol}}</h3>
+  <div class="wizard">
+  <div class="wizard-progress">
+    <h2 mat-dialog-title>Join<br><b>{{ tribe.name }}</b></h2>
+    <div class="step" [class.completed]="hasNT() || isMember()">
+      <span *ngIf="!hasNT() && !isMember()" class="number-circle">1</span>
+      <mat-icon *ngIf="hasNT() || isMember()">check_circle</mat-icon> <span class="label">Native Token</span>
+    </div>
+    <div class="step" [class.completed]="hasTT() || isMember()">
+      <span *ngIf="!hasTT() && !isMember()" class="number-circle">2</span>
+      <mat-icon *ngIf="hasTT() || isMember()">check_circle</mat-icon> <span class="label">Tribe Token</span>
+    </div>
+    <div class="step" [class.completed]="isMember()">
+      <span *ngIf="!isMember()" class="number-circle">3</span>
+      <mat-icon *ngIf="isMember()">check_circle</mat-icon> <span class="label">Stake</span>
+    </div>
   </div>
 
-  <app-token-converter (onConvert)="onConvert($event[0])" (onClose)="onClose()" [tribe]='tribe' *ngIf="!isMember()"></app-token-converter>
-
-  <div class="instructions" *ngIf="hasTT()">
-    <h3>You need to stake <b>{{tribe.configMembershipFee}}</b> <span class="ticker">{{tribe.tickerSymbol}}</span> into this Tribe to become a Member.</h3>
-    <p class="mat-caption">You can get more Tribe Tokens if you like later, and you can exit the tribe at any time by unstaking your TT.</p>
+  <div class="instructions" *ngIf="!hasNT() && !hasTT() && !isMember()">
+    <h3 class="mat-body-2">You need <b>{{tribe.configMembershipFee}}</b> <span class="ticker">{{tribe.tickerSymbol}}</span> to join this tribe.</h3>
+    <p>Convert some ETH or BNT into Native Tokens</p>
+    <app-token-converter (onConvert)="onConvert($event[0])" (onClose)="onClose()" *ngIf="!isMember()"></app-token-converter>
   </div>
 
-</div>
+  <div class="instructions" *ngIf="hasNT() && !hasTT() && !isMember()">
+    <h3 class="mat-body-2">You need <b>{{tribe.configMembershipFee}}</b> <span class="ticker">{{tribe.tickerSymbol}}</span> to join this tribe.</h3>
+    <p>Convert some NT into {{tribe.tickerSymbol}}</p>
+
+    <app-token-converter (onConvert)="onConvert($event[0])" (onClose)="onClose()" [tribe]='tribe' *ngIf="!isMember()"></app-token-converter>
+  </div>
+
+  <div class="instructions" *ngIf="hasTT() && !isMember()">
+    <h3 class="mat-body-2">You need to stake <b>{{tribe.configMembershipFee}}</b> <span class="ticker">{{tribe.tickerSymbol}}</span> into this Tribe to become a Member.</h3>
+    <p>You can get more Tribe Tokens if you like later, and you can exit the tribe at any time by unstaking your TT.</p>
+    <button *ngIf="!isMember() && hasTT()" mat-raised-button color="accent" (click)="joinTribe()" cdkFocusInitial><mat-icon>add_circle</mat-icon> OK STAKE</button>
+  </div>
+
+  <div class="instructions" *ngIf="isMember()">
+    <h3>You are now a member of</h3>
+    <h2><b>{{tribe.name}}</b></h2>
+    <p class="mat-caption"></p>
+    <button *ngIf="isMember()" mat-raised-button color="accent" [mat-dialog-close]="data" routerLink="/tribe/{{tribe.address}}" cdkFocusInitial>GO TO TRIBE <mat-icon>arrow_forward</mat-icon></button>
+  </div>
+
+</div><!--/wizard-->
+</div><!--/mat-dialog-content-->
 <div mat-dialog-actions>
-  <button *ngIf="isMember()" mat-raised-button color="accent" [mat-dialog-close]="data" cdkFocusInitial><mat-icon>user</mat-icon> You are a member.</button>
 
-  <button *ngIf="!isMember() && hasTT()" mat-raised-button color="accent" (click)="joinTribe()" [mat-dialog-close]="data" cdkFocusInitial><mat-icon>add_circle</mat-icon> OK STAKE</button>
+
+
+
 
 </div>
