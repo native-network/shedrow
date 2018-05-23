@@ -1,9 +1,9 @@
 <mat-card class="project-card">
   <mat-card-header>
-    <mat-card-title>{{project.title}}</mat-card-title>
+    <mat-card-title><b>{{project.title}}</b></mat-card-title>
     <mat-card-subtitle>{{project.type}}</mat-card-subtitle>
     <div class="header-data">
-      <mat-card-title>{{project.cost | currency}}</mat-card-title>
+      <mat-card-title></mat-card-title>
       <mat-card-subtitle></mat-card-subtitle>
     </div>
   </mat-card-header>
@@ -12,11 +12,15 @@
     <p>
       {{project.description}}
     </p>
-    <p>{{project.tribe.configQuorum }}% membership participation needed.</p>
   </mat-card-content>
   <mat-card-actions>
-    <h5><b>{{project.supported.length}}</b> of <b> {{project.tribe | quorum }}</b></h5>
-    <mat-progress-bar 
+    <div class="rule">
+      <p class="mat-caption">COST</p>
+      <h3>{{project.cost}} <span class="ticker">NT</span></h3>
+      <!--<h5><b>{{project.supported.length}}</b> of <b> {{project.tribe | quorum }}</b></h5>-->
+    </div>
+    <mat-progress-bar
+        matTooltip="{{(project.tribe | quorum) - project.supported.length}} more needed" [matTooltipPosition]="position"
         [color]="color"
         [mode]="mode"
         [value]="(project.supported.length / (project.tribe | quorum)) * 100"

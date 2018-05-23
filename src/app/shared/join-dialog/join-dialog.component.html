@@ -5,15 +5,15 @@
     <h2 mat-dialog-title>Join<br><b>{{ tribe.name }}</b></h2>
     <div class="step" [class.completed]="hasNT() || isMember()">
       <span *ngIf="!hasNT() && !isMember()" class="number-circle">1</span>
-      <mat-icon *ngIf="hasNT() || isMember()">check_circle</mat-icon> Native Token
+      <mat-icon *ngIf="hasNT() || isMember()">check_circle</mat-icon> <span class="label">Native Token</span>
     </div>
     <div class="step" [class.completed]="hasTT() || isMember()">
       <span *ngIf="!hasTT() && !isMember()" class="number-circle">2</span>
-      <mat-icon *ngIf="hasTT() || isMember()">check_circle</mat-icon> Tribe Token
+      <mat-icon *ngIf="hasTT() || isMember()">check_circle</mat-icon> <span class="label">Tribe Token</span>
     </div>
     <div class="step" [class.completed]="isMember()">
       <span *ngIf="!isMember()" class="number-circle">3</span>
-      <mat-icon *ngIf="isMember()">check_circle</mat-icon> Stake
+      <mat-icon *ngIf="isMember()">check_circle</mat-icon> <span class="label">Stake</span>
     </div>
   </div>
 

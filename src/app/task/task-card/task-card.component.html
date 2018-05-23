@@ -1,6 +1,6 @@
 <mat-card class="task-card">
   <mat-card-header>
-    <mat-card-title>{{task.title}}</mat-card-title>
+    <mat-card-title><b>{{task.title}}</b></mat-card-title>
     <mat-card-subtitle>
       <span *ngIf="task.claimedBy">Claimed By: {{task.claimedBy.name}}</span>
       <span *ngIf="!task.claimedBy">Open</span>
@@ -12,7 +12,10 @@
     <p *ngIf="task.submittedBy">Submitted and waiting approval</p>
   </mat-card-content>
   <mat-card-actions>
-    <div class="rule"><h4>{{task.reward}}<span class="ticker">TT</span></h4></div>
+    <div class="rule">
+      <p class="mat-caption">REWARD</p>
+      <h3>{{task.reward}} <span class="ticker">{{task.tribe.tickerSymbol}}</span></h3>
+    </div>
     <button routerLink="/tribe/{{task.tribe.address}}/task/{{task.slug}}" mat-raised-button color="primary">VIEW</button>
   </mat-card-actions>
 </mat-card>

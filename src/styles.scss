@@ -79,10 +79,25 @@ button[mat-raised-button]:not([class*=mat-elevation-z]), button[mat-mini-fab]:no
    }
  }
 
+ .button-group {
+   text-align: center;
+   > button, a.button {
+     display: inline-block;
+   }
+ }
+
  // Toolbar
 
  .mat-toolbar-single-row {
    flex-wrap: wrap;
+ }
+
+ // Wallet
+
+ .wallet button {
+     margin-left: 15px;
+     float: right;
+     margin-top: 6px;
  }
 
  // Icons
@@ -97,19 +112,26 @@ button[mat-raised-button]:not([class*=mat-elevation-z]), button[mat-mini-fab]:no
     padding: 25px;
   }
 
-  .mat-card:not(.project-card) .mat-card-content {
-    padding-bottom: 100px;
-  }
-
   .mat-card.project-card .mat-card-content {
-    padding-bottom: 100px;
+    padding-bottom: 160px;
   }
 
- .mat-card.tribe-card  {
-   border-radius: 10px;
- }
+  .mat-card.tribe-card .mat-card-content {
+    padding-bottom: 120px;
+  }
 
- .mat-card.project-card, .mat-card.vote-card, .mat-card.task-card {
+  .mat-card.vote-card .mat-card-content {
+    padding-bottom: 60px;
+  }
+
+  .mat-card.task-card .mat-card-content {
+    padding-bottom: 120px;
+  }
+
+ .mat-card.tribe-card,
+ .mat-card.project-card,
+ .mat-card.vote-card,
+ .mat-card.task-card {
    border-radius: 10px;
  }
 
@@ -232,6 +254,21 @@ app-task-list {
    padding: 25px;
    h1, h2, h3, h4, h5, h6 {
      color: #fff;
+   }
+ }
+
+ // Tags
+
+ .tags {
+   >.tag {
+     display: inline-block;
+     padding: 6px 15px;
+     margin: 5px 3px;
+     background: #fff;
+     border-top-right-radius: 25px;
+     border-top-left-radius: 25px;
+     border-bottom-right-radius: 25px;
+     border-bottom-left-radius: 25px;
    }
  }
 
@@ -466,8 +503,7 @@ app-task-list {
  .wizard {
    display: flex;
    background: #fff;
-   width: 660px;
-   height: 340px;
+   min-width: 660px;
  }
 
  .instructions {
@@ -507,27 +543,46 @@ app-task-list {
  }
 
  .number-circle {
-   width: 28px;
-   height: 28px;
-   display: inline-block;
-   line-height: 28px;
-   text-align: center;
-   border-radius: 50%;
-   font-size: 1rem;
-   background-color: #f2666c;
-   font-weight: 500;
-   color: #fff;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  line-height: 32px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 1rem;
+  background-color: #f2666c;
+  font-weight: 500;
+  color: #fff;
+  padding: 1px;
  }
 
  @media all and (max-width: 600px) {
+
+   .wizard {
+     flex-direction: column;
+     min-width: calc(100vw - 50px);
+   }
+
+   .instructions {
+   }
+
    .wizard-progress {
      flex-wrap: wrap;
-     flex-direction: column;
      min-width: 100%;
+     flex-direction: row;
+     > .mat-dialog-title { flex-basis: 100%; }
      >.step {
        text-align: center;
-       max-width: 100%;
-       width: 100%;
+       flex-basis: 33%;
+       position: relative;
+       > .label {
+         font-size: .85em;
+         position: absolute;
+         bottom: -25px;
+         left: 0;
+         width: 100%;
+         text-align: center;
+       }
      }
    }
  }
@@ -616,12 +671,26 @@ app-task-list {
 
 
  @media all and (max-width: 600px) {
-   .conversion .mat-icon {
-     transform: rotate(90deg);
+
+
+
+   .converter {
+     .mat-form-field {
+       width: 100%;
+     }
+     .convert-from,
+     .convert-to {
+       flex-basis: 100%;
+       margin: 0px;
+     }
+     .conversion {
+       flex-basis: 100%;
+       margin: 25px auto 35px auto;
+       .mat-icon {
+         transform: rotate(90deg);
+       }
+     }
    }
 
-   .convert-from,
-   .convert-to {
-     margin: 0px;
-   }
+
  }
