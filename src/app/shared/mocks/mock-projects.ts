@@ -10,7 +10,7 @@ export const PROJECTS: Project[] = [
     description: "Mensa and his crews know it is imperative to interact with as many youth on the continent as possible -- working with them at both national and local levels, in schools and communities. Mensa has seen the number of Earth Guardians grow outstandingly in Africa and, therefore, is working to create a stronger support network of local Earth Guardian leaders. He needs 50,000 EGT to open an EG office in Lome, Togo to support his work. This will cover the space, office equipment, and internet...the necessary office infrastructure. Now that Earth Guardians Africa is officially recognized by the government, Togo government officials will do a site check in either May or June. Help Mensa plant down roots for this local community by preparing a proper Earth Guardians office in time for the government visit!",
     type: "EVENT",
     date: new Date('September 17, 2018 03:24:00'),
-    tags: "Infrasctructure",
+    tags: "Infrastructure",
     owner: USERS[0],
     contributed: USERS,
     cost: 50000,
@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[0],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 5),
+    supported: USERS.slice(0, USERS.length - 8),
   },
   {
     slug: "eg-dc-youth",
@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[0],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 5),
+    supported: USERS.slice(0, USERS.length - 7),
   },
   {
     slug: "eg-app",
@@ -73,7 +73,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[1],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 5),
+    supported: USERS.slice(0, USERS.length - 9),
   },
   {
     slug: "cc-food",
@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[1],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 5),
+    supported: USERS.slice(0, USERS.length - 8),
   },
   {
     slug: "cc-csa",
@@ -109,7 +109,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[1],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 5),
+    supported: USERS.slice(0, USERS.length - 8),
   },
   {
     slug: "antidote",
@@ -127,7 +127,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[2],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 5),
+    supported: USERS.slice(0, USERS.length - 6),
   },
   {
     slug: "reson8",
@@ -145,7 +145,7 @@ export const PROJECTS: Project[] = [
     tribe: TRIBES[2],
     state: "idea",
     deadline: 20,
-    supported: USERS.slice(0, USERS.length - 5),
+    supported: USERS.slice(0, USERS.length - 7),
   },
   {
     slug: "origami-moon",

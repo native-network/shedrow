@@ -10,7 +10,7 @@ export class Tribe {
   dataImage: string;
   tribeIntro: string;
   tribePurpose: string;
-  tags: string;
+  tags: Array<string>;
   curators: User;
   members: User[];
   devFund: number;
