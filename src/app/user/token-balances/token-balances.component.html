@@ -3,7 +3,5 @@
       <mat-icon>account_balance</mat-icon>
   </button>
   <mat-menu #appBallances="matMenu">
-    <a mat-menu-item (click)="openConverter('ETH','NT', 100)">{{user.ntBalance| number:'1.0-3'}}<span class="ticker">NT</span> <mat-icon>add_circle</mat-icon>buy</a>
-    <mat-divider *ngIf="user.tribeTokens.length"></mat-divider>
-    <a mat-menu-item *ngFor="let token of user.tribeTokens" (click)="openConverter('NT', token.ticker, 100)">{{token.balance| number:'1.0-3'}}<span class="ticker">{{token.ticker}}</span> <mat-icon>add_circle</mat-icon>buy</a>
+    <a mat-menu-item *ngFor="let token of user.walletTokens" (click)="openConverter('NT', token.ticker, 100)">{{token.balance| number:'1.0-3'}}<span class="ticker">{{token.ticker}}</span> <mat-icon>add_circle</mat-icon>buy</a>
   </mat-menu>

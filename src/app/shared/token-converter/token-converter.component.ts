@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TribeToken } from '../../user/user';
 import { UserService } from '../../user/user.service';
 import { MatSnackBar } from '@angular/material';
 
@@ -34,20 +33,7 @@ export class TokenConverterComponent implements OnInit {
       this.fromTokenSymbol = sym;
   }
 
-  addTribeToken(ticker: string): TribeToken {
-    const newToken = {ticker: ticker, balance: 0}
-
-    const token = this.userService.currentUser.tribeTokens.find((item) => item.ticker === ticker)
-    if(!token){
-      this.userService.currentUser.tribeTokens.push(newToken)
-    }
-
-    return token || newToken;
-  }
-
-
   convert() {
-    let tribeToken: TribeToken;
     let status: string;
 
     if(!this.fromAmount || this.fromAmount <= 0) {
@@ -58,27 +44,26 @@ export class TokenConverterComponent implements OnInit {
     }
 
     if( this.from === 'ETH') {
-      if(this.fromAmount > this.userService.currentUser.ethBalance) {
+      if(this.fromAmount > this.userService.tokenBalance('ETH')) {
         const status = "Not enough ETH";
         this.fromAmount = 0;
         this.matSnackBar.open(status, null, {duration: 3000});
         return
       }
 
-      this.userService.currentUser.ethBalance = this.userService.currentUser.ethBalance - this.fromAmount;
-      this.userService.currentUser.ntBalance = this.userService.currentUser.ntBalance + (this.fromAmount * this.ratio);
+      this.userService.setTokenBalance('ETH', this.userService.tokenBalance('ETH') - this.fromAmount);
+      this.userService.setTokenBalance('NT', this.userService.tokenBalance('NT') + (this.fromAmount * this.ratio));
     } else {
-      if(this.fromAmount > this.userService.currentUser.ntBalance) {
+      if(this.fromAmount > this.userService.tokenBalance('NT')) {
         const status = "Not enough NT";
         this.fromAmount = 0;
         this.matSnackBar.open(status, null, {duration: 3000});
         return
       }
 
-      tribeToken = this.addTribeToken(this.to);
-      this.userService.currentUser.ntBalance = this.userService.currentUser.ntBalance - this.fromAmount;
+      this.userService.setTokenBalance('NT', this.userService.tokenBalance('NT') - this.fromAmount);
 
-      tribeToken.balance = tribeToken.balance + (this.fromAmount * this.ratio);
+      this.userService.setTokenBalance(this.to, this.userService.tokenBalance(this.to) + (this.fromAmount * this.ratio));
     }
     this.converterOpen = false;
     this.onConvert.emit([(this.fromAmount * this.ratio)]);

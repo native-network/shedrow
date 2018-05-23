@@ -54,6 +54,9 @@ export class NatProfileComponent implements OnInit {
       });
     }
 
+    getEthBalance(){
+      return this.userService.tokenBalance('ETH');
+    }
 
     connect() {
       if(this.web3Service.accounts) {
@@ -71,9 +74,6 @@ export class NatProfileComponent implements OnInit {
         data: { user: this.user },
 
       });
-
-      console.log(this.user);
-      
 
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed', result);

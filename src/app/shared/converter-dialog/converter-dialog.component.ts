@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { UserService } from '../../user/user.service';
-import { TribeToken } from '../../user/user';
 
 @Component({
   selector: 'app-converter-dialog',

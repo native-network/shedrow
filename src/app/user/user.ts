@@ -1,4 +1,4 @@
-export class TribeToken {
+export class WalletToken {
   ticker: string;
   balance: number;
 }
@@ -8,8 +8,5 @@ export class User {
     image: string;
     name: string;
     email: string;
-    ethBalance: number;
-    ntBalance: number;
-    ttBalance: number;
-    tribeTokens: TribeToken[];
+    walletTokens: WalletToken[];
   }
