@@ -22,14 +22,14 @@
   <mat-card-actions *ngIf="!hasNT() && !isMember()">
     <div class="rule">
       <p class="mat-caption">COST TO JOIN</p>
-      <h4><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h4>
+      <h3><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h3>
     </div>
     <app-buy-native-button></app-buy-native-button>
   </mat-card-actions>
   <mat-card-actions *ngIf="hasNT()">
     <div class="rule" *ngIf="!isMember()">
       <p class="mat-caption">COST TO JOIN</p>
-      <h4><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h4>
+      <h3><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h3>
     </div>
     <app-join-button *ngIf="!isMember()" [tribe]="tribe"></app-join-button>
     <button *ngIf="isMember()" mat-raised-button color="accent" (click)="openBuy()">BUY</button>
@@ -63,14 +63,14 @@
   <mat-card-actions *ngIf="!hasNT() && !isMember()">
     <div class="rule">
       <p class="mat-caption">COST TO JOIN</p>
-      <h4><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h4>
+      <h3><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h3>
     </div>
     <app-join-button *ngIf="!isMember()" [tribe]="tribe"></app-join-button>
   </mat-card-actions>
   <mat-card-actions *ngIf="hasNT()">
     <div class="rule" *ngIf="!isMember()">
       <p class="mat-caption">COST TO JOIN</p>
-      <h4><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h4>
+      <h3><b>{{tribe.configMembershipFee}} <span class="ticker">{{tribe.tickerSymbol}}</span></b> ({{tribe.configMembershipFee * tribe.tokenValue | number: '1.0-2'}} <span class="ticker">NT</span>)</h3>
     </div>
     <app-join-button *ngIf="!isMember()" [tribe]="tribe"></app-join-button>
     <button *ngIf="isMember()" mat-raised-button color="accent" (click)="openBuy(tribe.tickerSymbol)">BUY</button>

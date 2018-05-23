@@ -29,11 +29,10 @@ export class TribeService {
     console.log('tribe', tribe);
     
     let user = this.userService.currentUser;
-    let token = this.userService.currentUser.tribeTokens
-      .find((item) => item.ticker === tribe.tickerSymbol)
-    console.log('token', token);
+    let balance = this.userService.tokenBalance(tribe.tickerSymbol);
+    console.log('balance', balance);
     
-    token.balance = token.balance - tribe.configMembershipFee;
+    this.userService.setTokenBalance(tribe.tickerSymbol, balance - tribe.configMembershipFee);
     tribe.members.push(user);
   }
 
