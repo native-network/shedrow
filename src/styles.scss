@@ -92,6 +92,14 @@ button[mat-raised-button]:not([class*=mat-elevation-z]), button[mat-mini-fab]:no
    flex-wrap: wrap;
  }
 
+ // Wallet
+
+ .wallet button {
+     margin-left: 15px;
+     float: right;
+     margin-top: 6px;
+ }
+
  // Icons
 
  mat-icon {
