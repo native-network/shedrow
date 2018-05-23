@@ -40,7 +40,9 @@ export class TokenConverterComponent implements OnInit {
   }
 
   getAvailibleTribeTokens() {
-    return this.availibleTribeTokens = this.tribeService.tokenList();
+
+    this.tribeService.getTribes()
+      .subscribe(tribes => this.availibleTribeTokens = tribes.map((item) => item.tickerSymbol))
   }
 
   changeFrom(sym) {
