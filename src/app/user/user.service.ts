@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { User } from './user';
+import { User, WalletToken } from './user';
 import { USERS } from '../shared/mocks/mock-users';
 import { Tribe } from '../tribe/tribe';
 import { Subject } from 'rxjs';
@@ -33,14 +33,30 @@ export class UserService {
     this.currentUserChange.next(user);
   }
 
-  hasTT(tribe): boolean{
-    const token = this.currentUser.tribeTokens
-      .find((item) => item.ticker === tribe.tickerSymbol)
-    return token ? token.balance >= tribe.configMembershipFee : false;
+  hasTT(tribe: Tribe, amount: number = 0): boolean{
+    return this.tokenBalance(tribe.tickerSymbol) > amount;
   }
 
   hasNT(amount: number = 0) : boolean{
-    return this.currentUser.ntBalance > amount;
+    return this.tokenBalance('NT') > amount;
   }
 
+  tokenBalance(ticker: string){
+    const walletToken = this.currentUser.walletTokens.find((item) => item.ticker === ticker);
+    return walletToken ? walletToken.balance : 0;  
+  }
+
+  setTokenBalance(ticker: string, value: number){
+    let walletToken: WalletToken;
+    walletToken = this.currentUser.walletTokens
+      .find((item) => item.ticker === ticker);
+
+      if(!walletToken){
+        walletToken = {ticker: ticker, balance: value}
+        this.currentUser.walletTokens.push(walletToken)
+      } else {
+        walletToken.balance = value;
+      }
+    
+  }
 }

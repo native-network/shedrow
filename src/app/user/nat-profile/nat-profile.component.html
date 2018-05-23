@@ -7,7 +7,7 @@
 <div class="wallet" *ngIf="user">
   <app-token-balances [user]="user"></app-token-balances>
   <div class="balance eth">
-    <p>{{user.ethBalance}}<span class="ticker">&#x39e;</span><!--eth symbol--></p>
+    <p>{{getEthBalance()}}<span class="ticker">&#x39e;</span><!--eth symbol--></p>
   </div>
   <button class="nat-profile-button" mat-button matTooltip="{{user.name}}: {{user.id}}" [matTooltipPosition]="position" (click)="openVerifyDialog()">
     <angular-blockies *ngIf="user" [options]="blockiesOptions"></angular-blockies>

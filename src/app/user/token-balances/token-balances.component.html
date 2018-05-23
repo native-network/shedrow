@@ -7,8 +7,8 @@
       {{user.ntBalance| number:'1.0-3'}} <span class="ticker">NT</span>
       <button mat-raised-button color="primary">CONVERT</button>
     </li>
-    <mat-divider *ngIf="user.tribeTokens.length"></mat-divider>
-    <li mat-menu-item *ngFor="let token of user.tribeTokens" (click)="openConverter('NT', token.ticker, 100)">
+    <mat-divider *ngIf="user.walletTokens.length"></mat-divider>
+    <li mat-menu-item *ngFor="let token of user.walletTokens" (click)="openConverter('NT', token.ticker, 100)">
       {{token.balance| number:'1.0-3'}} <span class="ticker">{{token.ticker}}</span>
      <button mat-raised-button color="primary">CONVERT</button>
     </li>
