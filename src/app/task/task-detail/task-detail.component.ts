@@ -38,6 +38,7 @@ export class TaskDetailComponent implements OnInit {
   }
 
   claim(){
+
     this.taskService.addWork(this.userService.currentUser, "Claimed");
     this.taskService.claimTask(this.task, this.userService.currentUser);
   }
