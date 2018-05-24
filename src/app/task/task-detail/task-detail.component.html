@@ -25,7 +25,7 @@
         <h3 class="reward-title">Reward</h3><h1>{{task.reward}} TT</h1>
         <div *ngIf="!task.claimedBy" class="tag">Unclaimed</div>
         <div *ngIf="task.claimedBy" class="tag">Claimed by {{task.claimedBy.name}}</div>
-        <p>You'll have {{task.deadline}}
+        <p *ngIf="!task.claimedBy">You'll have {{task.deadline}}
             <span [ngPlural]="task.deadline">
                 <ng-template ngPluralCase="=0">no days</ng-template>
                 <ng-template ngPluralCase="=1">day</ng-template>
@@ -33,6 +33,10 @@
               </span> to complete this task.</p>
 
         <div *ngIf="task.claimedBy && !task.submittedBy" class="actions">
+          <div class="timer">
+            <p class="mat-caption">TIME LEFT</p>
+            <h3><mat-icon>timer</mat-icon> 3:10:54:43</h3>
+          </div>
           <mat-form-field>
             <textarea [(ngModel)]="comment" matInput placeholder="Leave a comment"></textarea>
           </mat-form-field>

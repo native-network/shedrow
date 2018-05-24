@@ -12,6 +12,10 @@
       </div>
       <div class="column votes" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100" *ngIf="!hasVoted()">
         <h2 class="section-title">Vote Options</h2>
+        <div class="timer">
+          <p class="mat-caption">TIME LEFT</p>
+          <h3><mat-icon>timer</mat-icon> 3:10:54:43</h3>
+        </div>
         <div class="option" *ngFor="let option of vote.options">
           <div class="label fill-space">
             <p>{{option}}</p>

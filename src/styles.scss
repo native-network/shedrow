@@ -121,7 +121,7 @@ button[mat-raised-button]:not([class*=mat-elevation-z]), button[mat-mini-fab]:no
   }
 
   .mat-card.vote-card .mat-card-content {
-    padding-bottom: 60px;
+    padding-bottom: 120px;
   }
 
   .mat-card.task-card .mat-card-content {
@@ -142,8 +142,8 @@ button[mat-raised-button]:not([class*=mat-elevation-z]), button[mat-mini-fab]:no
    width: 100%;
    text-align: center;
    margin: 0 !important;
-   >.rule { padding-top: 15px; border-top: 1px solid #70d0be;}
-   >.mat-progress-bar { margin: 20px auto;}
+   >.rule { padding-top: 15px; border-top: 1px solid #89FFE9;}
+   >.mat-progress-bar { margin: 0px auto 20px;}
  }
 
  .mat-card {
@@ -162,6 +162,9 @@ button[mat-raised-button]:not([class*=mat-elevation-z]), button[mat-mini-fab]:no
   right: 15px;
   text-align: right;
  }
+
+ // Timer / Countdown
+ .timer .mat-icon { margin-top: -5px; color: #f2666c;}
 
 
  // Flip Cards
@@ -259,8 +262,7 @@ app-task-list {
 
  // Tags
 
- .tags {
-   >.tag {
+ .tag {
      display: inline-block;
      padding: 6px 15px;
      margin: 5px 3px;
@@ -270,7 +272,10 @@ app-task-list {
      border-bottom-right-radius: 25px;
      border-bottom-left-radius: 25px;
    }
- }
+
+
+// Info Links
+.info-link {font-size: .75em;}
 
  // General Utils
 
@@ -306,6 +311,18 @@ app-task-list {
       flex-direction: column;
     }
   }
+
+  .base-grid {
+     display: flex;
+     flex-wrap: wrap;
+     margin: 0px auto;
+     width: 100%;
+     align-items: center;
+     justify-content: space-evenly;
+     >.column {
+       flex-direction: column;
+     }
+   }
 
  .grid-33 {
    width: calc(33% - 31px);
@@ -480,19 +497,6 @@ app-task-list {
      height: 24px;
      fill: #fff;
    }
-
-   .tag {
-     padding: 3px 6px;
-     border-top-left-radius: 25px;
-     border-top-right-radius: 25px;
-     border-bottom-left-radius: 25px;
-     border-bottom-right-radius: 25px;
-     background-color: #fff;
-     width: auto;
-     max-width: 33%;
-     text-align: center;
-   }
-
 
    // Overlay
 
