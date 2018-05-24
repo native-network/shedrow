@@ -82,13 +82,13 @@
 
       <div *ngIf="isMember()" class="isMember">
 
-        <h2 class="section-title">Projects</h2>
+        <h2 class="section-title"><b>Projects</b> <span class="info-link"><small>Quorum at {{tribe.configQuorum}}%</small> <a href=""><small><mat-icon>link</mat-icon> More Info </small></a></span></h2>
         <app-project-list [tribe]="tribe"></app-project-list>
 
-        <h2 class="section-title">Votes</h2>
+        <h2 class="section-title"><b>Votes</b></h2>
         <app-vote-list [tribe]="tribe"></app-vote-list>
 
-        <h2 class="section-title">Tasks</h2>
+        <h2 class="section-title"><b>Tasks</b></h2>
         <app-task-list [tribe]="tribe"></app-task-list>
 
       </div><!-- /members-only -->

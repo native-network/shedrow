@@ -21,7 +21,7 @@
     -->
     <div class="token-icon" >{{from}}</div>
     <mat-form-field>
-      <input type="number" matInput [(ngModel)]="fromAmount" max='10' placeholder="{{from}} Amount">
+      <input type="number" matInput [(ngModel)]="fromAmount" max='10' placeholder="Pay With">
     </mat-form-field>
   </div>
 
@@ -31,7 +31,7 @@
   <div class="convert-to" ngClass.xs="grid-100">
     <div class="token-icon" >{{to}}</div>
     <mat-form-field>
-      <input matInput disabled [(ngModel)]="toAmount" placeholder="{{to}} Amount" value="{{fromAmount * ratio}}" >
+      <input matInput disabled [(ngModel)]="toAmount" placeholder="Receive" value="{{fromAmount * ratio}}" >
     </mat-form-field>
   </div>
   <div class="buy-button">

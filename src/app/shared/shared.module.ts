@@ -34,6 +34,7 @@ import { InStatePipe } from './in-state.pipe';
 import { JoinDialogComponent } from './join-dialog/join-dialog.component';
 import { BuyNativeButtonComponent } from './buy-native-button/buy-native-button.component';
 import { TokenConverterComponent } from './token-converter/token-converter.component';
+import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
 
 @NgModule({
   imports: [
@@ -78,6 +79,7 @@ import { TokenConverterComponent } from './token-converter/token-converter.compo
     JoinDialogComponent,
     BuyNativeButtonComponent,
     TokenConverterComponent,
+    CountdownTimerComponent,
   ],
   exports: [
     CommonModule,   
@@ -107,6 +109,7 @@ import { TokenConverterComponent } from './token-converter/token-converter.compo
     BancorInfoComponent,
     BuyNativeButtonComponent,
     TokenConverterComponent,
+    CountdownTimerComponent,    
 
     InStatePipe,
     

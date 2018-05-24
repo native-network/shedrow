@@ -6,6 +6,7 @@
       <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
         <button mat-raised-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Back to Tribe</button>
         <h1 class="section-title">{{task.title}}</h1>
+
         <!-- <p>{{task.type}}</p> -->
         <p class="mat-body-2">
           {{task.description}}
@@ -25,7 +26,7 @@
         <h3 class="reward-title">Reward</h3><h1>{{task.reward}} TT</h1>
         <div *ngIf="!task.claimedBy" class="tag">Unclaimed</div>
         <div *ngIf="task.claimedBy" class="tag">Claimed by {{task.claimedBy.name}}</div>
-        <p>You'll have {{task.deadline}}
+        <p *ngIf="!task.claimedBy">You'll have {{task.deadline}}
             <span [ngPlural]="task.deadline">
                 <ng-template ngPluralCase="=0">no days</ng-template>
                 <ng-template ngPluralCase="=1">day</ng-template>
@@ -33,6 +34,7 @@
               </span> to complete this task.</p>
 
         <div *ngIf="task.claimedBy && !task.submittedBy" class="actions">
+          <app-countdown-timer [endsAt]="task.deadline"></app-countdown-timer>
           <mat-form-field>
             <textarea [(ngModel)]="comment" matInput placeholder="Leave a comment"></textarea>
           </mat-form-field>

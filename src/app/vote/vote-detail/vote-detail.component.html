@@ -12,6 +12,7 @@
       </div>
       <div class="column votes" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100" *ngIf="!hasVoted()">
         <h2 class="section-title">Vote Options</h2>
+        <app-countdown-timer [endsAt]="vote.deadline"></app-countdown-timer>
         <div class="option" *ngFor="let option of vote.options">
           <div class="label fill-space">
             <p>{{option}}</p>
@@ -22,6 +23,7 @@
       </div>
       <div class="column votes" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100" *ngIf="hasVoted()">
         <h2 class="section-title">Vote Results</h2>
+        <app-countdown-timer [endsAt]="vote.deadline"></app-countdown-timer>
         <div class="option" *ngFor="let result of resultCounts">
           <div class="label fill-space">
             <p>
