@@ -17,10 +17,7 @@ export class CountdownTimerComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.endsAt);
     this.endDate = moment().add(this.endsAt, 'days')
-
-
     Observable
       .timer(0, 1000)
       .subscribe(t => {

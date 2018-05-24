@@ -4,6 +4,9 @@ import { TribeService } from '../tribe.service';
 import { Tribe } from '../tribe';
 import { Location } from '@angular/common';
 import { UserService } from '../../user/user.service';
+import { ConverterDialogComponent } from '../../shared/converter-dialog/converter-dialog.component';
+import { MatDialog } from '@angular/material';
+import { InfoDialogComponent } from '../../shared/info-dialog/info-dialog.component';
 
 @Component({
   selector: 'app-tribe-detail',
@@ -15,6 +18,7 @@ export class TribeDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    public dialog: MatDialog, 
     private tribeService: TribeService,
     private userService: UserService,
     private location: Location
@@ -32,6 +36,34 @@ export class TribeDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  openInfo(title: string, detail: string): void {
+    let dialogRef = this.dialog.open(InfoDialogComponent, {
+      maxWidth: 'none',
+      width: '100vw',
+      height: '100vh',
+      data: {title: title, detail: detail }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
+  }
+
+  openBuy(): void {
+    let dialogRef = this.dialog.open(ConverterDialogComponent, {
+      maxWidth: 'none',
+      width: '100vw',
+      height: '100vh',
+      data: {tribe: this.tribe, from: 'NT', to: this.tribe.tickerSymbol, ratio: ( 1/ this.tribe.tokenValue ) }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
   }
 
   getBlocky(seed): Object {

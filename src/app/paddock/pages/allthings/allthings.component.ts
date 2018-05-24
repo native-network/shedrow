@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
-import { ExampleDialogComponent } from '../../../shared/example-dialog/example-dialog.component';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { TribeService } from '../../../tribe/tribe.service';
 import { Tribe } from '../../../tribe/tribe';
@@ -54,20 +53,7 @@ export class AllthingsComponent implements OnInit {
   // }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(ExampleDialogComponent, {
-      width: '100vw',
-      height: '100vh',
-      maxWidth: '100vw',
-      data: { name: this.name, animal: this.animal },
-      panelClass: 'party'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-      console.log(this.animal);
-      
-    });
+    
   }
 
 }
