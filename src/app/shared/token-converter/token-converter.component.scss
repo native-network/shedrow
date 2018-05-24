@@ -32,3 +32,21 @@
   margin-left: 15px;
   font-size: 1rem;
 }
+
+.token-switcher {
+  transition: all .2s linear;
+  cursor: pointer;
+  &.token-icon:not(.svg-icon) {
+    transition: all .2s linear;
+  }
+  &.token-icon:not(.svg-icon):hover {
+    background: #f2666c;
+  }
+  &.token-icon.svg-icon svg {
+    transition: all .2s linear;
+  }
+  &.token-icon.svg-icon:hover svg {
+    fill: #f2666c;
+  }
+
+}

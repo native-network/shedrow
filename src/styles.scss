@@ -473,13 +473,22 @@ app-task-list {
      border-radius: 50%;
      text-align: center;
      margin-bottom: 25px;
+     position: relative;
      &:not(.svg-icon) {
-       border: 2px solid #4ba191;
        background: #4ba191;
        color: #fff;
      }
-     &.svg-icon svg {
-       fill: #4ba191;
+     &.svg-icon {
+       svg {
+         max-height: 100%;
+         max-width: 100%;
+       }
+       &.nt svg {
+         fill: #4ba191;
+       }
+       &.eth svg {
+         fill: #131313;
+       }
      }
    }
 
