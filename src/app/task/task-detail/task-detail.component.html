@@ -6,8 +6,7 @@
       <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
         <button mat-raised-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Back to Tribe</button>
         <h1 class="section-title">{{task.title}}</h1>
-        <app-countdown-timer [endsAt]="task.deadline"></app-countdown-timer>
-        
+
         <!-- <p>{{task.type}}</p> -->
         <p class="mat-body-2">
           {{task.description}}
@@ -35,10 +34,7 @@
               </span> to complete this task.</p>
 
         <div *ngIf="task.claimedBy && !task.submittedBy" class="actions">
-          <div class="timer">
-            <p class="mat-caption">TIME LEFT</p>
-            <h3><mat-icon>timer</mat-icon> 3:10:54:43</h3>
-          </div>
+          <app-countdown-timer [endsAt]="task.deadline"></app-countdown-timer>
           <mat-form-field>
             <textarea [(ngModel)]="comment" matInput placeholder="Leave a comment"></textarea>
           </mat-form-field>

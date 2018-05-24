@@ -21,10 +21,7 @@
 
 
           <h2>Support</h2>
-          <div class="timer">
-            <p class="mat-caption">TIME LEFT</p>
-            <h3><mat-icon>timer</mat-icon> 3:10:54:43</h3>
-          </div>
+          <app-countdown-timer [endsAt]="project.deadline"></app-countdown-timer>
           <h3><b>{{project.tribe.members.length}}</b> members have supported this project</h3>
           <h4>{{(project.tribe | quorum) - project.supported.length}} more required <span class="mat-caption">(Tribe Quorum at {{project.tribe.configQuorum }}%)</span></h4>
 

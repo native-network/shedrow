@@ -18,7 +18,7 @@ export const PROJECTS: Project[] = [
     funded: false,
     tribe: TRIBES[0],
     state: "idea",
-    deadline: 20,
+    deadline: 12,
     supported: USERS.slice(0, USERS.length - 8),
   },
   {
@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
     funded: false,
     tribe: TRIBES[0],
     state: "idea",
-    deadline: 20,
+    deadline: 14,
     supported: USERS.slice(0, USERS.length - 7),
   },
   {
@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
     funded: false,
     tribe: TRIBES[0],
     state: "idea",
-    deadline: 20,
+    deadline: 30,
     supported: USERS.slice(0, USERS.length - 5),
   },
   {
@@ -72,7 +72,7 @@ export const PROJECTS: Project[] = [
     funded: false,
     tribe: TRIBES[1],
     state: "idea",
-    deadline: 20,
+    deadline: 3,
     supported: USERS.slice(0, USERS.length - 9),
   },
   {
@@ -90,7 +90,7 @@ export const PROJECTS: Project[] = [
     funded: false,
     tribe: TRIBES[1],
     state: "idea",
-    deadline: 20,
+    deadline: 5,
     supported: USERS.slice(0, USERS.length - 8),
   },
   {
@@ -108,7 +108,7 @@ export const PROJECTS: Project[] = [
     funded: false,
     tribe: TRIBES[1],
     state: "idea",
-    deadline: 20,
+    deadline: 10,
     supported: USERS.slice(0, USERS.length - 8),
   },
   {
@@ -126,7 +126,7 @@ export const PROJECTS: Project[] = [
     funded: false,
     tribe: TRIBES[2],
     state: "idea",
-    deadline: 20,
+    deadline: 6,
     supported: USERS.slice(0, USERS.length - 6),
   },
   {
@@ -144,7 +144,7 @@ export const PROJECTS: Project[] = [
     funded: false,
     tribe: TRIBES[2],
     state: "idea",
-    deadline: 20,
+    deadline: 12,
     supported: USERS.slice(0, USERS.length - 7),
   },
   {
@@ -162,7 +162,7 @@ export const PROJECTS: Project[] = [
     funded: false,
     tribe: TRIBES[2],
     state: "idea",
-    deadline: 20,
+    deadline: 2,
     supported: USERS.slice(0, USERS.length - 5),
   },
   ]
