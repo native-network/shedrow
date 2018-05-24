@@ -6,6 +6,8 @@
       <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
         <button mat-raised-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Back to Tribe</button>
         <h1 class="section-title">{{task.title}}</h1>
+        <app-countdown-timer [endsAt]="task.deadline"></app-countdown-timer>
+        
         <!-- <p>{{task.type}}</p> -->
         <p class="mat-body-2">
           {{task.description}}
