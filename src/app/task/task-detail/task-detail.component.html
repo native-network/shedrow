@@ -1,7 +1,6 @@
 <img src="{{task.image}}" style="width:100% !important;"/>
 <div class="view mat-typography">
   <div class="contents">
-
     <div class="grid">
       <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
         <button mat-raised-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Back to Tribe</button>
@@ -53,4 +52,9 @@
         </div>
       </div>
 
+    <div class="grid">
+        <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+          <p *ngFor="let work of task.workHistories">{{work.date | date}}: {{work.comment}} -[{{work.user.name}}]</p>
+        </div>
+    </div>
 </div>

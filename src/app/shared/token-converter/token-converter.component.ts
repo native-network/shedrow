@@ -62,11 +62,13 @@ export class TokenConverterComponent implements OnInit {
       this.matSnackBar.open(status, null, {duration: 3000});
       return
     }
+
     if(this.fromAmount > this.userService.tokenBalance(this.from)) {
       const status = `Not enough ${this.from}`;
       this.fromAmount = 0;
       this.matSnackBar.open(status, null, {duration: 3000});
       return
+
     }
 
     this.userService.setTokenBalance(this.from, this.userService.tokenBalance(this.from) - this.fromAmount);

@@ -1,15 +1,7 @@
 <div class="converter grid" *ngIf="converterOpen">
   <div class="convert-from" ngClass.xs="grid-100">
 
-
     <div class="token-icon">
-      <a [matMenuTriggerFor]="fromMenu" class="token-icon">
-        {{from}}
-      </a>
-      <mat-menu #fromMenu="matMenu">
-        <a mat-menu-item *ngFor="let token of availibleTokens" (click)="changeFrom(token.ticker)">{{token.ticker}}</a>
-      </mat-menu>
-    </div>
     <mat-form-field>
       <input type="number" matInput [(ngModel)]="fromAmount" max='10' placeholder="Pay With">
     </mat-form-field>
