@@ -25,7 +25,6 @@ import {
   MatDividerModule
 } from '@angular/material';
 
-import { ExampleDialogComponent } from './example-dialog/example-dialog.component';
 import { SigninDialogComponent } from './signin-dialog/signin-dialog.component';
 import { ConverterDialogComponent } from './converter-dialog/converter-dialog.component';
 import { BancorInfoComponent } from './bancor-info/bancor-info.component';
@@ -34,6 +33,8 @@ import { InStatePipe } from './in-state.pipe';
 import { JoinDialogComponent } from './join-dialog/join-dialog.component';
 import { BuyNativeButtonComponent } from './buy-native-button/buy-native-button.component';
 import { TokenConverterComponent } from './token-converter/token-converter.component';
+import { CountdownTimerComponent } from './countdown-timer/countdown-timer.component';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 @NgModule({
   imports: [
@@ -62,14 +63,13 @@ import { TokenConverterComponent } from './token-converter/token-converter.compo
     MatDividerModule,
   ],
   entryComponents: [
-    ExampleDialogComponent,
+    InfoDialogComponent,
     SigninDialogComponent,
     ConverterDialogComponent,
     VerifyDialogComponent,
     JoinDialogComponent,  
   ],
   declarations: [
-    ExampleDialogComponent,
     SigninDialogComponent,
     ConverterDialogComponent,
     BancorInfoComponent,
@@ -78,6 +78,8 @@ import { TokenConverterComponent } from './token-converter/token-converter.compo
     JoinDialogComponent,
     BuyNativeButtonComponent,
     TokenConverterComponent,
+    CountdownTimerComponent,
+    InfoDialogComponent,
   ],
   exports: [
     CommonModule,   
@@ -107,6 +109,7 @@ import { TokenConverterComponent } from './token-converter/token-converter.compo
     BancorInfoComponent,
     BuyNativeButtonComponent,
     TokenConverterComponent,
+    CountdownTimerComponent,    
 
     InStatePipe,
     

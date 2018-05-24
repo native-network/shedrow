@@ -1,42 +1,50 @@
 <img src="{{task.image}}" style="width:100% !important;"/>
 <div class="view mat-typography">
   <div class="contents">
-    
     <div class="grid">
       <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
         <button mat-raised-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Back to Tribe</button>
         <h1 class="section-title">{{task.title}}</h1>
         <!-- <p>{{task.type}}</p> -->
-        <p class="body-2">
+        <p class="mat-body-2">
           {{task.description}}
         </p>
+        <h3 *ngIf="task.claimedBy">Task History</h3>
+        <div *ngFor="let work of task.workHistories" class="task-history">
+          <p class="mat-caption">
+            {{work.date | date}}
+          </p>
+          <p class="mat-body-2">{{work.comment}}</p>
+          <p>– [{{work.user.name}}]</p>
+        </div>
       </div>
 
       <div  class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
-        <h2 class="section-title">Task Options</h2>
-        <h5 *ngIf="!task.claimedBy">Unclaimed</h5>
-        <h5 *ngIf="task.claimedBy">Claimed by {{task.claimedBy.name}}</h5>
-        <p>You'll have {{task.deadline}} 
+        <h2 class="section-title">Task Actions</h2>
+        <h3 class="reward-title">Reward</h3><h1>{{task.reward}} TT</h1>
+        <div *ngIf="!task.claimedBy" class="tag">Unclaimed</div>
+        <div *ngIf="task.claimedBy" class="tag">Claimed by {{task.claimedBy.name}}</div>
+        <p *ngIf="!task.claimedBy">You'll have {{task.deadline}}
             <span [ngPlural]="task.deadline">
                 <ng-template ngPluralCase="=0">no days</ng-template>
                 <ng-template ngPluralCase="=1">day</ng-template>
                 <ng-template ngPluralCase="other">days</ng-template>
               </span> to complete this task.</p>
-        <h3>Reward: {{task.reward}}TT</h3>
 
         <div *ngIf="task.claimedBy && !task.submittedBy" class="actions">
-            <mat-form-field>
-                <textarea [(ngModel)]="comment" matInput placeholder="Leave a comment"></textarea>
-              </mat-form-field>
-              <p>&nbsp;</p>
-              <button mat-raised-button color="primary" (click)="addWork(comment)">ADD WORK</button>
-              <button mat-raised-button color="primary" (click)="quitTask()">QUIT</button>              
-              <button mat-raised-button color="primary" (click)="submitTask()">SUBMIT</button>
+          <app-countdown-timer [endsAt]="task.deadline"></app-countdown-timer>
+          <mat-form-field>
+            <textarea [(ngModel)]="comment" matInput placeholder="Leave a comment"></textarea>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="addWork(comment)">ADD WORK</button>
+          <p>&nbsp;</p>
+          <button mat-raised-button (click)="quitTask()">QUIT</button>
+          <button mat-raised-button color="accent" (click)="submitTask()">SUBMIT</button>
 
         </div>
 
         <div *ngIf="task.submittedBy" class="actions">
-          Waiting for approval
+          <h4>Waiting for approval</h4>
         </div>
 
         <div *ngIf="!task.claimedBy" class="actions">

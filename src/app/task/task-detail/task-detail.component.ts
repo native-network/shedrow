@@ -19,7 +19,8 @@ export class TaskDetailComponent implements OnInit {
     private taskService: TaskService,
     private userService: UserService,
     private location: Location
-  ) { 
+  ) {
+
     taskService.workHistoryChange.subscribe(value => {
       this.task.workHistories.push(value);
     });
@@ -37,7 +38,8 @@ export class TaskDetailComponent implements OnInit {
   }
 
   claim(){
-    this.taskService.addWork(this.userService.currentUser, "claimed");
+
+    this.taskService.addWork(this.userService.currentUser, "Claimed");
     this.taskService.claimTask(this.task, this.userService.currentUser);
   }
 
@@ -47,13 +49,13 @@ export class TaskDetailComponent implements OnInit {
   }
 
   submitTask(){
-    this.taskService.addWork(this.userService.currentUser, "submitted");
-    this.taskService.submitTask(this.task, this.userService.currentUser);    
+    this.taskService.addWork(this.userService.currentUser, "Submitted");
+    this.taskService.submitTask(this.task, this.userService.currentUser);
   }
 
   quitTask(){
-    this.taskService.addWork(this.userService.currentUser, "quit");
-    this.taskService.quitTask(this.task);    
+    this.taskService.addWork(this.userService.currentUser, "Quit");
+    this.taskService.quitTask(this.task);
   }
 
   ngOnInit() {

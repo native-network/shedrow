@@ -15,9 +15,10 @@ export class Vote {
     cost: number;
     tribe: Tribe;
     state: string; // open/closed
+    deadline: number;
     relatedProject?: Project;
     relatedTask?: Task;
-    options: Array<string>; 
+    options: Array<string>;
   }
 
   export class SubmittedVote {
