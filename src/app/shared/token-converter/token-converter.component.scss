@@ -22,3 +22,13 @@
   flex-basis: 100%;
   text-align: center;
 }
+
+.mat-menu-item {
+  margin: 10px 0px;
+}
+
+.mat-menu-item > .token-icon {
+  float: right;
+  margin-left: 15px;
+  font-size: 1rem;
+}

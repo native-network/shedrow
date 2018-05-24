@@ -52,8 +52,8 @@
                 <p><mat-icon>trending_up</mat-icon> {{tribe.reserveFund}}<span class="ticker">NT</span></p>
               </div>
               <div class="button-group grid-100" *ngIf="isMember()">
-                <button mat-raised-button color="primary">Convert</button>
-                <button mat-raised-button>Exit</button>
+                <button mat-raised-button color="primary" (click)='openBuy()'>Convert</button>
+                <button mat-raised-button (click)="openInfo('Tribe Exit', 'Stake exit details')">Exit</button>
               </div>
             </div>
           </div>
@@ -61,8 +61,8 @@
         <div class="column" ngClass.gt-sm="grid-33" ngClass.lt-sm="grid-100">
           <div class="tribe-intro">
             <h2>Governance</h2>
-            <p><a href="#"><mat-icon>link</mat-icon> Revenue Distribution</a></p>
-            <p><a href="#"><mat-icon>link</mat-icon> Voting and Quorum</a></p>
+            <p><a (click)="openInfo('Revenue Distribution', 'Tribe details on Revenue Distribution')"><mat-icon>link</mat-icon> Revenue Distribution</a></p>
+            <p><a (click)="openInfo('Voting and Quorum', 'Tribe details on Voting and Quorum')"><mat-icon>link</mat-icon> Voting and Quorum</a></p>
             <h4>Recent Activity</h4>
             <p><mat-icon>done_all</mat-icon> Project Completed</p>
             <p><mat-icon>done</mat-icon> Task Completed</p>
@@ -82,7 +82,7 @@
 
       <div *ngIf="isMember()" class="isMember">
 
-        <h2 class="section-title"><b>Projects</b> <span class="info-link"><small>Quorum at {{tribe.configQuorum}}%</small> <a href=""><small><mat-icon>link</mat-icon> More Info </small></a></span></h2>
+        <h2 class="section-title"><b>Projects</b> <span class="info-link"><small>Quorum at {{tribe.configQuorum}}%</small> <a (click)="openInfo('Voting and Quorum', 'Tribe details on Voting and Quorum')"><small><mat-icon>link</mat-icon> More Info </small></a></span></h2>
         <app-project-list [tribe]="tribe"></app-project-list>
 
         <h2 class="section-title"><b>Votes</b></h2>

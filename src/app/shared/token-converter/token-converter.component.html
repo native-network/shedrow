@@ -1,25 +1,33 @@
 <div class="converter grid" *ngIf="converterOpen">
   <div class="convert-from" ngClass.xs="grid-100">
 
-    <!--
-    <div class="token-icon" *ngIf="to === 'NT'">
-      <a [matMenuTriggerFor]="fromMenu" class="token-icon">
-        <span *ngIf="fromTokenSymbol === 'ETH'">ETH</span>
-        <span *ngIf="fromTokenSymbol === 'BNT'">BNT</span>
+      <a [matMenuTriggerFor]="fromMenu" class="token-icon" [class.svg-icon]="from === 'ETH' || from === 'NT'">
+        <span *ngIf="from !== 'NT' && from !== 'ETH'">{{from}}</span>
+        <span *ngIf="from === 'NT'">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+          <title>native_token</title>
+          <path d="M36.9,1.43a1.27,1.27,0,0,0-1.8,0L1.43,35.1a1.27,1.27,0,0,0,0,1.8L35.1,70.57a1.27,1.27,0,0,0,1.8,0L70.57,36.9a1.27,1.27,0,0,0,0-1.8Zm-1.8,3a1.29,1.29,0,0,1,1.8,0L67.54,35.1a1.29,1.29,0,0,1,0,1.8l-2.29,2.29a1.29,1.29,0,0,1-1.8,0L42,17.74a1.27,1.27,0,0,0-1.8,0L29.32,28.62a1.29,1.29,0,0,1-1.8,0l-3.36-3.36a1.29,1.29,0,0,0-1.8,0L8.49,39.13a1.27,1.27,0,0,1-1.8,0L4.46,36.9a1.29,1.29,0,0,1,0-1.8Zm5.57,36c0,.7-.41.86-.9.37l-8.94-8.93a1.29,1.29,0,0,1,0-1.8l8.94-8.93c.49-.5.9-.33.9.37ZM22.8,54c0,.7-.4.86-.9.37L10,42.45a1.29,1.29,0,0,1,0-1.8L21.9,28.76c.5-.5.9-.33.9.37Z"/>
+          </svg>
+        </span>
+        <span *ngIf="from === 'ETH'">
+          <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M7.963 11.98l-4.91-2.9L7.962 16l4.914-6.92-4.914 2.9zM8.037 0l-4.91 8.148 4.91 2.903 4.91-2.902L8.038 0z" fill="#010101"/></svg>
+        </span>
       </a>
       <mat-menu #fromMenu="matMenu">
-        <a mat-menu-item (click)="changeFrom('ETH')">ETH</a>
-        <a mat-menu-item (click)="changeFrom('BNT')">BNT</a>
+        <a mat-menu-item *ngFor="let token of availibleTokens" (click)="changeFrom(token.ticker)">{{token.ticker}}
+          <div class="token-icon svg-icon" *ngIf="token.ticker === 'NT'">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+            <title>native_token</title>
+            <path d="M36.9,1.43a1.27,1.27,0,0,0-1.8,0L1.43,35.1a1.27,1.27,0,0,0,0,1.8L35.1,70.57a1.27,1.27,0,0,0,1.8,0L70.57,36.9a1.27,1.27,0,0,0,0-1.8Zm-1.8,3a1.29,1.29,0,0,1,1.8,0L67.54,35.1a1.29,1.29,0,0,1,0,1.8l-2.29,2.29a1.29,1.29,0,0,1-1.8,0L42,17.74a1.27,1.27,0,0,0-1.8,0L29.32,28.62a1.29,1.29,0,0,1-1.8,0l-3.36-3.36a1.29,1.29,0,0,0-1.8,0L8.49,39.13a1.27,1.27,0,0,1-1.8,0L4.46,36.9a1.29,1.29,0,0,1,0-1.8Zm5.57,36c0,.7-.41.86-.9.37l-8.94-8.93a1.29,1.29,0,0,1,0-1.8l8.94-8.93c.49-.5.9-.33.9.37ZM22.8,54c0,.7-.4.86-.9.37L10,42.45a1.29,1.29,0,0,1,0-1.8L21.9,28.76c.5-.5.9-.33.9.37Z"/>
+            </svg>
+          </div>
+          <div class="token-icon svg-icon" *ngIf="token.ticker === 'ETH'">
+            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M7.963 11.98l-4.91-2.9L7.962 16l4.914-6.92-4.914 2.9zM8.037 0l-4.91 8.148 4.91 2.903 4.91-2.902L8.038 0z" fill="#010101"/></svg>
+          </div>
+          <div class="token-icon" *ngIf="token.ticker !== 'NT' && token.ticker !== 'ETH'">{{token.ticker}}</div>
+        </a>
       </mat-menu>
-    </div>
-    -->
-    <!--
-    <div class="token-icon svg-icon" *ngIf="to !== 'NT'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-      <title>native_token</title>
-      <path d="M36.9,1.43a1.27,1.27,0,0,0-1.8,0L1.43,35.1a1.27,1.27,0,0,0,0,1.8L35.1,70.57a1.27,1.27,0,0,0,1.8,0L70.57,36.9a1.27,1.27,0,0,0,0-1.8Zm-1.8,3a1.29,1.29,0,0,1,1.8,0L67.54,35.1a1.29,1.29,0,0,1,0,1.8l-2.29,2.29a1.29,1.29,0,0,1-1.8,0L42,17.74a1.27,1.27,0,0,0-1.8,0L29.32,28.62a1.29,1.29,0,0,1-1.8,0l-3.36-3.36a1.29,1.29,0,0,0-1.8,0L8.49,39.13a1.27,1.27,0,0,1-1.8,0L4.46,36.9a1.29,1.29,0,0,1,0-1.8Zm5.57,36c0,.7-.41.86-.9.37l-8.94-8.93a1.29,1.29,0,0,1,0-1.8l8.94-8.93c.49-.5.9-.33.9.37ZM22.8,54c0,.7-.4.86-.9.37L10,42.45a1.29,1.29,0,0,1,0-1.8L21.9,28.76c.5-.5.9-.33.9.37Z"/>
-    </svg></div>
-    -->
-    <div class="token-icon" >{{from}}</div>
+
     <mat-form-field>
       <input type="number" matInput [(ngModel)]="fromAmount" max='10' placeholder="Pay With">
     </mat-form-field>
@@ -29,19 +37,42 @@
     <mat-icon>arrow_forward</mat-icon>
   </div>
   <div class="convert-to" ngClass.xs="grid-100">
-    <div class="token-icon" >{{to}}</div>
+      <a [matMenuTriggerFor]="toMenu" [class.svg-icon]="to === 'ETH' || to === 'NT'" class="token-icon">
+          <span *ngIf="to !== 'NT' && to !== 'ETH'">{{to}}</span>
+          <span *ngIf="to === 'NT'">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+            <title>native_token</title>
+            <path d="M36.9,1.43a1.27,1.27,0,0,0-1.8,0L1.43,35.1a1.27,1.27,0,0,0,0,1.8L35.1,70.57a1.27,1.27,0,0,0,1.8,0L70.57,36.9a1.27,1.27,0,0,0,0-1.8Zm-1.8,3a1.29,1.29,0,0,1,1.8,0L67.54,35.1a1.29,1.29,0,0,1,0,1.8l-2.29,2.29a1.29,1.29,0,0,1-1.8,0L42,17.74a1.27,1.27,0,0,0-1.8,0L29.32,28.62a1.29,1.29,0,0,1-1.8,0l-3.36-3.36a1.29,1.29,0,0,0-1.8,0L8.49,39.13a1.27,1.27,0,0,1-1.8,0L4.46,36.9a1.29,1.29,0,0,1,0-1.8Zm5.57,36c0,.7-.41.86-.9.37l-8.94-8.93a1.29,1.29,0,0,1,0-1.8l8.94-8.93c.49-.5.9-.33.9.37ZM22.8,54c0,.7-.4.86-.9.37L10,42.45a1.29,1.29,0,0,1,0-1.8L21.9,28.76c.5-.5.9-.33.9.37Z"/>
+            </svg>
+          </span>
+          <span *ngIf="to === 'ETH'">
+            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M7.963 11.98l-4.91-2.9L7.962 16l4.914-6.92-4.914 2.9zM8.037 0l-4.91 8.148 4.91 2.903 4.91-2.902L8.038 0z" fill="#010101"/></svg>
+          </span>
+      </a>
+      <mat-menu #toMenu="matMenu">
+        <a mat-menu-item *ngFor="let token of availibleTribeTokens" (click)="changeTo(token)">{{token}}
+          <div class="token-icon svg-icon" *ngIf="token.ticker === 'NT'">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+            <title>native_token</title>
+            <path d="M36.9,1.43a1.27,1.27,0,0,0-1.8,0L1.43,35.1a1.27,1.27,0,0,0,0,1.8L35.1,70.57a1.27,1.27,0,0,0,1.8,0L70.57,36.9a1.27,1.27,0,0,0,0-1.8Zm-1.8,3a1.29,1.29,0,0,1,1.8,0L67.54,35.1a1.29,1.29,0,0,1,0,1.8l-2.29,2.29a1.29,1.29,0,0,1-1.8,0L42,17.74a1.27,1.27,0,0,0-1.8,0L29.32,28.62a1.29,1.29,0,0,1-1.8,0l-3.36-3.36a1.29,1.29,0,0,0-1.8,0L8.49,39.13a1.27,1.27,0,0,1-1.8,0L4.46,36.9a1.29,1.29,0,0,1,0-1.8Zm5.57,36c0,.7-.41.86-.9.37l-8.94-8.93a1.29,1.29,0,0,1,0-1.8l8.94-8.93c.49-.5.9-.33.9.37ZM22.8,54c0,.7-.4.86-.9.37L10,42.45a1.29,1.29,0,0,1,0-1.8L21.9,28.76c.5-.5.9-.33.9.37Z"/>
+            </svg>
+          </div>
+          <div class="token-icon svg-icon" *ngIf="token.ticker === 'ETH'">
+            <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M7.963 11.98l-4.91-2.9L7.962 16l4.914-6.92-4.914 2.9zM8.037 0l-4.91 8.148 4.91 2.903 4.91-2.902L8.038 0z" fill="#010101"/></svg>
+          </div>
+          <div class="token-icon" *ngIf="token.ticker !== 'NT' && token.ticker !== 'ETH'">{{token.ticker}}</div>
+        </a>
+      </mat-menu>
     <mat-form-field>
       <input matInput disabled [(ngModel)]="toAmount" placeholder="Receive" value="{{fromAmount * ratio}}" >
     </mat-form-field>
   </div>
   <div class="buy-button">
-    <button mat-raised-button color="accent" (click)="convert()">BUY</button>
+    <button mat-raised-button color="accent" (click)="convert()">CONVERT</button>
   </div>
 </div>
 
 <div class="converter confetti" *ngIf="!converterOpen">
   <h4>You received</h4>
   <h1><b>{{fromAmount * ratio}}</b> {{to}}<div class="confetti-div" [class.animate]="!converterOpen"></div></h1>
-  <!--<button mat-raised-button (click)="close()">DONE</button>-->
-  <!--<button mat-raised-button color="accent" (click)="converterToggle()">GET MORE TOKENS</button>-->
 </div>

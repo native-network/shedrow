@@ -1,0 +1,11 @@
+<button class="close-button" mat-icon-button (click)="onClose()"><mat-icon>close</mat-icon></button>
+
+<div mat-dialog-content class="mat-typography">
+  <h2>
+    {{data.title}}
+  </h2>
+  <p >{{data.detail}}</p>
+</div>
+<div mat-dialog-actions>
+  <button (click)="onClose()" mat-raised-button>CLOSE</button>
+</div>

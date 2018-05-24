@@ -12,22 +12,19 @@ import * as moment from 'moment';
 export class CountdownTimerComponent implements OnInit {
   @Input() endsAt;
   private endDate
-  private countdown;
+  public countdown;
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.endsAt);
     this.endDate = moment().add(this.endsAt, 'days')
-
-
     Observable
       .timer(0, 1000)
       .subscribe(t => {
         let aMoment = moment.duration(this.endDate.diff(moment()))
         this.countdown = `${aMoment.get("days")}d ${aMoment.get("hours")}h ${aMoment.get("minutes")}m ${aMoment.get("seconds")}s`
       });
-    
+
 }
 
 
