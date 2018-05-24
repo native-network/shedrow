@@ -12,7 +12,7 @@ import * as moment from 'moment';
 export class CountdownTimerComponent implements OnInit {
   @Input() endsAt;
   private endDate
-  private countdown;
+  public countdown;
 
   constructor() { }
 
