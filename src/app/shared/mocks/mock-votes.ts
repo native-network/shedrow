@@ -15,6 +15,7 @@ export const VOTES: Vote[] = [
     cost: 1,
     tribe: TRIBES[2],
     state: 'open',
+    deadline: 10,
     options: [
       'Thing one',
       'That other thing',
@@ -34,6 +35,7 @@ export const VOTES: Vote[] = [
     cost: 1,
     tribe: TRIBES[0],
     state: 'open',
+    deadline: 13,
     options: [
       'Yes',
       'No',
@@ -51,6 +53,7 @@ export const VOTES: Vote[] = [
     cost: 1,
     tribe: TRIBES[1],
     state: 'open',
+    deadline: 6,
     options: [
       'Yes, support the bill',
       'No, do not support the bill',
