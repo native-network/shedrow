@@ -10,6 +10,13 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
+    <div class="rule">
+      <div class="base-grid">
+        <div class="column">
+          <app-countdown-timer [endsAt]="vote.deadline"></app-countdown-timer>
+        </div>
+      </div>
+    </div>
     <button routerLink="/tribe/{{vote.tribe.address}}/vote/{{vote.slug}}" mat-raised-button color="primary">VIEW</button>
   </mat-card-actions>
 </mat-card>

@@ -1,30 +1,41 @@
 <section class="mat-typography">
-
-  <div class="hero project" [ngStyle]="{'background-image': 'url(' + project.image + ')'}">
-    <div class="grid">
-      <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
-
-      </div>
-      <div class="column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
-
-      </div>
-    </div>
-  </div>
+  <img src="{{project.image}}" style="width: 100% !important;"/>
 
   <div class="view">
     <div class="contents">
       <button mat-raised-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Back to Tribe</button>
-      <h1>{{project.title}}</h1>
+      <h1><b>{{project.title}}</b></h1>
       <p class="body-2">{{project.type}}</p>
       <div class="grid">
         <div class="column project-intro" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
-          <h2>Purpose</h2>
-          <h3>{{project.description}}</h3>
+          <h2>Description</h2>
+          <p class="mat-body-2">{{project.description}}</p>
+          <h3 class="section-title">Cost</h3>
+          <h1 class="data"><b>{{project.cost}}</b> <span class="ticker">NT</span></h1>
+          <h3 class="section-title">Cost Breakdown</h3>
+          <p class="mat-body-2">No data</p>
+          <h3 class="section-title">Roadmap</h3>
+          <p class="mat-body-2">No data</p>
         </div>
-        <div class="column action-column" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+        <div class="column action-column" *ngIf="((project.tribe | quorum) - project.supported.length)" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
 
-          <h4 class="mat-caption">Support Goal</h4> <h2><b>{{(project.tribe | quorum)}}</b> of <b>{{project.tribe.members.length}}</b> Total Members</h2>
-          <p class="mat-caption">Tribe Quorum: {{project.tribe.configQuorum }}% Membership Participation </p>
+
+          <h2>Support</h2>
+          <app-countdown-timer [endsAt]="project.deadline"></app-countdown-timer>
+          <h3><b>{{project.tribe.members.length}}</b> members have supported this project</h3>
+          <h4>{{(project.tribe | quorum) - project.supported.length}} more required <span class="mat-caption">(Tribe Quorum at {{project.tribe.configQuorum }}%)</span></h4>
+
+          <mat-progress-bar
+              [color]="'accent'"
+              [mode]="'determinate'"
+              [value]="(project.supported.length / (project.tribe | quorum)) * 100"
+              >
+          </mat-progress-bar>
+          <button mat-raised-button color="accent" (click)="vote()">SUPPORT</button>
+        </div><!-- /support column -->
+
+        <div class="column action-column" *ngIf="!((project.tribe | quorum) - project.supported.length)" ngClass.gt-xs="grid-50" ngClass.lt-sm="grid-100">
+          <h2>Project Supported <mat-icon color="primary">check_circle</mat-icon></h2>
           <mat-progress-bar
               [color]="'accent'"
               [mode]="'determinate'"
@@ -32,15 +43,16 @@
               >
           </mat-progress-bar>
           <div class="confetti-div" [class.animate]="!((project.tribe | quorum) - project.supported.length)"></div>
-          <h4>Currently <b>{{project.supported.length}}</b> of <b>{{project.tribe.members.length}}</b>
-          <span *ngIf="(project.tribe | quorum) - project.supported.length" > <small>({{(project.tribe | quorum) - project.supported.length}} more needed)</small></span>
-          </h4>
-          <h1 *ngIf="!((project.tribe | quorum) - project.supported.length)">Project Supported <mat-icon>check</mat-icon></h1>
-          <div *ngIf="(project.tribe | quorum) - project.supported.length" class="actions">
-            <button mat-raised-button color="accent" (click)="vote()">SUPPORT</button>
+          <h3 class="section-title updates-header">Updates</h3>
+          <div class="updates">
+            <div class="update">
+              <p class="mat-caption">Just Now</p>
+              <p class="mat-body-2">Project moved to Supported status.</p>
+            </div>
           </div>
-        </div>
-      </div>
+        </div><!-- Supported column -->
+
+      </div><!-- /grid -->
     </div><!-- /contents -->
   </div><!-- /view -->
 

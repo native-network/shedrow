@@ -4,14 +4,39 @@
 
 .hero { min-height: 65vh;}
 
-h1 { margin-top: 25px; position: relative;}
+h1:not(.data) { margin-top: 25px; position: relative;}
 
 .raised-amount {
   font-size: .75em;
 }
 
+.section-title {
+  margin-bottom: 0px;
+}
+
+h1.data {
+  margin: 0px;
+}
+
 .mat-progress-bar {
   margin: 20px auto;
+}
+
+// Supported mode
+
+.updates-header {
+  margin-top: 50px;
+}
+
+.updates {
+  margin-top: 15px;
+  .update {
+  width: 100%;
+  border-bottom: 1px solid #89FFE9;
+  padding: 15px 0px;
+  &:first-child { border-top: 1px solid #89FFE9; margin-top: 15px;}
+  }
+
 }
 
 @media all and (max-width: 600px) {

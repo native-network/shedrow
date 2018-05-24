@@ -15,9 +15,15 @@
   </mat-card-content>
   <mat-card-actions>
     <div class="rule">
-      <p class="mat-caption">COST</p>
-      <h3>{{project.cost}} <span class="ticker">NT</span></h3>
-      <!--<h5><b>{{project.supported.length}}</b> of <b> {{project.tribe | quorum }}</b></h5>-->
+      <div class="base-grid">
+        <div class="column">
+          <p class="mat-caption">COST</p>
+          <h3>{{project.cost}} <span class="ticker">NT</span></h3>
+        </div>
+        <div class="column">
+          <app-countdown-timer [endsAt]="project.deadline"></app-countdown-timer>
+        </div>
+      </div>
     </div>
     <mat-progress-bar
         matTooltip="{{(project.tribe | quorum) - project.supported.length}} more needed" [matTooltipPosition]="position"
