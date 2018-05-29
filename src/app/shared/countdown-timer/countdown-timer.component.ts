@@ -24,7 +24,7 @@ export class CountdownTimerComponent implements OnInit {
         let aMoment = moment.duration(this.endDate.diff(moment()))
         this.countdown = `${aMoment.get("days")}d ${aMoment.get("hours")}h ${aMoment.get("minutes")}m ${aMoment.get("seconds")}s`
       });
-    
+
 }
 
 
