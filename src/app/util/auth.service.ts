@@ -9,7 +9,9 @@ export class AuthService {
   ) { }
 
   authenticate(id: string, password: string = ''): User {
-    const user = this.userService.getUser(id) || this.userService.getUser('0xb856e7847e5A41F6459a0687FF4FE5E93eE60F16');
+    // set a default user if not running test rpc
+    const user = this.userService.getUser(id) 
+      || this.userService.getUser('0xb856e7847e5A41F6459a0687FF4FE5E93eE60F16');
     this.userService.setCurrentUser(user)
     console.log(user);
     
