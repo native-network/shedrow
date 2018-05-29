@@ -374,10 +374,8 @@ app-task-list {
 
    .cdk-overlay-container .mat-dialog-container .mat-dialog-content {
      display: block;
-     max-width: 660px;
      max-height: 100vh;
      padding: 25px;
-
    }
 
    .mat-dialog-container .close-button {
@@ -437,22 +435,6 @@ app-task-list {
      .mat-form-field-infix {
        width: 100%;
      }
-     .token-icon {
-       width: 48px;
-       height: 48px;
-       line-height: 48px;
-       border-radius: 50%;
-       text-align: center;
-       margin-bottom: 25px;
-       &:not(.svg-icon) {
-         border: 2px solid #4ba191;
-         background: #4ba191;
-         color: #fff;
-       }
-       &.svg-icon svg {
-         fill: #4ba191;
-       }
-     }
      >.convert-from {
        flex-basis: 40%;
        display: flex;
@@ -479,6 +461,34 @@ app-task-list {
        text-align: center;
        border-top: 1px solid #70d0be;
        border-bottom: 1px solid #70d0be;
+     }
+   }
+
+   // Token Icons
+
+   .token-icon {
+     width: 48px;
+     height: 48px;
+     line-height: 48px;
+     border-radius: 50%;
+     text-align: center;
+     margin-bottom: 25px;
+     position: relative;
+     &:not(.svg-icon) {
+       background: #4ba191;
+       color: #fff;
+     }
+     &.svg-icon {
+       svg {
+         max-height: 100%;
+         max-width: 100%;
+       }
+       &.nt svg {
+         fill: #4ba191;
+       }
+       &.eth svg {
+         fill: #131313;
+       }
      }
    }
 

@@ -39,7 +39,7 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,   
+    FormsModule,
     RouterModule,
 
     FlexLayoutModule,
@@ -67,7 +67,7 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
     SigninDialogComponent,
     ConverterDialogComponent,
     VerifyDialogComponent,
-    JoinDialogComponent,  
+    JoinDialogComponent,
   ],
   declarations: [
     SigninDialogComponent,
@@ -82,7 +82,7 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
     InfoDialogComponent,
   ],
   exports: [
-    CommonModule,   
+    CommonModule,
     FormsModule,
     RouterModule,
 
@@ -109,10 +109,10 @@ import { InfoDialogComponent } from './info-dialog/info-dialog.component';
     BancorInfoComponent,
     BuyNativeButtonComponent,
     TokenConverterComponent,
-    CountdownTimerComponent,    
+    CountdownTimerComponent,
 
     InStatePipe,
-    
+
   ],
   providers: [
   ]
