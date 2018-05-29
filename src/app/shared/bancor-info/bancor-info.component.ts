@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Web3Service } from '../../util/web3.service';
 import { BancorService, BancorTicker } from '../../util/bancor.service';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-bancor-info',
@@ -14,23 +15,18 @@ export class BancorInfoComponent implements OnInit {
     pairs: any[];
     ticker: BancorTicker;
     txError: string;
-  
-    // web3
-    accounts: string[];
-    model = {
-      amount: 5,
-      receiver: '',
-      balance: 0,
-      account: ''
-    };
+    account: string;
 
   constructor(
-    private bancoreService: BancorService
+    private bancoreService: BancorService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
+    // set a default if not logged in for testing
+    this.account = this.userService.currentUser ? 
+      this.userService.currentUser.id : '0xb856e7847e5A41F6459a0687FF4FE5E93eE60F16';
   }
-
 
   getPairs(): void {
     this.bancoreService.getPairs().subscribe((data) => {
@@ -43,13 +39,15 @@ export class BancorInfoComponent implements OnInit {
   }
 
   getTicker(token, fromCurrencyCode): void {
-    this.bancoreService.getPriceTicker(token, fromCurrencyCode).subscribe((data) => {
-      this.ticker = data['data'];
-    })
+    this.bancoreService
+      .getPriceTicker(token, fromCurrencyCode).subscribe((data) => {
+        this.ticker = data['data'];
+      })
   }
 
-  getTxData(addr: string){
-    let txData ={
+  getTxData(addr: string): void {
+    // example request with example eth and bnt ids
+    let _txData ={
       blockchainType: "ethereum",
       fromCurrencyId: "5937d635231e97001f744267",
       toCurrencyId: "594bb7e468a95e00203b048d",
@@ -57,16 +55,13 @@ export class BancorInfoComponent implements OnInit {
       minimumReturn: "1",
       ownerAddress: addr,
     }
-
-    console.log(txData);
     
-    this.bancoreService.getTxData(txData).subscribe((data) => {
-      console.log(data);
-      if('errorCode' in data){
-        this.txError = data['errorCode'];
-      }
-    })
-
+    this.bancoreService
+      .getTxData(_txData).subscribe((data) => {
+        if('errorCode' in data){
+          this.txError = data['errorCode'];
+        }
+      });
   }
 
 }

@@ -16,45 +16,19 @@ import { ProjectService } from '../../../project/project.service';
 })
 export class AllthingsComponent implements OnInit {
 
-  // temp file
-  file = { name: 'image_1.jpg', url: 'https://static.pexels.com/photos/371633/pexels-photo-371633.jpeg' }
-  // show/hide
-  showThing:boolean = false;
-
-  // dialog
-  animal: string;
-  name: string;
 
   // table
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
 
-  // project bar
-  color = 'accent';
-  mode = 'determinate';
-  value = 65;
-  bufferValue = 75;
-
-  //projects
-  projects: Project[]
-
 
   constructor(
     public dialog: MatDialog,
-    private projectService: ProjectService
   ) { }
 
   ngOnInit() {
-    // this.getProjects();
   }
 
-  // getProjects(): void {
-  //   this.projects = this.projectService.getProjects();
-  // }
-
-  openDialog(): void {
-    
-  }
 
 }
 

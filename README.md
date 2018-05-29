@@ -29,6 +29,7 @@ npm install
 ```
 
 Run your Ethereum client. For TestRPC:
+This is not neccessary for demo but can be used to deploy initial .sol contracts.
 
 ```
 testrpc -l 1000000000
@@ -81,6 +82,7 @@ ng serve
 
 ## Authors
 
+* **CTRL OFFICE**
 * **Dekan Brown** - *Initial work* - [github](https://github.com/dekanbro)
 * **Ven Gist** - *Initial work* - [github](https://github.com/oovg)
 
@@ -101,8 +103,5 @@ Seperated into sub modules
 * sharred - dumb components that can be used onther places, also import/export of material
    mocks folder for data mock ups
 * sub app folders - project, task, vote, etc. 
-   pages are routed componets
-   services
 * pages - static pages like home and about
 * paddock temporary sub app to test custom componets
-* starter artifacts - (meta) was included with the truffl/amgular5 starter. It shows an example of using the web3 hooks. (util) contains the web3 service, can be used for  utilitly and helper functions in the future. Might make sense to put those in (shared) though

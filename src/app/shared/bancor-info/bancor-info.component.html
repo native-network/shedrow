@@ -1,7 +1,7 @@
 <h2>bancor test</h2>
-  <button mat-raised-button color="warn" (click)="getTxData(model.account)">Transfer Eth > BNT</button>
+  <button mat-raised-button color="warn" (click)="getTxData(account)">Transfer Eth > BNT</button>
   {{txError}}
-  <button mat-raised-button color="warn" (click)="getPairs()">Pairs</button>
+  <button mat-raised-button color="warn" (click)="getPairs(account)">Pairs</button>
   <div *ngIf="ticker" class="ticker-info">
     <h3>Ticker</h3>
     <p>name: {{ticker.name}}</p>
