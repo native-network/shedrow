@@ -12,11 +12,13 @@
   </mat-card-header>
   <img mat-card-image src="{{tribe.image}}" alt="line-graph">
   <mat-card-content>
-
-    <p>{{tribe.tribeIntro}}</p>
+    <p class="tribeIntro">{{tribe.tribeIntro}}</p>
+    <div class="tags">
+      <div class="tag" *ngFor="let tag of tribe.tags| slice:0:3">{{tag}}</div>
+    </div>
     <p><a target="_blank" href="https://www.google.com/maps/place/{{tribe.location}}"><mat-icon>place</mat-icon> {{tribe.location}}</a></p>
     <p><mat-icon>person</mat-icon> {{tribe.members.length}} Members</p>
-    <p><mat-icon>trending_up</mat-icon> {{tribe.tokenValue}}<span class="ticker">NT</span></p>
+    <p><mat-icon>lens</mat-icon> {{tribe.tickerSymbol}}: {{tribe.tokenValue}}<span class="ticker">NT</span> ({{tribe.tokenValue * 7.1 | currency:0}})</p>
   </mat-card-content>
 
   <mat-card-actions>
@@ -43,14 +45,30 @@
       <button mat-mini-fab color="primary" (click)="flipCard()"><mat-icon>swap_horiz</mat-icon></button>
     </div>
   </mat-card-header>
-  <img mat-card-image src="{{tribe.dataImage}}" alt="line-graph">
+  <div class="data-image">
+    <div class="tickerSymbol">{{tribe.tickerSymbol}} <span class="dataChange">7D</span></div>
+    <img mat-card-image src="{{tribe.dataImage}}" alt="line-graph">
+  </div>
   <mat-card-content>
-    <p class="mat-caption">Token Value</p>
-    <p>{{tribe.tokenValue}}<span class="ticker">NT</span> <mat-icon color="primary">trending_up</mat-icon></p>
-    <p class="mat-caption">Dev Fund</p>
-    <p>{{tribe.devFund}}<span class="ticker">NT</span></p>
-    <p class="mat-caption">Reserve</p>
-    <p>{{tribe.reserveFund}}<span class="ticker">NT</span></p>
+    <div class="grid">
+      <div class="column">
+        <p class="mat-caption">Token Value</p>
+        <p>{{tribe.tokenValue}}<span class="ticker">NT</span> ({{tribe.tokenValue * 7.1 | currency:0}})</p>
+        <p class="mat-caption">Dev Fund</p>
+        <p>{{tribe.devFund}}<span class="ticker">NT</span></p>
+        <p class="mat-caption">Reserve</p>
+        <p>{{tribe.reserveFund}}<span class="ticker">NT</span></p>
+      </div>
+      <span class="fill-space"></span>
+      <div class="column">
+        <p class="mat-caption">24hr Change</p>
+        <p>{{tribe.valueChange}}% <mat-icon color="primary">trending_up</mat-icon></p>
+        <p class="mat-caption">Market Cap</p>
+        <p>{{tribe.tokenValue * 2410634.45 | currency}} </p>
+        <p class="mat-caption">Reserve Ratio</p>
+        <p>10%</p>
+      </div>
+    </div>
   </mat-card-content>
 
   <mat-card-actions>

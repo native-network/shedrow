@@ -4,3 +4,34 @@
     margin-right: 5px;
 }
 .mat-card-avatar img { width: 42px; height: 42px; }
+
+.tribe-card .tags {
+  margin: 0 auto 10px;
+  .tag {
+    border: 1px solid #70d0be;
+    color: #70d0be;
+    font-size: .85em;
+  }
+}
+
+.data-image {
+  margin-top: 0px;
+  position: relative;
+  .tickerSymbol {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    font-size: .85em;
+    font-weight: bold;
+  }
+  .dataChange {
+    font-weight: normal;
+    font-size: 1em;
+    color: #fff;
+    border: 1px solid #70d0be;
+    color: #70d0be;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
